@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import Input from "../shared/Input";
 import WideButton from "../shared/WideButton";
-import { LogIn } from "lucide-react";
+import { Brain, LogIn } from "lucide-react";
+import Link from "next/link";
 
 const LoginForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -45,6 +46,12 @@ const LoginForm: React.FC = () => {
       >
         <LogIn size={26} strokeWidth={1.5} />
       </WideButton>
+      <Link
+        href="/forgot-password"
+        className="flex gap-1 opacity-80 hover:opacity-100 cursor-pointer text-sm"
+      >
+        <Brain size={18} strokeWidth={1.5} /> <span>فراموشی رمز عبور</span>
+      </Link>
     </form>
   );
 };

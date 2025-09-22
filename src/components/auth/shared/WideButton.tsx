@@ -1,5 +1,6 @@
+"use client"
 import Spinner from "@/components/ui/Spinner";
-import { IconName } from "lucide-react/dynamic";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface WideButtonProps
@@ -7,6 +8,7 @@ interface WideButtonProps
   text: string;
   extendedClassName?: React.ButtonHTMLAttributes<HTMLButtonElement>["className"];
   loading?: boolean;
+  link?: string;
 }
 
 const WideButton: React.FC<WideButtonProps> = ({
@@ -14,11 +16,18 @@ const WideButton: React.FC<WideButtonProps> = ({
   extendedClassName = "bg-gray-500",
   children,
   loading,
+  link,
   ...props
 }) => {
+  const router = useRouter();
+  const buttonOnClick = () => {
+    link && router.push(link);
+    return;
+  };
   return (
     <button
-      className={`${extendedClassName} w-full disabled:opacity-70 cursor-pointer pe-2 duration-200 relative flex items-center py-2 text-white rounded-sm font-medium`}
+      className={`${extendedClassName} w-full disabled:opacity-70 cursor-pointer pe-2 duration-200 relative flex items-center py-2 text-white rounded-sm text-lg font-medium`}
+      onClick={buttonOnClick}
       {...props}
     >
       {children ? (
