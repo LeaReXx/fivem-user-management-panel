@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { IRANSans } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} h-screen ${geistMono.variable} bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
+        className={`${IRANSans.className} h-screen bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
         style={{
           backgroundImage: "var(--custom-background-image)",
         }}
