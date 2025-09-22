@@ -1,0 +1,7 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --bg-main-color: #4c566a;
+  --bg-secondary-color: #2e3440;
+  --custom-background-image: url("/background.png");
+}
