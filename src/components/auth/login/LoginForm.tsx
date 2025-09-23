@@ -1,48 +1,94 @@
 "use client";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Input from "../shared/Input";
 import WideButton from "../shared/WideButton";
 import { Brain, LogIn } from "lucide-react";
 import Link from "next/link";
 
+type LoginFormData = {
+  email: string;
+  password: string;
+};
+
 const LoginForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    trigger
+  } = useForm<LoginFormData>({
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+    defaultValues: {
+      email: "",
+      password: ""
+    }
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      setLoading(true);
+      console.log("Form submitted with data:", data);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Handle successful login here
+      console.log("Login successful");
+    } catch (error) {
+      console.error("Login failed:", error);
+    } finally {
       setLoading(false);
-    }, 2000);
-    // Handle login logic here
+    }
+  };
+
+  const onError = (errors: any) => {
+    console.log("Form validation errors:", errors);
+    setLoading(false); // Make sure loading is false on validation error
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-14">
+    <form onSubmit={handleSubmit(onSubmit, onError)} className="flex flex-col gap-3 mt-14">
       <div>
         <Input
-          id="username"
-          type="text"
+          {...register("email", {
+            required: "ایمیل الزامی است",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "فرمت ایمیل نامعتبر است"
+            }
+          })}
+          type="email"
           icon="mail"
           placeholder="ایمیل"
           disabled={loading}
+          error={errors.email?.message}
         />
       </div>
       <div>
         <Input
-          id="password"
+          {...register("password", {
+            required: "رمز عبور الزامی است",
+            minLength: {
+              value: 6,
+              message: "رمز عبور باید حداقل ۶ کاراکتر باشد"
+            }
+          })}
           type="password"
           placeholder="رمز عبور"
           disabled={loading}
           icon="key-round"
+          error={errors.password?.message}
         />
       </div>
       <WideButton
         type="submit"
         text="ورود"
         extendedClassName="bg-[#28976A] hover:bg-[#21815A]"
-        disabled={loading}
-        loading={loading}
+        disabled={loading || isSubmitting}
+        loading={loading || isSubmitting}
       >
         <LogIn size={26} strokeWidth={1.5} />
       </WideButton>

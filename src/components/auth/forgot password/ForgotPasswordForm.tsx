@@ -1,21 +1,32 @@
 "use client";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Input from "../shared/Input";
 import WideButton from "../shared/WideButton";
 import { AtSign, Brain } from "lucide-react";
 import SuccessResetPassword from "./SuccessResetPassword";
 
+type ForgotPasswordFormData = {
+  email: string;
+};
+
 const ForgotPasswordForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [successResetPassword, setSuccessResetPassword] = useState(false);
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ForgotPasswordFormData>();
+
+  const onSubmit = (data: ForgotPasswordFormData) => {
     setLoading(true);
+    console.log(data);
     setTimeout(() => {
       setLoading(false);
       setSuccessResetPassword(true);
     }, 2000);
-    // Handle login logic here
+    // Handle forgot password logic here
   };
 
   return (
@@ -23,14 +34,21 @@ const ForgotPasswordForm: React.FC = () => {
       {successResetPassword ? (
         <SuccessResetPassword />
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-12">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 mt-12">
           <div>
             <Input
-              id="username"
-              type="text"
+              {...register("email", {
+                required: "ایمیل الزامی است",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "فرمت ایمیل نامعتبر است"
+                }
+              })}
+              type="email"
               icon="mail"
               placeholder="ایمیل"
               disabled={loading}
+              error={errors.email?.message}
             />
           </div>
           <p className="flex gap-1 opacity-80 text-sm">
