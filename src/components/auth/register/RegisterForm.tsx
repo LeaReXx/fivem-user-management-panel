@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../shared/Input";
 import WideButton from "../shared/WideButton";
-import { BadgePlus, Eye, EyeOff } from "lucide-react";
+import { BadgePlus } from "lucide-react";
 
 type RegisterFormData = {
   email: string;
@@ -13,7 +13,6 @@ type RegisterFormData = {
 
 const RegisterForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -24,16 +23,12 @@ const RegisterForm: React.FC = () => {
   const password = watch("password");
 
   const onSubmit = (data: RegisterFormData) => {
-    setShowPassword(false);
     setLoading(true);
+    console.log(data);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
     // Handle register logic here
-  };
-
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
@@ -57,7 +52,7 @@ const RegisterForm: React.FC = () => {
           error={errors.email?.message}
         />
       </div>
-      <div className="relative">
+      <div>
         <Input
           {...register("password", {
             required: "رمز عبور الزامی است",
@@ -71,23 +66,12 @@ const RegisterForm: React.FC = () => {
                 "رمز عبور باید شامل حداقل یک حرف کوچک، یک حرف بزرگ و یک عدد باشد",
             },
           })}
-          type={showPassword ? "text" : "password"}
+          type="password"
           placeholder="رمز عبور"
           disabled={loading}
-          extendClassName="pe-12"
           icon="key-round"
           error={errors.password?.message}
         />
-        <button
-          type="button"
-          disabled={loading}
-          onClick={toggleShowPassword}
-          className={`absolute top-1/2 opacity-70 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-default -translate-y-1/2 left-2 cursor-pointer hover:bg-main-box-background py-1 px-1.5 rounded-sm ${
-            errors.password ? "top-6.5" : "top-1/2"
-          }`}
-        >
-          {showPassword ? <Eye /> : <EyeOff />}
-        </button>
       </div>
       <div>
         <Input
