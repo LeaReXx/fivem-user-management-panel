@@ -26,7 +26,6 @@ const RegisterForm: React.FC = () => {
   const onSubmit = (data: RegisterFormData) => {
     setShowPassword(false);
     setLoading(true);
-    console.log(data);
     setTimeout(() => {
       setLoading(false);
     }, 2000);

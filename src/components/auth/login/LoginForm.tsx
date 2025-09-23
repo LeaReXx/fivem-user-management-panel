@@ -17,26 +17,21 @@ const LoginForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    trigger
+    trigger,
   } = useForm<LoginFormData>({
     mode: "onSubmit",
     reValidateMode: "onChange",
     defaultValues: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   });
 
   const onSubmit = async (data: LoginFormData) => {
     try {
       setLoading(true);
-      console.log("Form submitted with data:", data);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       // Handle successful login here
-      console.log("Login successful");
     } catch (error) {
       console.error("Login failed:", error);
     } finally {
@@ -44,21 +39,23 @@ const LoginForm: React.FC = () => {
     }
   };
 
-  const onError = (errors: any) => {
-    console.log("Form validation errors:", errors);
+  const onError = () => {
     setLoading(false); // Make sure loading is false on validation error
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit, onError)} className="flex flex-col gap-3 mt-14">
+    <form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      className="flex flex-col gap-3 mt-14"
+    >
       <div>
         <Input
           {...register("email", {
             required: "ایمیل الزامی است",
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "فرمت ایمیل نامعتبر است"
-            }
+              message: "فرمت ایمیل نامعتبر است",
+            },
           })}
           type="email"
           icon="mail"
@@ -73,8 +70,8 @@ const LoginForm: React.FC = () => {
             required: "رمز عبور الزامی است",
             minLength: {
               value: 6,
-              message: "رمز عبور باید حداقل ۶ کاراکتر باشد"
-            }
+              message: "رمز عبور باید حداقل ۶ کاراکتر باشد",
+            },
           })}
           type="password"
           placeholder="رمز عبور"
