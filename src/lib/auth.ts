@@ -5,6 +5,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 export const auth = betterAuth({
+  emailAndPassword: {
+    enabled: true,
+  },
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["discord"],
+      allowDifferentEmails: true,
+      allowUnlinkingAll: true,
+    },
+  },
   socialProviders: {
     discord: {
       clientId: process.env.DISCORD_CLIENT_ID as string,
