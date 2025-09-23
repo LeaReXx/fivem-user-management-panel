@@ -51,7 +51,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               disabled={props.disabled}
               onClick={toggleShowPassword}
               className={`absolute opacity-70 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-default left-2 cursor-pointer hover:bg-main-box-background py-1 px-1.5 rounded-sm ${
-                error ? "top-[30%]" : "top-1/2"
+                error ? "top-6" : "top-1/2"
               } transform -translate-y-1/2`}
             >
               {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
