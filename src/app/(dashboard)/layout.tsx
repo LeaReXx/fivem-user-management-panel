@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { IRANSans } from "../fonts";
-import Image from "next/image";
-import Navbar from "@/components/dashboard/menu/navbar/Navbar";
 import DashboardMenu from "@/components/dashboard/menu/DashboardMenu";
 
 export const metadata: Metadata = {
