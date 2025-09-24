@@ -8,7 +8,7 @@ const SocialLogin: React.FC = () => {
   const discordLoginOnClick = async () => {
     await authClient.signIn.social({
       provider: "discord",
-      callbackURL: "/",
+      callbackURL: "/d",
     });
   };
   return (

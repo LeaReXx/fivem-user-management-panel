@@ -1,0 +1,44 @@
+[
+  {
+    "id": "dashboard",
+    "href": "/d",
+    "icon": "home",
+    "label": "داشبورد",
+    "isVisible": true
+  },
+  {
+    "id": "characters",
+    "href": "/d/characters",
+    "icon": "users",
+    "label": "کاراکتر ها",
+    "isVisible": true
+  },
+  {
+    "id": "subscription",
+    "href": "/d/subscription",
+    "icon": "dollar-sign",
+    "label": "اشتراک",
+    "isVisible": true
+  },
+  {
+    "id": "shop",
+    "href": "/d/shop",
+    "icon": "shopping-bag",
+    "label": "فروشگاه",
+    "isVisible": true
+  },
+  {
+    "id": "wallet",
+    "href": "/d/wallet",
+    "icon": "wallet",
+    "label": "کیف پول",
+    "isVisible": true
+  },
+  {
+    "id": "settings",
+    "href": "/d/settings",
+    "icon": "settings",
+    "label": "تنظیمات",
+    "isVisible": true
+  }
+]

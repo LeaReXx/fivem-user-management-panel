@@ -91,7 +91,7 @@ export const Dana = localFont({
       weight: "900",
       style: "normal",
     },
-  ],
+  ]
 });
 
 export const InterFont = Inter({
