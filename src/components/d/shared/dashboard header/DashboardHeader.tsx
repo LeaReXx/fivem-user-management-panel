@@ -19,7 +19,7 @@ const DashboardHeader = () => {
     });
   };
   return (
-    <div className="flex justify-between items-center bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg h-16 pe-4 ps-2">
+    <div className="flex justify-between items-center bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg h-18 pe-4 ps-2">
       <div className="lg:hidden">
         <UserProfile />
       </div>
