@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { IRANSans } from "../fonts";
-import DashboardMenu from "@/components/dashboard/menu/DashboardMenu";
+import DashboardMenu from "@/components/d/shared/menu/DashboardMenu";
+import DashboardHeader from "@/components/d/shared/DashboardHeader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,10 @@ export default function DashboardLayout({
       >
         <DashboardMenu />
         <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
-        <main className="lg:mr-70">{children}</main>
+        <main className="lg:mr-65 xl:mr-70 p-6">
+          <DashboardHeader />
+          {children}
+        </main>
       </body>
     </html>
   );
