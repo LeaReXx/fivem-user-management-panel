@@ -19,7 +19,7 @@ const DashboardHeader = () => {
     });
   };
   return (
-    <div className="flex justify-between items-center bg-gradient-to-t from-secondary-box-background/70 to-main-box-background/70 rounded-lg h-16 px-4">
+    <div className="flex justify-between items-center bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg h-16 pe-4 ps-2">
       <div className="lg:hidden">
         <UserProfile />
       </div>
@@ -33,11 +33,6 @@ const DashboardHeader = () => {
         <WalletInfo />
       </div>
       <div className="hidden lg:flex lg:space-x-2">
-        <button
-          className="flex items-center gap-2 justify-center cursor-pointer p-2 hover:bg-white/10 rounded-md"
-        >
-          <Settings strokeWidth={1.5} />
-        </button>
         <button
           className="flex items-center gap-2 justify-center cursor-pointer p-2 hover:bg-white/10 rounded-md"
           onClick={onClickLogout}

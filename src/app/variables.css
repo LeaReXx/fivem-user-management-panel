@@ -1,8 +1,8 @@
 :root {
   --main-text-color: #ffffff;
-  --brand-color: #AB052A;
-  --bg-main-color: #4c566a;
-  --bg-secondary-color: #2e3440;
+  --brand-color: #ab052a;
+  --bg-main-color: #2d3952;
+  --bg-secondary-color: #1d2431;
   --custom-background-image: url("/background.png");
-  --custom-background-color: #000000;
+  --custom-background-color: #1c1f2c;
 }

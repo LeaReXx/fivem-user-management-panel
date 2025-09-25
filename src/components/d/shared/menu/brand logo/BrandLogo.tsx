@@ -3,7 +3,7 @@ import React from "react";
 
 const BrandLogo: React.FC = () => {
   return (
-    <div className="py-5 mx-auto">
+    <div className="mx-auto">
       <Image
         src="/logo.png"
         alt="Logo"

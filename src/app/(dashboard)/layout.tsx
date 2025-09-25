@@ -24,7 +24,7 @@ export default function DashboardLayout({
       >
         <DashboardMenu />
         <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
-        <main className="lg:mr-65 xl:mr-70 p-4">
+        <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
           <DashboardHeader />
           {children}
         </main>

@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="flex flex-col h-[75%] md:h-[75%] pt-6">
+    <nav className="flex flex-col h-[73%] md:h-[75%] pt-6">
       <div className="mb-8">
         <ul className="space-y-3">
           {visibleMenuItems.map((item) => (
