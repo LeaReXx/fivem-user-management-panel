@@ -1,7 +1,8 @@
 import React from "react";
 import BoxHeader from "../../shared/box header/BoxHeader";
 import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle, AlertTime } from "@/components/ui/alert";
+import { formatRelativeTime } from "@/lib/utils";
 
 interface NotificationItem {
   id: number;
@@ -16,6 +17,7 @@ interface NotificationItem {
   description: string;
   href?: string;
   icon?: string;
+  timestamp: Date;
 }
 
 const notifications: NotificationItem[] = [
@@ -27,6 +29,7 @@ const notifications: NotificationItem[] = [
       "تراکنش شما با موفقیت انجام شد. مبلغ 50,000 تومان به کیف پول شما اضافه گردید.",
     href: "/d/wallet",
     icon: "check-circle",
+    timestamp: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago
   },
   {
     id: 2,
@@ -35,6 +38,7 @@ const notifications: NotificationItem[] = [
     description:
       "سرور به‌روزرسانی جدیدی دریافت کرده است. لطفاً برای تجربه بهتر مجدداً وارد شوید.",
     icon: "info",
+    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
   },
   {
     id: 3,
@@ -44,6 +48,7 @@ const notifications: NotificationItem[] = [
       "کلمه عبور شما از 90 روز پیش تغییر نکرده است. توصیه می‌شود آن را تغییر دهید.",
     href: "/d/settings",
     icon: "shield",
+    timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
   },
   {
     id: 4,
@@ -53,6 +58,7 @@ const notifications: NotificationItem[] = [
       "پرداخت شما با مشکل مواجه شد. لطفاً مجدداً تلاش کنید یا با پشتیبانی تماس بگیرید.",
     href: "/d/shop",
     icon: "x-circle",
+    timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
   },
   {
     id: 5,
@@ -60,6 +66,7 @@ const notifications: NotificationItem[] = [
     title: "پیام جدید",
     description: "یک پیام جدید از مدیریت سرور برای شما دریافت شده است.",
     icon: "mail",
+    timestamp: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 days ago
   },
 ];
 
@@ -82,6 +89,7 @@ const UserNotifications: React.FC = () => {
           >
             <AlertTitle>{notification.title}</AlertTitle>
             <AlertDescription>{notification.description}</AlertDescription>
+            <AlertTime>{formatRelativeTime(notification.timestamp)}</AlertTime>
           </Alert>
         ))}
       </div>
