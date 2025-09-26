@@ -12,14 +12,14 @@ const alertVariants = cva(
       variant: {
         default: "bg-card text-card-foreground border-border",
         success:
-          "bg-green-50/90 border-green-200 text-green-800 dark:bg-green-950/30 dark:border-green-800 dark:text-green-400 [&>svg]:text-green-600 dark:[&>svg]:text-green-500",
-        info: "bg-blue-50/90 border-blue-200 text-blue-800 dark:bg-blue-950/30 dark:border-blue-800 dark:text-blue-400 [&>svg]:text-blue-600 dark:[&>svg]:text-blue-500",
+          "bg-green-950/30 border-green-800 text-green-400 [&>svg]:text-green-500",
+        info: "bg-blue-950/30 border-blue-800 text-blue-400 [&>svg]:text-blue-500",
         warning:
-          "bg-yellow-50/90 border-yellow-200 text-yellow-800 dark:bg-yellow-950/30 dark:border-yellow-800 dark:text-yellow-400 [&>svg]:text-yellow-600 dark:[&>svg]:text-yellow-500",
+          "bg-yellow-950/30 border-yellow-800 text-yellow-400 [&>svg]:text-yellow-500",
         error:
-          "bg-red-50/90 border-red-200 text-red-800 dark:bg-red-950/30 dark:border-red-800 dark:text-red-400 [&>svg]:text-red-600 dark:[&>svg]:text-red-500",
+          "bg-red-950/30 border-red-800 text-red-400 [&>svg]:text-red-500",
         notification:
-          "bg-purple-50/90 border-purple-200 text-purple-800 dark:bg-purple-950/30 dark:border-purple-800 dark:text-purple-400 [&>svg]:text-purple-600 dark:[&>svg]:text-purple-500",
+          "bg-purple-950/30 border-purple-800 text-purple-400 [&>svg]:text-purple-500",
       },
       clickable: {
         true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.02]",
