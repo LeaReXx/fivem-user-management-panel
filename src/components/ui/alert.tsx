@@ -22,7 +22,7 @@ const alertVariants = cva(
           "bg-purple-950/30 border-purple-800 text-purple-400 [&>svg]:text-purple-500",
       },
       clickable: {
-        true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.02]",
+        true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01]",
         false: "",
       },
     },

@@ -1,7 +1,12 @@
 import React from "react";
 import BoxHeader from "../../shared/box header/BoxHeader";
 import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription, AlertTitle, AlertTime } from "@/components/ui/alert";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  AlertTime,
+} from "@/components/ui/alert";
 import { formatRelativeTime } from "@/lib/utils";
 
 interface NotificationItem {
@@ -72,14 +77,14 @@ const notifications: NotificationItem[] = [
 
 const UserNotifications: React.FC = () => {
   return (
-    <div className="order-1 md:order-2 space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg p-4">
+    <div className="order-1 md:order-2 relative space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg p-4 sm:h-[425px] 2xl:h-[300px] lg:z-10">
       <BoxHeader title="اعلانات" iconName="bell">
         <Badge className="border-gray-300 text-gray-300 py-2" variant="dashed">
           {notifications.length} اعلان
         </Badge>
       </BoxHeader>
 
-      <div className="overflow-y-auto bg-main-box-background rounded-lg p-2 space-y-2 h-[380px]">
+      <div className="overflow-y-auto bg-main-box-background rounded-lg p-2 space-y-2 h-[320px] sm:h-[340px] 2xl:h-[220px] duration-400 ease-out lg:hover:h-[500px] lg:hover:shadow-lg lg:hover:outline outline-gray-500/60">
         {notifications.map((notification) => (
           <Alert
             key={notification.id}
