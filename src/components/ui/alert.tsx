@@ -55,7 +55,7 @@ function Alert({
 
   const content = (
     <div data-slot="alert" role="alert" className={alertClasses} {...props}>
-      {icon && <DynamicIcon name={icon} size={22} strokeWidth={1.5} />}
+      {icon && <DynamicIcon name={icon} className="w-5 h-5" strokeWidth={1.5} />}
       {children}
     </div>
   );
@@ -76,7 +76,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight text-md",
+        "col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight text-sm",
         className
       )}
       {...props}
@@ -92,7 +92,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "col-start-2 grid justify-items-start gap-1 text-md [&_p]:leading-relaxed",
+        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
         className
       )}
       {...props}

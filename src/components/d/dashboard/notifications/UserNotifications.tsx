@@ -72,14 +72,14 @@ const notifications: NotificationItem[] = [
 
 const UserNotifications: React.FC = () => {
   return (
-    <div className="order-1 md:order-2 space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] h-[320px] rounded-lg p-4">
+    <div className="order-1 md:order-2 space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg p-4">
       <BoxHeader title="اعلانات" iconName="bell">
         <Badge className="border-gray-300 text-gray-300 py-2" variant="dashed">
           {notifications.length} اعلان
         </Badge>
       </BoxHeader>
 
-      <div className="overflow-y-auto bg-main-box-background rounded-lg p-2 space-y-2 h-[240px]">
+      <div className="overflow-y-auto bg-main-box-background rounded-lg p-2 space-y-2 h-[380px]">
         {notifications.map((notification) => (
           <Alert
             key={notification.id}
