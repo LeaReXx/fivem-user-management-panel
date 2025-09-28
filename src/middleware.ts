@@ -7,7 +7,15 @@ export async function middleware(request: NextRequest) {
     headers: await headers(),
   });
 
-  if (!session) {
+  const { pathname } = request.nextUrl;
+
+  // اگر کاربر سشن فعال دارد و در صفحات احراز هویت است، به داشبورد منتقل شود
+  if (session && (pathname === "/" || pathname === "/register" || pathname === "/forgot-password")) {
+    return NextResponse.redirect(new URL("/d", request.url));
+  }
+
+  // اگر کاربر سشن ندارد و می‌خواهد وارد داشبورد شود، به صفحه ورود منتقل شود
+  if (!session && pathname.startsWith("/d")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
@@ -16,5 +24,5 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   runtime: "nodejs",
-  matcher: ["/d"],
+  matcher: ["/", "/register", "/forgot-password", "/d/:path*"],
 };
