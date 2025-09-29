@@ -46,8 +46,8 @@ const UserSubscriptionStatus: React.FC = () => {
         </div>
         <div className="w-full sm:w-1/3 md:w-full 2xl:w-1/3 flex items-center justify-center m-4">
           <CircularProgressBar
-            percentage={80}
-            remainingDays={23}
+            percentage={75}
+            remainingDays={32}
             size={220}
             strokeWidth={15}
             gradientColors={["#ef4444", "#22c55e"]}
