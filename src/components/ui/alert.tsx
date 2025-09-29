@@ -62,7 +62,7 @@ function Alert({
 
   if (href) {
     return (
-      <Link href={href} className="block" target="_blank">
+      <Link href={href} className="block">
         {content}
       </Link>
     );
