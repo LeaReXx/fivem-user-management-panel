@@ -29,13 +29,13 @@ const UserSubscriptionStatus: React.FC = () => {
           </div>
           <div>
             <div className="flex justify-between w-full space-x-4">
-              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50 p-3 rounded-md mt-2">
+              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50 p-2 gap-1 rounded-md mt-2">
                 <span className="flex gap-2 items-center opacity-80 text-sm">
                   <Calendar strokeWidth={1.5} size={20} /> تاریخ شروع
                 </span>
                 <span className="text-center">۱۴۰۲/۰۴/۲۵</span>
               </div>
-              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50  p-3 rounded-md mt-2">
+              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50  p-2 gap-1 rounded-md mt-2">
                 <span className="flex gap-2 items-center opacity-80 text-sm">
                   <CalendarX2 strokeWidth={1.5} size={20} /> تاریخ پایان
                 </span>
