@@ -16,7 +16,6 @@ interface CircularProgressBarProps {
   duration?: number;
   className?: string;
   textClassName?: string;
-  labelClassName?: string;
   semicircle?: boolean;
 }
 
@@ -34,7 +33,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   duration = 1000,
   className = "",
   textClassName = "",
-  labelClassName = "",
   semicircle = false,
 }) => {
   const [animatedPercentage, setAnimatedPercentage] = React.useState(0);
@@ -50,25 +48,26 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const startTime = Date.now();
     const startPercentage = animatedPercentage;
     const targetPercentage = Math.min(Math.max(percentage, 0), 100);
-    
+
     const animate = () => {
       const currentTime = Date.now();
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function (ease-out)
       const easeOut = 1 - Math.pow(1 - progress, 3);
-      
-      const newPercentage = startPercentage + (targetPercentage - startPercentage) * easeOut;
+
+      const newPercentage =
+        startPercentage + (targetPercentage - startPercentage) * easeOut;
       setAnimatedPercentage(newPercentage);
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
         setAnimatedPercentage(targetPercentage);
       }
     };
-    
+
     requestAnimationFrame(animate);
   }, [percentage, duration]);
 
@@ -144,8 +143,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
         />
-
-
       </svg>
 
       {/* Center Content */}
@@ -170,17 +167,13 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
               className={`text-4xl font-bold transition-colors duration-300`}
               style={{ color: getColorByPercentage(animatedPercentage) }}
             >
-              <CountUp end={remainingDays} duration={2} />  
+              <CountUp end={remainingDays} duration={3} />
             </span>
-            <span className={`text-lg opacity-70 ${labelClassName}`}>
-              روز باقیمانده
-            </span>
+            <span className="text-lg opacity-70">روز باقیمانده</span>
           </div>
         )}
         {showLabel && label && !showRemainingDays && (
-          <span className={`text-sm opacity-70 mt-1 ${labelClassName}`}>
-            {label}
-          </span>
+          <span className="text-sm opacity-70 mt-1">{label}</span>
         )}
       </div>
     </div>

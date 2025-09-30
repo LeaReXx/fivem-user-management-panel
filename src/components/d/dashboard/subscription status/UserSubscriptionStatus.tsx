@@ -53,10 +53,7 @@ const UserSubscriptionStatus: React.FC = () => {
             gradientColors={["#ef4444", "#22c55e"]}
             showPercentage={false}
             showRemainingDays={true}
-            duration={1000}
-            className=""
-            daysClassName="text-white font-dana"
-            labelClassName="text-gray-300 font-dana"
+            duration={3000}
             semicircle={true}
           />
         </div>
