@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Vibrant } from "node-vibrant/browser";
-import { Warehouse } from "lucide-react";
+import { Package } from "lucide-react";
 
 interface FeaturedProductItemProps {
   title: string;
@@ -11,7 +11,7 @@ interface FeaturedProductItemProps {
   link: string;
   price: number;
   discountPercentage: number;
-  stock: number; // تعداد موجودی
+  stock: number;
 }
 
 const calculateDiscountedPrice = (price: number, discount: number) => {
@@ -29,16 +29,16 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
   discountPercentage,
   stock,
 }) => {
-  const [bgColor, setBgColor] = useState("");
+  const [mainImageColor, setMainImageColor] = useState("");
 
   const discountedPrice = calculateDiscountedPrice(price, discountPercentage);
 
-  const getImageMainPlate = () => {
+  const getImageColorPlate = () => {
     if (imageUrl) {
       Vibrant.from(imageUrl)
         .getPalette()
         .then((palette) => {
-          setBgColor(palette.DarkVibrant?.hex || "");
+          setMainImageColor(palette.DarkVibrant?.hex || "");
         });
     }
   };
@@ -49,7 +49,9 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
     <Link
       href={link}
       className="flex-[0_0_70%] sm:flex-[0_0_40%] md:flex-[0_0_30%] xl:flex-[0_0_25%] 2xl:flex-[0_0_18%] group overflow-hidden rounded-md backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
-      style={{ borderBottom: `3px solid ${bgColor}` }}
+      style={{
+        borderBottom: `3px solid ${stock !== 0 ? mainImageColor : "#ffffff50"}`,
+      }}
     >
       <div>
         <div className="relative aspect-1/1 overflow-hidden bg-gray-500">
@@ -58,7 +60,7 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
               src={imageUrl}
               alt={title}
               quality={100}
-              onLoad={getImageMainPlate}
+              onLoad={getImageColorPlate}
               fill
               className={`object-cover select-none transition-transform duration-400 group-hover:scale-105 ${
                 stock === 0 && "grayscale opacity-70"
@@ -96,9 +98,10 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
           <div
             className="absolute top-0 left-0 w-full h-full -z-10"
             style={{
-              background: bgColor
-                ? `linear-gradient(to top, var(--bg-main-color) 0%, ${bgColor}50 100%)`
-                : "var(--bg-main-color)",
+              background:
+                mainImageColor && stock !== 0
+                  ? `linear-gradient(to top, var(--bg-main-color) 0%, ${mainImageColor}50 100%)`
+                  : "var(--bg-main-color)",
             }}
           ></div>
 
@@ -109,17 +112,21 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
           <div className="flex items-end justify-between h-9">
             {stock > 0 ? (
               <Badge className="[&>svg]:size-4.5 text-sm bg-blue-500/50 font-normal items-center">
-                <Warehouse strokeWidth={1.5} size={20} />
+                <Package strokeWidth={1.5} size={20} />
                 <span>{stock} موجود</span>
               </Badge>
             ) : (
-              <Badge className="[&>svg]:size-4.5 text-sm bg-gray-500/50 items-center">
-                <Warehouse strokeWidth={1.5} size={20} />
+              <Badge className="[&>svg]:size-4.5 text-sm bg-gray-500/50 font-normal items-center">
+                <Package strokeWidth={1.5} size={20} />
                 <span>ناموجود</span>
               </Badge>
             )}
 
-            <div className="flex flex-col items-end -space-y-1">
+            <div
+              className={`flex flex-col items-end -space-y-1 ${
+                stock !== 0 ? "" : "hidden"
+              }`}
+            >
               {isFree ? (
                 <>
                   {price > 0 && (
