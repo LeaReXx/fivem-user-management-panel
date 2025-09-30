@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import CountUp from "react-countup";
 
 interface CircularProgressBarProps {
   percentage: number;
@@ -16,7 +17,6 @@ interface CircularProgressBarProps {
   className?: string;
   textClassName?: string;
   labelClassName?: string;
-  daysClassName?: string;
   semicircle?: boolean;
 }
 
@@ -35,7 +35,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   className = "",
   textClassName = "",
   labelClassName = "",
-  daysClassName = "",
   semicircle = false,
 }) => {
   const [animatedPercentage, setAnimatedPercentage] = React.useState(0);
@@ -48,12 +47,30 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   const gradientId = `gradient-${Math.random().toString(36).substr(2, 9)}`;
 
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatedPercentage(Math.min(Math.max(percentage, 0), 100));
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [percentage]);
+    const startTime = Date.now();
+    const startPercentage = animatedPercentage;
+    const targetPercentage = Math.min(Math.max(percentage, 0), 100);
+    
+    const animate = () => {
+      const currentTime = Date.now();
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      
+      const newPercentage = startPercentage + (targetPercentage - startPercentage) * easeOut;
+      setAnimatedPercentage(newPercentage);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setAnimatedPercentage(targetPercentage);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [percentage, duration]);
 
   const getColorByPercentage = (percent: number) => {
     if (percent <= 33) return "#ef4444"; // قرمز
@@ -126,36 +143,9 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          className="transition-all duration-1000 ease-out"
-          style={{
-            transitionDuration: `${duration}ms`,
-          }}
         />
 
-        {/* Inner glow effect */}
-        <path
-          d={
-            semicircle
-              ? `M ${strokeWidth / 2} ${size / 2} A ${
-                  radius - strokeWidth / 2
-                } ${radius - strokeWidth / 2} 0 0 1 ${size - strokeWidth / 2} ${
-                  size / 2
-                }`
-              : `M ${size / 2} ${strokeWidth / 2} A ${
-                  radius - strokeWidth / 2
-                } ${radius - strokeWidth / 2} 0 1 1 ${size / 2} ${
-                  size - strokeWidth / 2
-                } A ${radius - strokeWidth / 2} ${
-                  radius - strokeWidth / 2
-                } 0 1 1 ${size / 2} ${strokeWidth / 2}`
-          }
-          stroke={getColorByPercentage(animatedPercentage)}
-          strokeWidth={1}
-          fill="transparent"
-          opacity={0.2}
-          strokeLinecap="round"
-          className="transition-all duration-1000 ease-out"
-        />
+
       </svg>
 
       {/* Center Content */}
@@ -180,7 +170,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
               className={`text-4xl font-bold transition-colors duration-300`}
               style={{ color: getColorByPercentage(animatedPercentage) }}
             >
-              {remainingDays}
+              <CountUp end={remainingDays} duration={2} />  
             </span>
             <span className={`text-lg opacity-70 ${labelClassName}`}>
               روز باقیمانده

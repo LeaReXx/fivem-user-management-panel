@@ -38,7 +38,7 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
       Vibrant.from(imageUrl)
         .getPalette()
         .then((palette) => {
-          setMainImageColor(palette.DarkVibrant?.hex || "");
+          setMainImageColor(palette.DarkVibrant?.hex || "#ffffff50");
         });
     }
   };
