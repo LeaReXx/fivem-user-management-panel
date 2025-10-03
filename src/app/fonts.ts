@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 export const IRANSans = localFont({
+  variable: "--font-IRANSans",
   src: [
     // woff fonts
     {
@@ -57,42 +58,42 @@ export const IRANSans = localFont({
   ],
 });
 
-export const Dana = localFont({
-  src: [
-    // woff fonts
-    {
-      path: "./fonts/dana/woff/dana-fanum-demibold.woff",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./fonts/dana/woff/dana-fanum-bold.woff",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/dana/woff/dana-fanum-extrabold.woff",
-      weight: "900",
-      style: "normal",
-    },
-    // woff2 fonts
-    {
-      path: "./fonts/dana/woff2/dana-fanum-demibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./fonts/dana/woff2/dana-fanum-bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/dana/woff2/dana-fanum-extrabold.woff2",
-      weight: "900",
-      style: "normal",
-    },
-  ]
-});
+// export const Dana = localFont({
+//   src: [
+//     // woff fonts
+//     {
+//       path: "./fonts/dana/woff/dana-fanum-demibold.woff",
+//       weight: "600",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/dana/woff/dana-fanum-bold.woff",
+//       weight: "700",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/dana/woff/dana-fanum-extrabold.woff",
+//       weight: "900",
+//       style: "normal",
+//     },
+//     // woff2 fonts
+//     {
+//       path: "./fonts/dana/woff2/dana-fanum-demibold.woff2",
+//       weight: "600",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/dana/woff2/dana-fanum-bold.woff2",
+//       weight: "700",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/dana/woff2/dana-fanum-extrabold.woff2",
+//       weight: "900",
+//       style: "normal",
+//     },
+//   ]
+// });
 
 export const InterFont = Inter({
   weight: ["300", "400", "500"],
