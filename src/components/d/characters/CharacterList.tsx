@@ -1,6 +1,7 @@
 import React from "react";
 import CharacterItem from "./CharacterItem";
 import { Plus, UserPlus } from "lucide-react";
+import NewCharacterBtn from "./NewCharacterBtn";
 export interface CharacterFace {
   id: number;
   firstName: string;
@@ -32,14 +33,7 @@ const CharacterList: React.FC = () => {
       {userCharacters.map((character) => (
         <CharacterItem key={character.id} {...character} />
       ))}
-      <div className="flex items-center hover:bg-main-box-background/30 gap-2 justify-center flex-col border-2 border-gray-400 opacity-70 duration-200 hover:opacity-100 cursor-pointer hover:border-gray-500 border-dashed rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 p-4">
-        <div className="bg-gray-500/50 rounded-full w-15 h-15 flex items-center justify-center">
-          <Plus size={40} />
-        </div>
-        <div className="text-xl font-medium">
-          <p>افزودن کاراکتر جدید</p>
-        </div>
-      </div>
+      <NewCharacterBtn />
     </div>
   );
 };
