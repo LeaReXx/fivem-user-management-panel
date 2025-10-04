@@ -126,7 +126,9 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger
                     dir="rtl"
-                    className={errors.nationality ? "border-red-500" : ""}
+                    className={`${
+                      errors.nationality ? "border-red-500" : ""
+                    } capitalize`}
                   >
                     <SelectValue placeholder="ملیت" />
                   </SelectTrigger>
@@ -142,6 +144,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                               <SelectItem
                                 key={`${continentIndex}-${nationalityIndex}`}
                                 value={nationality.nationality_en}
+                                className="capitalize"
                               >
                                 {nationality.nationality_fa} (
                                 {nationality.nationality_en})
