@@ -78,7 +78,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   {Object.entries(nationalities.continents).map(
                     ([continent, nationalitiesList]) => (
                       <SelectGroup dir="rtl" key={continent}>
-                        <SelectLabel className="font-bold text-base">
+                        <SelectLabel className="font-semibold text-md">
                           {continent}
                         </SelectLabel>
                         {nationalitiesList.map((nationality, index) => (
