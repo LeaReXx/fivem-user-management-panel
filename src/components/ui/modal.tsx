@@ -91,7 +91,7 @@ const Modal: React.FC<ModalProps> = ({
   const modalContent = (
     <>
       <div
-        className={`fixed top-0 start-0 inset-0 z-50 flex items-start justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn overflow-y-auto ${overlayClassName}`}
+        className={`fixed top-0 start-0 inset-0 z-50 flex items-start 2xl:items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn overflow-y-auto ${overlayClassName}`}
         onClick={handleOverlayClick}
       >
         <div
