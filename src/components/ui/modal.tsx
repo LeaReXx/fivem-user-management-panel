@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
@@ -91,12 +91,12 @@ const Modal: React.FC<ModalProps> = ({
   const modalContent = (
     <>
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn ${overlayClassName}`}
+        className={`fixed top-0 start-0 inset-0 z-50 flex items-start justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn overflow-y-auto ${overlayClassName}`}
         onClick={handleOverlayClick}
       >
         <div
           ref={modalRef}
-          className={`relative w-full ${sizeClasses[size]} bg-gradient-to-br to-main-box-background from-secondary-box-background rounded-2xl shadow-2xl border border-white/10 overflow-hidden ${animationClasses[animation]} ${modalClassName}`}
+          className={`relative w-full ${sizeClasses[size]} bg-main-box-background rounded-2xl shadow-2xl border border-white/10 overflow-hidden ${animationClasses[animation]} ${modalClassName}`}
         >
           {/* Header */}
           {(title || showCloseButton) && (

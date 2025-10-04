@@ -3,6 +3,7 @@ import { CharacterFace } from "./CharacterList";
 import CharacterStatusHandler from "@/components/shared/CharacterStatusHandler";
 import { formatRelativeTime } from "@/lib/utils";
 import { Clock, SquarePen, Trash2 } from "lucide-react";
+import EditCharacterBtn from "./EditCharacterBtn";
 
 interface CharacterFaceProps extends CharacterFace {}
 
@@ -30,13 +31,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
       </div>
 
       <div className="flex divide-x divide-white/10 border-t border-white/10">
-        <button
-          className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium text-sky-500 hover:bg-sky-500/10 transition-colors duration-200 disabled:bg-gray-600 disabled:text-white/50 disabled:cursor-not-allowed"
-          disabled={status === 3}
-        >
-          <SquarePen size={20} />
-          <span>ویرایش</span>
-        </button>
+        <EditCharacterBtn disabled={status === 3} />
         <button
           className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium text-red-500 hover:bg-red-500/10 transition-colors duration-200 disabled:bg-gray-600 disabled:text-white/50 disabled:cursor-not-allowed"
           disabled={status === 3}

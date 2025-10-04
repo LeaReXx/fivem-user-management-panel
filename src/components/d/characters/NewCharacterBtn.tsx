@@ -2,7 +2,7 @@
 "use client";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import NewCharacterModal from "./NewCharacterModal";
+import NewCharacterModal from "./modal/create character/NewCharacterModal";
 
 const NewCharacterBtn: React.FC = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
