@@ -1,7 +1,18 @@
 // NewCharacterModal.tsx
 "use client";
+import Input from "@/components/auth/shared/Input";
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/ui/modal";
+import nationalities from "@/data/nationalities.json";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { BookAlert } from "lucide-react";
 import React, { useState } from "react";
 
@@ -15,14 +26,17 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
   onClose,
 }) => {
   const [isAcceptedRules, setIsAcceptedRules] = useState(false);
+  const [selectedNationality, setSelectedNationality] = useState("");
 
   const acceptRulesBtnHandler = () => {
     setIsAcceptedRules(true);
   };
+
   const characterModalOnClose = () => {
     onClose();
     setIsAcceptedRules(false);
   };
+
   return (
     <Modal
       isOpen={isOpenModal}
@@ -30,10 +44,59 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
       size="xl"
       title="افزودن کاراکتر جدید"
     >
-      {/* Character create rules  */}
       {isAcceptedRules ? (
         <div className="text-center">
-          <p>فرم ثبت کاراکتر</p>
+          <form className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 sm:col-span-6">
+              <Input placeholder="نام" />
+            </div>
+            <div className="col-span-12 sm:col-span-6">
+              <Input placeholder="نام خانوادگی" />
+            </div>
+            <div className="col-span-12 sm:col-span-6">
+              <Select>
+                <SelectTrigger dir="rtl">
+                  <SelectValue placeholder="جنسیت" />
+                </SelectTrigger>
+                <SelectContent dir="rtl">
+                  <SelectGroup dir="rtl">
+                    <SelectItem value="male">مرد</SelectItem>
+                    <SelectItem value="female">زن</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="col-span-12 sm:col-span-6">
+              <Select
+                value={selectedNationality}
+                onValueChange={setSelectedNationality}
+              >
+                <SelectTrigger dir="rtl">
+                  <SelectValue placeholder="ملیت" />
+                </SelectTrigger>
+                <SelectContent dir="rtl" position="item-aligned">
+                  {Object.entries(nationalities.continents).map(
+                    ([continent, nationalitiesList]) => (
+                      <SelectGroup dir="rtl" key={continent}>
+                        <SelectLabel className="font-bold text-base">
+                          {continent}
+                        </SelectLabel>
+                        {nationalitiesList.map((nationality, index) => (
+                          <SelectItem
+                            key={`${continent}-${index}`}
+                            value={nationality.nationality_en}
+                          >
+                            {nationality.nationality_fa} (
+                            {nationality.nationality_en})
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    )
+                  )}
+                </SelectContent>
+              </Select>
+            </div>
+          </form>
         </div>
       ) : (
         <div>
