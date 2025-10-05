@@ -4,6 +4,7 @@ import CharacterStatusHandler from "@/components/shared/CharacterStatusHandler";
 import { formatRelativeTime } from "@/lib/utils";
 import { Clock, SquarePen, Trash2 } from "lucide-react";
 import EditCharacterBtn from "./EditCharacterBtn";
+import DeleteCharacterBtn from "./DeleteCharacterBtn";
 
 interface CharacterFaceProps extends CharacterFace {}
 
@@ -32,13 +33,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
 
       <div className="flex divide-x divide-white/10 border-t border-white/10">
         <EditCharacterBtn disabled={status === 3} />
-        <button
-          className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium text-red-500 hover:bg-red-500/10 transition-colors duration-200 disabled:bg-gray-600 disabled:text-white/50 disabled:cursor-not-allowed"
-          disabled={status === 3}
-        >
-          <Trash2 size={20} />
-          <span>حذف</span>
-        </button>
+        <DeleteCharacterBtn disabled={status === 3} />
       </div>
     </div>
   );
