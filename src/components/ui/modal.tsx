@@ -125,7 +125,7 @@ const Modal: React.FC<ModalProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="flex items-center justify-end gap-3 p-4 border-t border-white/10 bg-gradient-to-r from-transparent to-white/5">
+            <div className="flex items-center justify-end gap-3 px-4 py-2 border-t border-white/10 bg-gradient-to-r from-transparent to-white/5">
               {footer}
             </div>
           )}
@@ -133,63 +133,6 @@ const Modal: React.FC<ModalProps> = ({
       </div>
 
       <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
-        }
-
-        .animate-scaleIn {
-          animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .animate-slideUp {
-          animation: slideUp 0.3s ease-out;
-        }
-
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
       `}</style>
     </>
   );
