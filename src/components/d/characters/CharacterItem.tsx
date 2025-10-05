@@ -15,7 +15,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
   createdAt,
 }) => {
   return (
-    <div className="bg-main-box-background/80 shadow-lg rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 border border-white/10 transition hover:shadow-xl hover:scale-[1.01] duration-300">
+    <div className="bg-main-box-background/80 shadow-lg rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 border border-white/10 transition hover:shadow-xl hover:scale-102 duration-300">
       <div className="flex justify-between items-center p-3">
         <CharacterStatusHandler status={status} />
         <h3 className="text-lg font-semibold tracking-wide">
