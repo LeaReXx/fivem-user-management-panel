@@ -2,6 +2,7 @@ import React from "react";
 import CharacterItem from "./CharacterItem";
 import { Plus, UserPlus } from "lucide-react";
 import NewCharacterBtn from "./NewCharacterBtn";
+import CharacterDetailModal from "./modal/character detail/CharacterDetailModal";
 export interface CharacterFace {
   id: number;
   firstName: string;
@@ -30,6 +31,7 @@ const CharacterList: React.FC = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4 mt-8">
+      <CharacterDetailModal />
       {userCharacters.map((character) => (
         <CharacterItem key={character.id} {...character} />
       ))}

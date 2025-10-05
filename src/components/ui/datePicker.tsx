@@ -16,10 +16,11 @@ interface DatePickerProps {
   onChange?: (date: Date | undefined) => void;
   value?: Date;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
-  ({ error, onChange, value, placeholder = "تاریخ تولد" }, ref) => {
+  ({ error, onChange, value, placeholder = "تاریخ تولد", disabled = false }, ref) => {
     const [open, setOpen] = React.useState(false);
     const [date, setDate] = React.useState<Date | undefined>(value);
     
@@ -36,6 +37,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             ref={ref}
             id="date"
             className={`flex w-full items-center justify-between border border-foreground/10 bg-secondary-box-background placeholder:text-white/40 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${!date ? "text-white/40" : "text-white"} ${error ? "border-red-500" : ""}`}
+            disabled={disabled}
           >
             {date ? date.toLocaleDateString() : placeholder}
             <ChevronDownIcon className="size-4 opacity-50 text-white/40" />

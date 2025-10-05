@@ -18,13 +18,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { CharacterFormData } from "@/types/character";
 
 interface CharacterFormProps {
-  onSubmit: (data: CharacterFormData) => void;
+  onSubmit?: (data: CharacterFormData) => void;
   initialData?: Partial<CharacterFormData>;
+  disabled?: boolean;
 }
 
 const CharacterForm: React.FC<CharacterFormProps> = ({
   onSubmit: formOnSubmit,
   initialData,
+  disabled = false,
 }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const {
@@ -61,12 +63,13 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
   return (
     <div className="text-center">
       <form
-        className="grid grid-cols-12 gap-4"
-        onSubmit={handleSubmit(formOnSubmit)}
+        className={`grid grid-cols-12 gap-4 ${disabled ? 'opacity-75' : ''}`}
+        onSubmit={formOnSubmit ? handleSubmit(formOnSubmit) : (e) => e.preventDefault()}
       >
         <div className="col-span-12 sm:col-span-6">
           <Input
             placeholder="نام"
+            disabled={disabled}
             {...register("firstName", {
               required: "نام الزامی است",
             })}
@@ -76,6 +79,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
         <div className="col-span-12 sm:col-span-6">
           <Input
             placeholder="نام خانوادگی"
+            disabled={disabled}
             {...register("lastName", {
               required: "نام خانوادگی الزامی است",
             })}
@@ -91,7 +95,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 required: "جنسیت الزامی است",
               }}
               render={({ field }) => (
-                <Select onValueChange={field.onChange} value={field.value}>
+                <Select onValueChange={field.onChange} value={field.value} disabled={disabled}>
                   <SelectTrigger
                     dir="rtl"
                     className={errors.gender ? "border-red-500" : ""}
@@ -123,7 +127,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 required: "ملیت الزامی است",
               }}
               render={({ field }) => (
-                <Select onValueChange={field.onChange} value={field.value}>
+                <Select onValueChange={field.onChange} value={field.value} disabled={disabled}>
                   <SelectTrigger
                     dir="rtl"
                     className={`${
@@ -181,6 +185,8 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
               <Calendar22
                 value={field.value}
                 onChange={field.onChange}
+                disabled={disabled}
+
                 error={errors.birthDate?.message}
               />
             )}
@@ -189,7 +195,9 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
         <div className="col-span-12">
           <Textarea
             className="min-h-[200px] md:min-h-[300px]"
+            disabled={disabled}
             placeholder="بک استوری کاراکتر"
+            
             {...register("backstory", {
               required: "بک استوری الزامی است",
               minLength: {
@@ -200,14 +208,16 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
             error={errors.backstory?.message}
           />
         </div>
-        <div className="mt-2 text-end col-span-12">
-          <Button
-            type="submit"
-            className="bg-green-600 hover:bg-green-700 text-md"
-          >
-            {isEditMode ? "ویرایش کاراکتر" : "ثبت کاراکتر"}
-          </Button>
-        </div>
+        {!disabled && (
+          <div className="mt-2 text-end col-span-12">
+            <Button
+              type="submit"
+              className="bg-green-600 hover:bg-green-700 text-md"
+            >
+              {isEditMode ? "ویرایش کاراکتر" : "ثبت کاراکتر"}
+            </Button>
+          </div>
+        )}
       </form>
     </div>
   );

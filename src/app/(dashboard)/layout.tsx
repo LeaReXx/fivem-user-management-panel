@@ -1,3 +1,4 @@
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { Metadata } from "next";
 import "../globals.css";
 import { IRANSans } from "../fonts";
@@ -26,7 +27,7 @@ export default function DashboardLayout({
         <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
         <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
           <DashboardHeader />
-          {children}
+          <NuqsAdapter>{children}</NuqsAdapter>
         </main>
       </body>
     </html>
