@@ -125,7 +125,7 @@ const Modal: React.FC<ModalProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="flex items-center justify-end gap-3 p-6 border-t border-white/10 bg-gradient-to-r from-transparent to-white/5">
+            <div className="flex items-center justify-end gap-3 p-4 border-t border-white/10 bg-gradient-to-r from-transparent to-white/5">
               {footer}
             </div>
           )}
