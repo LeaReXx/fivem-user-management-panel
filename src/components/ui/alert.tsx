@@ -12,14 +12,14 @@ const alertVariants = cva(
       variant: {
         default: "bg-card text-card-foreground border-border",
         success:
-          "bg-green-950/30 border-green-800 text-green-400 [&>svg]:text-green-500",
-        info: "bg-blue-950/30 border-blue-800 text-blue-400 [&>svg]:text-blue-500",
+          "bg-green-950/70 dark:bg-green-950/30 border-green-800 text-green-100 dark:text-green-400 [&>svg]:text-green-500",
+        info: "bg-blue-950/70 dark:bg-blue-950/30 border-blue-800 text-blue-100 dark:text-blue-400 [&>svg]:text-blue-500",
         warning:
-          "bg-yellow-950/30 border-yellow-800 text-yellow-400 [&>svg]:text-yellow-500",
+          "bg-yellow-950/70 dark:bg-yellow-950/30 border-yellow-800 text-yellow-100 dark:text-yellow-400 [&>svg]:text-yellow-500",
         error:
-          "bg-red-950/30 border-red-800 text-red-400 [&>svg]:text-red-500",
+          "bg-red-950/70 dark:bg-red-950/30 border-red-800 text-red-100 dark:text-red-400 [&>svg]:text-red-500",
         notification:
-          "bg-purple-950/30 border-purple-800 text-purple-400 [&>svg]:text-purple-500",
+          "bg-purple-950/70 dark:bg-purple-950/30 border-purple-800 text-purple-100 dark:text-purple-400 [&>svg]:text-purple-500",
       },
       clickable: {
         true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01]",

@@ -100,8 +100,8 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
             style={{
               background:
                 mainImageColor && stock !== 0
-                  ? `linear-gradient(to top, var(--bg-main-color) 0%, ${mainImageColor}50 100%)`
-                  : "var(--bg-main-color)",
+                  ? `linear-gradient(to top, var(--bg-inside-box) 0%, ${mainImageColor}50 100%)`
+                  : "var(--bg-inside-box)",
             }}
           ></div>
 
@@ -111,12 +111,12 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
           {/* قیمت و موجودی */}
           <div className="flex items-end justify-between h-9">
             {stock > 0 ? (
-              <Badge className="[&>svg]:size-4.5 text-sm bg-blue-500/50 font-normal items-center">
+              <Badge className="[&>svg]:size-4.5 text-sm bg-blue-500 font-normal items-center">
                 <Package strokeWidth={1.5} size={20} />
                 <span>{stock} موجود</span>
               </Badge>
             ) : (
-              <Badge className="[&>svg]:size-4.5 text-sm bg-gray-500/50 font-normal items-center">
+              <Badge className="[&>svg]:size-4.5 text-sm bg-gray-500 font-normal items-center">
                 <Package strokeWidth={1.5} size={20} />
                 <span>ناموجود</span>
               </Badge>

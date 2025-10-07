@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Input from "../shared/Input";
+import Input from "../../ui/Input";
 import WideButton from "../shared/WideButton";
 import { BadgePlus } from "lucide-react";
 

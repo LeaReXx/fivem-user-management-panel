@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Input from "@/components/auth/shared/Input";
+import Input from "@/components/ui/Input";
 import { Button } from "@/components/ui/button";
 import nationalities from "@/data/nationalities.json";
 import {

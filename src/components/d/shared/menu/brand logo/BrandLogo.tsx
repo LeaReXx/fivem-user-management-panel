@@ -1,11 +1,29 @@
+"use client";
+import { useThemeStore } from "@/stores/theme-store";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
 const BrandLogo: React.FC = () => {
+  const [logoPath, setLogoPath] = React.useState<string>("/logo-dark.png");
+
+  const { isDark } = useThemeStore();
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (mounted) {
+      document.documentElement.classList.toggle("dark", isDark);
+    }
+    setLogoPath(isDark ? "/logo.png" : "/logo-dark.png");
+  }, [isDark, mounted]);
+
   return (
     <div className="mx-auto">
       <Image
-        src="/logo.png"
+        src={logoPath}
         alt="Logo"
         className="md:w-40"
         width={150}
@@ -15,5 +33,4 @@ const BrandLogo: React.FC = () => {
     </div>
   );
 };
-
 export default BrandLogo;

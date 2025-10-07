@@ -1,13 +1,22 @@
 @import "tailwindcss";
 @import "./variables.css";
-@import "tw-animate-css";
+
+* {
+  direction: rtl;
+}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* main box background colors */
-  --color-main-box-background: var(--bg-main-color);
-  --color-secondary-box-background: var(--bg-secondary-color);
+  /* Custom color mappings */
   --color-brand-color: var(--brand-color);
-  --color-main-text-color: var(--text-main-color);
+  --color-main-text-color: var(--main-text-color);
+  --color-navbar-bg-color-1: var(--bg-navbar-color-plate-1);
+  --color-navbar-bg-color-2: var(--bg-navbar-color-plate-2);
+  --color-page-header-bg-color-1: var(--bg-page-header-color-plate-1);
+  --color-page-header-bg-color-2: var(--bg-page-header-color-plate-2);
+  --color-content-box-bg-color-1: var(--bg-content-box-plate-1);
+  --color-content-box-bg-color-2: var(--bg-content-box-plate-2);
+  --color-inside-box-bg-color: var(--bg-inside-box);
 }
 
 body {
@@ -16,10 +25,13 @@ body {
 }
 
 @theme inline {
+  /* Border radius tokens */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Design system color tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -54,7 +66,12 @@ body {
 }
 
 :root {
+  /* Base radius */
   --radius: 0.625rem;
+
+  /* Light mode theme */
+  --background: oklch(0% 0 0);
+  --foreground: oklch(100% 0.00011 271.152);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -84,8 +101,36 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(0% 0 0);
-  --foreground: oklch(100% 0.00011 271.152);
+}
+
+.dark {
+  /* Dark mode theme */
+  --background: oklch(0.1 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.205 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.205 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.205 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.5 0.22 27.325);
+  --border: oklch(0.205 0 0);
+  --input: oklch(0.205 0 0);
+  --ring: oklch(0.4 0 0);
+  --sidebar: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.985 0 0);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.205 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.205 0 0);
+  --sidebar-ring: oklch(0.4 0 0);
 }
 
 @layer base {
@@ -97,7 +142,7 @@ body {
   }
 }
 
-/* modal styles  */
+/* Modal animations */
 @keyframes fadeIn {
   from {
     opacity: 0;

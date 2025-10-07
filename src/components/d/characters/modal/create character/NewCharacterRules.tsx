@@ -15,7 +15,7 @@ const NewCharacterRules: React.FC<NewCharacterRulesProps> = ({ acceptRulesBtnHan
           <h2>قوانین ثبت کاراکتر</h2>
         </div>
 
-        <div className="mt-4 bg-secondary-box-background p-2 rounded-md">
+        <div className="mt-4 bg-inside-box-bg-color p-2 rounded-md">
           <ul className="list-decimal space-y-2 list-inside">
             <li>هر شخص مجاز به ساخت تنها دو کاراکتر می‌باشد.</li>
             <li>سن کاراکتر حتما باید +۱۸ سال باشد.</li>

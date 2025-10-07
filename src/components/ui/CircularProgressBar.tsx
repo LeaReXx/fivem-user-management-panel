@@ -25,7 +25,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   size = 120,
   strokeWidth = 8,
   gradientColors = ["#ef4444", "#22c55e"], // از قرمز به سبز
-  backgroundColor = "#374151",
+  backgroundColor = "var(--bg-inside-box)",
   showPercentage = true,
   showRemainingDays = false,
   showLabel = false,
@@ -72,9 +72,9 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   }, [percentage, duration]);
 
   const getColorByPercentage = (percent: number) => {
-    if (percent <= 33) return "#ef4444"; // قرمز
-    if (percent <= 66) return "#f59e0b"; // نارنجی
-    return "#22c55e"; // سبز
+    if (percent <= 33) return "#c92a2a"; // قرمز
+    if (percent <= 66) return "#cc830a"; // نارنجی
+    return "#15a349"; // سبز
   };
 
   return (
@@ -119,7 +119,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
           stroke={backgroundColor}
           strokeWidth={strokeWidth}
           fill="transparent"
-          opacity={0.3}
           strokeLinecap="round"
         />
 

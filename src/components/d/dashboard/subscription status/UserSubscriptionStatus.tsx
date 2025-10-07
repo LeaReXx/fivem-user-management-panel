@@ -8,10 +8,13 @@ import CircularProgressBar from "@/components/ui/CircularProgressBar";
 
 const UserSubscriptionStatus: React.FC = () => {
   return (
-    <div className="order-2 md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-gradient-to-t from-secondary-box-background/90 to-main-box-background/90 backdrop-blur-[2px] rounded-lg p-4">
+    <div className="order-2 md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg p-4">
       <BoxHeader title="وضعیت اشتراک" iconName="dollar-sign">
         <div className="flex gap-2">
-          <Badge className="border-green-500 text-green-500" variant="dashed">
+          <Badge
+            className="border-green-600 text-green-600 dark:border-green-400 dark:text-green-400"
+            variant="dashed"
+          >
             اشتراک فعال
           </Badge>
           <Button size="sm" variant="default">
@@ -21,7 +24,7 @@ const UserSubscriptionStatus: React.FC = () => {
       </BoxHeader>
       <div className="mt-8 flex items-center flex-col-reverse w-full 2xl:h-[80%] mx-auto max-w-[400px] sm:max-w-none xl:max-w-[450px] 2xl:max-w-none sm:flex-row md:flex-col-reverse 2xl:flex-row 2xl:mt-4 gap-6 justify-between">
         <div className="w-full sm:w-2/3 md:w-full space-y-3 2xl:2/3 2xl:max-w-[450px]">
-          <div className="flex items-center justify-between bg-gradient-to-r from-gray-500/60 to-transparent p-3 rounded-md">
+          <div className="flex items-center justify-between bg-gradient-to-r from-inside-box-bg-color/90 to-transparent p-3 rounded-md">
             <span className="flex gap-2 items-center opacity-80">
               <TrendingUp strokeWidth={1.5} size={22} /> نوع اشتراک
             </span>
@@ -29,13 +32,13 @@ const UserSubscriptionStatus: React.FC = () => {
           </div>
           <div>
             <div className="flex justify-between w-full space-x-4">
-              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50 p-2 gap-1 rounded-md mt-2">
+              <div className="flex w-1/2 justify-between flex-col bg-inside-box-bg-color/60 border border-gray-500/90 p-2 gap-1 rounded-md mt-2">
                 <span className="flex gap-2 items-center opacity-80 text-sm">
                   <Calendar strokeWidth={1.5} size={20} /> تاریخ شروع
                 </span>
                 <span className="text-center">۱۴۰۲/۰۴/۲۵</span>
               </div>
-              <div className="flex w-1/2 justify-between flex-col bg-gray-500/30 border border-gray-500/50  p-2 gap-1 rounded-md mt-2">
+              <div className="flex w-1/2 justify-between flex-col bg-inside-box-bg-color/60 border border-gray-500/90  p-2 gap-1 rounded-md mt-2">
                 <span className="flex gap-2 items-center opacity-80 text-sm">
                   <CalendarX2 strokeWidth={1.5} size={20} /> تاریخ پایان
                 </span>

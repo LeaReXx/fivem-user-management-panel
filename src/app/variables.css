@@ -1,8 +1,45 @@
 :root {
-  --main-text-color: #ffffff;
+  /* Light mode colors */
+  --main-text-color: #0f0f0f;
   --brand-color: #2fa16e;
-  --bg-main-color: #2d3952;
-  --bg-secondary-color: #1d2431;
   --custom-background-image: url("/background.jpg");
+
   --custom-background-color: #1c1f2c;
+  --bg-navbar-color-plate-1: #d6ccc2;
+  --bg-navbar-color-plate-2: #edede9;
+  --bg-page-header-color-plate-1: #d6ccc2;
+  --bg-page-header-color-plate-2: #edede9;
+  --bg-content-box-plate-1: #e3d5cae6;
+  --bg-content-box-plate-2: #f5ebe0e6;
+  --bg-inside-box: #d5bdaf;
 }
+
+.dark {
+  --main-text-color: #ffffff;
+  /* navbar */
+  --bg-navbar-color-plate-1: #002d3a;
+  --bg-navbar-color-plate-2: #004052;
+  --bg-page-header-color-plate-1: #002d3a;
+  --bg-page-header-color-plate-2: #005066;
+  --bg-content-box-plate-1: #004052e6;
+  --bg-content-box-plate-2: #005066e6;
+  --bg-inside-box: #00607a;
+}
+
+/* dark plates  */
+/* 
+1: #002029
+2: #00303D
+3: #004052
+4: #005066
+5: #00607A
+ */
+
+/* light plates */
+/* 
+1: #edede9
+2: #d6ccc2
+3: #f5ebe0
+4: #e3d5ca
+5: #d5bdaf
+ */

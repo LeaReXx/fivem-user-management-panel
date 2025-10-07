@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { IRANSans } from "../fonts";
+import ToggleThemeBtn from "@/components/auth/shared/ToggleThemeBtn";
 import Image from "next/image";
+import BrandLogo from "@/components/d/shared/menu/brand logo/BrandLogo";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,27 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body
-        className={`${IRANSans.className} h-screen relative bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
-        style={{
-          backgroundImage: "var(--custom-background-image)",
-        }}
-      >
-        <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2">
-          <div className="py-5">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              className="md:w-50"
-              width={150}
-              height={100}
-              quality={50}
-            />
-          </div>
-        </header>
-        <main>{children}</main>
-      </body>
-    </html>
+    <div
+      className={`${IRANSans.className} h-screen relative bg-gray-400 dark:bg-zinc-900 bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
+      style={{
+        backgroundImage: "var(--custom-background-image)",
+      }}
+    >
+      <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2">
+        <div className="py-5">
+          <BrandLogo />
+        </div>
+      </header>
+      <main>{children}</main>
+      <ToggleThemeBtn />
+    </div>
   );
 }

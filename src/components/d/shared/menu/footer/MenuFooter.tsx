@@ -9,7 +9,7 @@ const MenuFooter: React.FC = () => {
         <UserProfile />
       </div>
 
-      <button className="flex cursor-pointer lg:hidden items-center gap-6 text-white opacity-80 bg-red-500/20 hover:bg-red-500/60 p-3 rounded-lg transition-colors w-full">
+      <button className="flex cursor-pointer lg:hidden items-center gap-6 text-white opacity-80 bg-red-600 hover:bg-red-700 p-3 rounded-lg transition-colors w-full">
         <LogOut size={20} />
         <span>خروج از حساب</span>
       </button>

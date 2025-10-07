@@ -15,7 +15,7 @@ const EditCharacterBtn: React.FC<EditCharacterBtnProps> = ({ disabled }) => {
         onClose={() => setIsOpenModal(false)}
       />
       <button
-        className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium text-sky-500 hover:bg-sky-500/10 transition-colors duration-200 disabled:bg-gray-600 disabled:text-white/50 disabled:cursor-not-allowed"
+        className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium  hover:bg-sky-500/80 hover:text-white transition-colors duration-200 disabled:bg-transparent disabled:opacity-50 disabled:hover:text-inherit disabled:cursor-not-allowed"
         onClick={() => setIsOpenModal(true)}
         disabled={disabled}
       >

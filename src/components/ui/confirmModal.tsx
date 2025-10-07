@@ -33,7 +33,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       title={title}
-      size="sm"
+      size="md"
       closeOnOverlayClick={!isLoading}
       showCloseButton={false}
       animation="scale"
@@ -61,9 +61,9 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
     >
       <div className="flex items-center gap-3">
         <div className="p-3 rounded-full bg-destructive/20">
-          <AlertCircle className="w-6 h-6 text-destructive" />
+          <AlertCircle className="w-6 h-6 text-destructive" strokeWidth={1.5} />
         </div>
-        <p className="text-gray-300">{description}</p>
+        <p className="text-main-text-color">{description}</p>
       </div>
     </Modal>
   );

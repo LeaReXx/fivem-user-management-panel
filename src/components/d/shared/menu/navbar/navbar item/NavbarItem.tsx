@@ -26,8 +26,8 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
           flex items-center gap-6 py-1.5 px-4 rounded-lg transition-colors
           ${
             isActive
-              ? "bg-gradient-to-t from-brand-color/70 to-brand-color/50 font-medium text-white shadow-md"
-              : "opacity-90 hover:bg-brand-color/20"
+              ? "bg-gradient-to-t from-brand-color to-brand-color/70 font-medium shadow-md text-white"
+              : "opacity-90 hover:bg-brand-color/30"
           }
         `}
       >
