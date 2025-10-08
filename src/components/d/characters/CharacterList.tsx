@@ -1,6 +1,5 @@
 import React from "react";
 import CharacterItem from "./CharacterItem";
-import { Plus, UserPlus } from "lucide-react";
 import NewCharacterBtn from "./NewCharacterBtn";
 import CharacterDetailModal from "./modal/character detail/CharacterDetailModal";
 export interface CharacterFace {
