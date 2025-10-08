@@ -2,7 +2,7 @@
 import { useThemeStore } from "@/stores/theme-store";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 
 const BrandLogo: React.FC = () => {
   const [logoPath, setLogoPath] = React.useState<string | null>(null);
@@ -10,11 +10,11 @@ const BrandLogo: React.FC = () => {
   const { isDark } = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (mounted) {
       document.documentElement.classList.toggle("dark", isDark);
     }
@@ -33,9 +33,10 @@ const BrandLogo: React.FC = () => {
           src={logoPath}
           alt="Logo"
           className="md:w-40"
+          loading="eager"
           width={150}
-          height={100}
-          quality={50}
+          height={50}
+          quality={70}
         />
       )}
     </div>
