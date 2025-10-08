@@ -19,7 +19,7 @@ const DeleteCharacterBtn: React.FC<DeleteCharacterBtnProps> = ({
         onClose={() => setIsOpenModal(false)}
       />
       <button
-        className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium hover:bg-red-500/80 hover:text-white transition-colors duration-200 disabled:hover:bg-transparent disabled:opacity-50 disabled:hover:text-inherit disabled:cursor-not-allowed"
+        className="w-1/2 cursor-pointer flex items-center justify-center gap-2 py-3 text-sm font-medium hover:bg-red-500/80 hover:text-white transition-[background-color] duration-200 disabled:hover:bg-transparent disabled:opacity-50 disabled:hover:text-inherit disabled:cursor-not-allowed"
         disabled={disabled}
         onClick={() => setIsOpenModal(true)}
       >
