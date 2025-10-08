@@ -16,20 +16,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body
-        className={`${IRANSans.className} h-screen relative bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
-        style={{
-          backgroundImage: "var(--custom-background-image)",
-        }}
-      >
-        <DashboardMenu />
-        <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
-        <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
-          <DashboardHeader />
-          <NuqsAdapter>{children}</NuqsAdapter>
-        </main>
-      </body>
-    </html>
+    <div
+      className={`${IRANSans.className} h-screen relative bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
+      style={{
+        backgroundImage: "var(--custom-background-image)",
+      }}
+    >
+      <DashboardMenu />
+      <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
+      <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
+        <DashboardHeader />
+        <NuqsAdapter>{children}</NuqsAdapter>
+      </main>
+    </div>
   );
 }
