@@ -84,7 +84,7 @@ const UserNotifications: React.FC = () => {
         </Badge>
       </BoxHeader>
 
-      <div className="overflow-y-auto bg-inside-box-bg-color rounded-lg p-2 space-y-2 h-[320px] sm:h-[340px] 2xl:h-[220px] duration-400 ease-out lg:hover:h-[440px] lg:hover:shadow-lg lg:hover:outline outline-gray-500/60">
+      <div className="overflow-y-auto bg-inside-box-bg-color transition-[height] rounded-lg p-2 space-y-2 h-[320px] sm:h-[340px] 2xl:h-[220px] duration-400 ease-out lg:hover:h-[440px] lg:hover:shadow-lg lg:hover:outline outline-gray-500/60">
         {notifications.map((notification) => (
           <Alert
             key={notification.id}

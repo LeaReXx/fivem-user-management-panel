@@ -24,7 +24,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
   };
 
   return (
-    <div className="bg-inside-box-bg-color shadow-lg rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 border border-white/10 transition hover:shadow-xl hover:scale-101 duration-300">
+    <div className="bg-inside-box-bg-color shadow-lg rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 border border-white/10 transition-transform hover:shadow-xl hover:scale-101 duration-300">
       <div className="cursor-pointer" onClick={() => setViewQueryOnClick(id)}>
         <div className="flex justify-between items-center p-3">
           <CharacterStatusHandler status={status} />

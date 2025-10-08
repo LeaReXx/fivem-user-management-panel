@@ -1,3 +1,5 @@
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { IRANSans } from "./fonts";
 import "./globals.css";
 
 export default function RootLayout({
@@ -30,7 +32,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body
+        className={`${IRANSans.className} h-screen relative bg-gray-400 dark:bg-zinc-900 bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
+        style={{
+          backgroundImage: "var(--custom-background-image)",
+        }}
+      >
+        <NuqsAdapter>{children}</NuqsAdapter>
+      </body>
     </html>
   );
 }

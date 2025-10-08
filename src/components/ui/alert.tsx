@@ -22,7 +22,7 @@ const alertVariants = cva(
           "bg-purple-950/70 dark:bg-purple-950/30 border-purple-800 text-purple-100 dark:text-purple-400 [&>svg]:text-purple-500",
       },
       clickable: {
-        true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01]",
+        true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01] transition-transform",
         false: "",
       },
     },
@@ -55,7 +55,9 @@ function Alert({
 
   const content = (
     <div data-slot="alert" role="alert" className={alertClasses} {...props}>
-      {icon && <DynamicIcon name={icon} className="w-5 h-5" strokeWidth={1.5} />}
+      {icon && (
+        <DynamicIcon name={icon} className="w-5 h-5" strokeWidth={1.5} />
+      )}
       {children}
     </div>
   );
@@ -104,10 +106,7 @@ function AlertTime({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-time"
-      className={cn(
-        "col-start-2 text-sm text-white/70 opacity-70",
-        className
-      )}
+      className={cn("col-start-2 text-sm text-white/70 opacity-70", className)}
       {...props}
     />
   );

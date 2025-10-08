@@ -1,7 +1,5 @@
-import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { Metadata } from "next";
 import "../globals.css";
-import { IRANSans } from "../fonts";
 import DashboardMenu from "@/components/d/shared/menu/DashboardMenu";
 import DashboardHeader from "@/components/d/shared/dashboard header/DashboardHeader";
 
@@ -16,17 +14,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div
-      className={`${IRANSans.className} h-screen relative bg-[var(--custom-background-color)] bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
-      style={{
-        backgroundImage: "var(--custom-background-image)",
-      }}
-    >
+    <div>
       <DashboardMenu />
       <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
       <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
         <DashboardHeader />
-        <NuqsAdapter>{children}</NuqsAdapter>
+        {children}
       </main>
     </div>
   );

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { IRANSans } from "../fonts";
 import ToggleThemeBtn from "@/components/auth/shared/ToggleThemeBtn";
-import Image from "next/image";
 import BrandLogo from "@/components/d/shared/menu/brand logo/BrandLogo";
 
 export const metadata: Metadata = {
@@ -16,12 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div
-      className={`${IRANSans.className} h-screen relative bg-gray-400 dark:bg-zinc-900 bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
-      style={{
-        backgroundImage: "var(--custom-background-image)",
-      }}
-    >
+    <div>
       <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2">
         <div className="py-5">
           <BrandLogo />
