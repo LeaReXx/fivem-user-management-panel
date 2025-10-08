@@ -3,7 +3,6 @@ import { authClient } from "@/lib/auth-client";
 import { useNavbarStore } from "@/stores";
 import { LogOut, Menu, Moon, Sun } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import UserProfile from "../user profile/UserProfile";
 import WalletInfo from "../wallet info/WalletInfo";
 import { useThemeStore } from "@/stores/theme-store";
