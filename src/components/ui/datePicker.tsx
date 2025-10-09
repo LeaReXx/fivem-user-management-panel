@@ -20,51 +20,57 @@ interface DatePickerProps {
 }
 
 export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
-  ({ error, onChange, value, placeholder = "تاریخ تولد", disabled = false }, ref) => {
+  (
+    { error, onChange, value, placeholder = "تاریخ تولد", disabled = false },
+    ref
+  ) => {
     const [open, setOpen] = React.useState(false);
     const [date, setDate] = React.useState<Date | undefined>(value);
-    
+
     React.useEffect(() => {
       if (onChange) onChange(date);
     }, [date, onChange]);
 
-  return (
-    <div className="flex flex-col gap-3">
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          {/* Trigger styled to match the input component: dark background, rounded-sm, padding, shadow, focus, disabled behavior */}
-          <button
-            ref={ref}
-            id="date"
-            className={`flex w-full items-center justify-between border border-main-text-color/10 bg-inside-box-bg-color placeholder:text-main-text-color/60 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${!date ? "text-main-text-color/60" : "text-main-text-color"} ${error ? "border-red-500" : ""}`}
-            disabled={disabled}
+    return (
+      <div className="flex flex-col gap-1">
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            {/* Trigger styled to match the input component: dark background, rounded-sm, padding, shadow, focus, disabled behavior */}
+            <button
+              ref={ref}
+              id="date"
+              className={`flex w-full items-center justify-between border border-main-text-color/10 bg-inside-box-bg-color placeholder:text-main-text-color/60 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${
+                !date ? "text-main-text-color/60" : "text-main-text-color"
+              } ${error ? "border-red-500" : ""}`}
+              disabled={disabled}
+            >
+              {date ? date.toLocaleDateString() : placeholder}
+              <ChevronDownIcon className="size-4 opacity-50 text-main-text-color/40" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
+            className="w-full overflow-hidden p-0 bg-inside-box-bg-color text-main-text-color rounded-sm shadow-lg border-0"
+            align="start"
           >
-            {date ? date.toLocaleDateString() : placeholder}
-            <ChevronDownIcon className="size-4 opacity-50 text-main-text-color/40" />
-          </button>
-        </PopoverTrigger>
-        <PopoverContent
-          className="w-full overflow-hidden p-0 bg-inside-box-bg-color text-main-text-color rounded-sm shadow-lg border-0"
-          align="start"
-        >
-          <Calendar
-            mode="single"
-            selected={date}
-            captionLayout="dropdown"
-            onSelect={(date) => {
-              setDate(date);
-              setOpen(false);
-            }}
-          />
-        </PopoverContent>
-      </Popover>
-      {error && (
-        <span className="text-red-400 text-sm mt-1 px-2 block bg-red-900/20 py-1 rounded">
-          {error}
-        </span>
-      )}
-    </div>
-  );
-});
+            <Calendar
+              mode="single"
+              selected={date}
+              captionLayout="dropdown"
+              onSelect={(date) => {
+                setDate(date);
+                setOpen(false);
+              }}
+            />
+          </PopoverContent>
+        </Popover>
+        {error && (
+          <span className="text-red-100 text-sm  px-2 block bg-red-500/70 py-1 rounded">
+            {error}
+          </span>
+        )}
+      </div>
+    );
+  }
+);
 
 Calendar22.displayName = "Calendar22";

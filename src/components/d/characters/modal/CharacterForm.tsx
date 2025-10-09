@@ -63,8 +63,10 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
   return (
     <div className="text-center">
       <form
-        className={`grid grid-cols-12 gap-4 ${disabled ? 'opacity-75' : ''}`}
-        onSubmit={formOnSubmit ? handleSubmit(formOnSubmit) : (e) => e.preventDefault()}
+        className={`grid grid-cols-12 gap-4 ${disabled ? "opacity-75" : ""}`}
+        onSubmit={
+          formOnSubmit ? handleSubmit(formOnSubmit) : (e) => e.preventDefault()
+        }
       >
         <div className="col-span-12 sm:col-span-6">
           <Input
@@ -95,7 +97,11 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 required: "جنسیت الزامی است",
               }}
               render={({ field }) => (
-                <Select onValueChange={field.onChange} value={field.value} disabled={disabled}>
+                <Select
+                  onValueChange={field.onChange}
+                  value={field.value}
+                  disabled={disabled}
+                >
                   <SelectTrigger
                     dir="rtl"
                     className={errors.gender ? "border-red-500" : ""}
@@ -112,7 +118,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
               )}
             />
             {errors.gender && (
-              <span className="text-red-400 text-sm mt-1 px-2 block bg-red-900/20 py-1 rounded">
+              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded">
                 {errors.gender.message}
               </span>
             )}
@@ -127,7 +133,11 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 required: "ملیت الزامی است",
               }}
               render={({ field }) => (
-                <Select onValueChange={field.onChange} value={field.value} disabled={disabled}>
+                <Select
+                  onValueChange={field.onChange}
+                  value={field.value}
+                  disabled={disabled}
+                >
                   <SelectTrigger
                     dir="rtl"
                     className={`${
@@ -163,7 +173,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
               )}
             />
             {errors.nationality && (
-              <span className="text-red-400 text-sm mt-1 px-2 block bg-red-900/20 py-1 rounded">
+              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded">
                 {errors.nationality.message}
               </span>
             )}
@@ -186,7 +196,6 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                 value={field.value}
                 onChange={field.onChange}
                 disabled={disabled}
-
                 error={errors.birthDate?.message}
               />
             )}
@@ -197,7 +206,6 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
             className="min-h-[200px] md:min-h-[300px]"
             disabled={disabled}
             placeholder="بک استوری کاراکتر"
-            
             {...register("backstory", {
               required: "بک استوری الزامی است",
               minLength: {
