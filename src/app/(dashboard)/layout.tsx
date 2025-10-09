@@ -14,13 +14,15 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="max-w-[1600px] mx-auto min-h-[100dvh] flex">
       <DashboardMenu />
-      <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
-      <main className="lg:mr-65 xl:mr-70 p-4 space-y-4">
-        <DashboardHeader />
-        {children}
-      </main>
+      <div className="flex-1 relative">
+        <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>
+        <main className="p-4 space-y-4">
+          <DashboardHeader />
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

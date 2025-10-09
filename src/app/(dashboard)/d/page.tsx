@@ -9,6 +9,7 @@ const DashboardPage: React.FC = () => {
       <UserSubscriptionStatus />
       <UserNotifications />
       <FeaturedProducts />
+      <div className="h-[2000px] col-span-12 order-4"></div>
     </div>
   );
 };
