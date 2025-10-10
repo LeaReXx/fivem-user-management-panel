@@ -22,7 +22,20 @@ const UserSubscriptionStatus: React.FC = () => {
           </Button>
         </div>
       </BoxHeader>
-      <div className="mt-8 flex items-center flex-col-reverse w-full 2xl:h-[80%] mx-auto max-w-[400px] sm:max-w-none xl:max-w-[450px] 2xl:max-w-none sm:flex-row md:flex-col-reverse 2xl:flex-row 2xl:mt-4 gap-6 justify-between">
+      <div className="mt-8 flex items-center flex-col w-full 2xl:h-[80%] mx-auto max-w-[400px] sm:max-w-none xl:max-w-[450px] 2xl:max-w-none sm:flex-row md:flex-col 2xl:flex-row 2xl:mt-4 gap-6 justify-between">
+        <div className="w-full sm:w-1/3 md:w-full 2xl:w-1/3 flex items-center justify-center m-4">
+          <CircularProgressBar
+            percentage={75}
+            remainingDays={32}
+            size={220}
+            strokeWidth={15}
+            gradientColors={["#ef4444", "#22c55e"]}
+            showPercentage={false}
+            showRemainingDays={true}
+            duration={3000}
+            semicircle={true}
+          />
+        </div>
         <div className="w-full sm:w-2/3 md:w-full space-y-3 2xl:2/3 2xl:max-w-[450px]">
           <div className="flex items-center justify-between bg-gradient-to-r from-inside-box-bg-color/90 to-transparent p-3 rounded-md">
             <span className="flex gap-2 items-center opacity-80">
@@ -46,19 +59,6 @@ const UserSubscriptionStatus: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-full sm:w-1/3 md:w-full 2xl:w-1/3 flex items-center justify-center m-4">
-          <CircularProgressBar
-            percentage={75}
-            remainingDays={32}
-            size={220}
-            strokeWidth={15}
-            gradientColors={["#ef4444", "#22c55e"]}
-            showPercentage={false}
-            showRemainingDays={true}
-            duration={3000}
-            semicircle={true}
-          />
         </div>
       </div>
     </div>
