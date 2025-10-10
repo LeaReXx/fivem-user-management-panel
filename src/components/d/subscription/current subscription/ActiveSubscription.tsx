@@ -11,7 +11,7 @@ import CircularProgressBar from "@/components/ui/CircularProgressBar";
 
 const ActiveSubscription: React.FC = () => {
   return (
-    <div className="bg-content-box-bg-color-1/80 rounded-lg p-4 w-full">
+    <div className="bg-inside-box-bg-color/90 rounded-lg p-4 w-full">
       <div className="pb-4">
         <p className="flex gap-2 font-medium">
           <CalendarClock size={22} strokeWidth={1.5} /> اشتراک فعال

@@ -11,19 +11,8 @@ const SubscriptionPage: React.FC = () => {
 
       <div className="grid grid-cols-12 mt-6 gap-4">
         <CurrentSubscription />
-        <div className="w-full h-full overflow-hidden rounded-md relative xl:col-span-4 hover:scale-102 duration-200 ease-in group">
-          <div
-            className="h-full p-4 rounded-md flex items-center justify-center flex-col gap-6 cursor-pointer"
-            style={{
-              background: "#020617",
-              backgroundImage: `
-        linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
-        radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)
-      `,
-              backgroundSize: "40px 40px, 40px 40px, 100% 100%",
-            }}
-          >
+        <div className="w-full h-full bg-inside-box-bg-color overflow-hidden rounded-md relative xl:col-span-4 hover:scale-102 duration-200 ease-in group">
+          <div className="h-full p-4 rounded-md flex items-center justify-center flex-col gap-6 cursor-pointer">
             <div className="space-y-2">
               <Crown className="mx-auto" size={50} strokeWidth={1.5} />
               <div className="text-center">

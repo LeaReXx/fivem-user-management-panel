@@ -38,7 +38,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             type={inputType}
-            className={`${extendClassName} border border-main-text-color/10 bg-inside-box-bg-color/90 autofill:bg-none autofill:bg-transparent disabled:opacity-80 w-full rounded-sm py-3 placeholder:font-normal font-normal placeholder:text-main-text-color/60 outline-0 focus:outline-2 focus:outline-white/30 shadow-md focus:shadow-lg ${
+            className={`${extendClassName} border border-main-text-color/10 bg-input-color autofill:bg-none autofill:bg-transparent disabled:opacity-80 w-full rounded-sm py-3 placeholder:font-normal font-normal placeholder:text-main-text-color/60 outline-0 focus:outline-2 focus:outline-white/30 shadow-md focus:shadow-lg ${
               icon ? "pr-10" : "px-2"
             } ${isPasswordField ? "pl-12" : icon ? "pl-2" : "px-2"} ${
               error ? "border border-red-500" : ""
