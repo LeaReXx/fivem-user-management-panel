@@ -34,19 +34,19 @@ const DashboardHeader = () => {
       <div className="flex gap-1 lg:gap-2">
         <button
           onClick={toggleTheme}
-          className="cursor-pointer p-2 rounded-lg hover:bg-inside-box-bg-color/50 transition-transform duration-200 ease-in-out"
+          className="cursor-pointer p-2 rounded-lg hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
           title={`Switch to ${isDark ? "light" : "dark"} mode`}
         >
           {isDark ? <Sun strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
         </button>
         <button
           onClick={toggleNavbar}
-          className="lg:hidden cursor-pointer p-2 rounded-lg hover:bg-inside-box-bg-color/50"
+          className="lg:hidden cursor-pointer p-2 rounded-lg hover:bg-input-color/50"
         >
           <Menu strokeWidth={1.5} />
         </button>
         <button
-          className="hidden lg:flex items-center gap-2 justify-center cursor-pointer p-2 hover:bg-inside-box-bg-color/50 rounded-md"
+          className="hidden lg:flex items-center gap-2 justify-center cursor-pointer p-2 hover:bg-input-color/50 rounded-md"
           onClick={onClickLogout}
         >
           <LogOut strokeWidth={1.5} />

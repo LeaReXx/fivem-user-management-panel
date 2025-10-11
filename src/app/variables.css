@@ -11,8 +11,8 @@
   --bg-page-header-color-plate-2: #edede9;
   --bg-content-box-plate-1: #e3d5cae6;
   --bg-content-box-plate-2: #f5ebe0e6;
-  --bg-inside-box: #d5bdaf;
-  --bg-input:#d5bdaf;
+  --bg-inside-box: #d5bdafe6;
+  --bg-input:#bbada4;
 
 }
 
@@ -23,9 +23,9 @@
   --bg-navbar-color-plate-2: #1A3636;
   --bg-page-header-color-plate-1: #1A3636;
   --bg-page-header-color-plate-2: #1A3636;
-  --bg-content-box-plate-1: #295353;
-  --bg-content-box-plate-2: #295353;
-  --bg-inside-box: #40534C;
+  --bg-content-box-plate-1: #295353e6;
+  --bg-content-box-plate-2: #295353e6;
+  --bg-inside-box: #1b4738e6;
   --bg-input:#142b2b;
 }
 

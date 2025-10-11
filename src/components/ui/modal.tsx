@@ -111,7 +111,7 @@ const Modal: React.FC<ModalProps> = ({
               {showCloseButton && (
                 <button
                   onClick={onClose}
-                  className="p-2 rounded-lg cursor-pointer hover:bg-inside-box-bg-color/50 transition-all duration-200"
+                  className="p-2 rounded-lg cursor-pointer hover:bg-input-color/50 transition-all duration-200"
                   aria-label="بستن"
                 >
                   <X size={24} className="text-main-text-color/50 transition-colors" />

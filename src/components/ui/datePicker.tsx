@@ -39,7 +39,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             <button
               ref={ref}
               id="date"
-              className={`flex w-full items-center justify-between border border-main-text-color/10 bg-inside-box-bg-color placeholder:text-main-text-color/60 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${
+              className={`flex w-full items-center justify-between font-normal border border-main-text-color/10 bg-input-color placeholder:text-main-text-color/60 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${
                 !date ? "text-main-text-color/60" : "text-main-text-color"
               } ${error ? "border-red-500" : ""}`}
               disabled={disabled}
@@ -49,7 +49,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             </button>
           </PopoverTrigger>
           <PopoverContent
-            className="w-full overflow-hidden p-0 bg-inside-box-bg-color text-main-text-color rounded-sm shadow-lg border-0"
+            className="w-full overflow-hidden p-0 bg-input-color text-main-text-color rounded-sm shadow-lg border-0"
             align="start"
           >
             <Calendar

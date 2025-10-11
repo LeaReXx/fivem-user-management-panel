@@ -29,7 +29,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-inside-box-bg-color group/calendar p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+        "bg-input-color group/calendar p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
@@ -70,11 +70,11 @@ function Calendar({
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
-          "relative has-focus:border-ring border-0 shadow-md has-focus:ring-ring/50 has-focus:ring-[3px] rounded-sm bg-inside-box-bg-color",
+          "relative has-focus:border-ring border-0 shadow-md has-focus:ring-ring/50 has-focus:ring-[3px] rounded-sm bg-input-color",
           defaultClassNames.dropdown_root
         ),
         dropdown: cn(
-          "absolute bg-content-box-bg-color-2 rounded-md inset-0 opacity-100 text-main-text-color",
+          "absolute bg-input-color rounded-md inset-0 opacity-100 text-main-text-color",
           defaultClassNames.dropdown
         ),
         caption_label: cn(

@@ -29,7 +29,7 @@ body {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   --radius: 0.65rem;
   /* Design system color tokens */
   --color-background: var(--background);
@@ -131,4 +131,46 @@ body {
 
 .animate-slideDown {
   animation: slideDown 0.3s ease-out;
+}
+
+/* gradient border */
+
+.gradient-border {
+  --border-width: 2px;
+
+  position: relative;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 70%, 60%),
+      hsl(269, 70%, 60%),
+      hsl(314, 70%, 60%),
+      hsl(359, 70%, 60%),
+      hsl(44, 70%, 60%),
+      hsl(124, 70%, 60%),
+      hsl(179, 70%, 60%)
+    );
+    background-size: 500% 500%;
+    background-position: 0 50%;
+    border-radius: 10px;
+    animation: moveGradient 8s alternate infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
 }
