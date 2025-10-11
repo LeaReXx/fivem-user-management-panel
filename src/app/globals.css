@@ -6,15 +6,13 @@
 }
 @custom-variant dark (&:where(.dark, .dark *));
 
-
-
 body {
   color: var(--main-text-color);
   font-weight: 300;
 }
 
 @theme inline {
-    /* Custom color mappings */
+  /* Custom color mappings */
   --color-brand-color: var(--brand-color);
   --color-main-text-color: var(--main-text-color);
   --color-navbar-bg-color-1: var(--bg-navbar-color-plate-1);
@@ -31,7 +29,8 @@ body {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
+  
+  --radius: 0.65rem;
   /* Design system color tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
