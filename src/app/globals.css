@@ -154,13 +154,13 @@ body {
     height: calc(100% + var(--border-width) * 2);
     background: linear-gradient(
       60deg,
-      hsl(224, 70%, 60%),
-      hsl(269, 70%, 60%),
-      hsl(314, 70%, 60%),
-      hsl(359, 70%, 60%),
-      hsl(44, 70%, 60%),
-      hsl(124, 70%, 60%),
-      hsl(179, 70%, 60%)
+      hsl(224, 90%, 50%),
+      hsl(269, 90%, 50%),
+      hsl(314, 90%, 50%),
+      hsl(359, 90%, 50%),
+      hsl(44, 90%, 50%),
+      hsl(124, 90%, 50%),
+      hsl(179, 90%, 50%)
     );
     background-size: 500% 500%;
     background-position: 0 50%;

@@ -166,7 +166,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
               className={`text-4xl font-bold transition-colors duration-300`}
               style={{ color: getColorByPercentage(animatedPercentage) }}
             >
-              <CountUp end={remainingDays} duration={3} />
+              <CountUp end={remainingDays} duration={duration / 1000} />
             </span>
             <span className="text-lg opacity-70">روز باقیمانده</span>
           </div>

@@ -1,5 +1,4 @@
-import React from "react";
-import BoxHeader from "../../shared/box header/BoxHeader";
+import React, { useState } from "react";
 import {
   Calendar,
   CalendarClock,
@@ -8,10 +7,14 @@ import {
   TrendingUp,
 } from "lucide-react";
 import CircularProgressBar from "@/components/ui/CircularProgressBar";
+import NoSubscription from "./NoSubscription";
 
 const ActiveSubscription: React.FC = () => {
+  const [isActiveSubscription, setIsActiveSubscription] = useState(false);
+
   return (
-    <div className="bg-inside-box-bg-color/90 rounded-lg p-4 w-full">
+    <div className="overflow-hidden relative bg-inside-box-bg-color/90 rounded-lg p-4 w-full">
+      {!isActiveSubscription && <NoSubscription />}
       <div className="pb-4">
         <p className="flex gap-2 font-medium">
           <CalendarClock size={22} strokeWidth={1.5} /> اشتراک فعال

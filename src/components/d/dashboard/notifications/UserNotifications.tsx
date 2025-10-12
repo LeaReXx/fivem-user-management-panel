@@ -77,7 +77,7 @@ const notifications: NotificationItem[] = [
 
 const UserNotifications: React.FC = () => {
   return (
-    <div className="order-1 md:order-2 relative space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg p-4 sm:h-[425px] 2xl:h-[300px] lg:z-10">
+    <div className="order-1 md:order-2 relative space-y-4 col-span-12 md:col-span-6 md:col-start-7 md:col-end-13 lg:col-start-7 lg:col-end-13 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 rounded-lg p-4 sm:h-[425px] 2xl:h-[300px] lg:z-10">
       <BoxHeader title="اعلانات" iconName="bell">
         <Badge
           className="border-main-text-color/70 text-main-text-color/70 py-2"
