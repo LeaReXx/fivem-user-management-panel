@@ -1,6 +1,7 @@
 "use client";
 import BoxHeader from "@/components/d/shared/box header/BoxHeader";
 import CurrentSubscription from "@/components/d/subscription/current subscription/CurrentSubscription";
+import SubscriptionHistory from "@/components/d/subscription/subscription history/SubscriptionHistory";
 import { ArrowLeft, Crown, Sparkle, Sparkles } from "lucide-react";
 import React from "react";
 
@@ -16,7 +17,7 @@ const SubscriptionPage: React.FC = () => {
             <div className="absolute h-full w-full top-0 right-0 opacity-30">
               <Sparkles
                 size={28}
-                strokeWidth={1.5} 
+                strokeWidth={1.5}
                 className="absolute top-[15%] right-[10%]"
               />
               <Sparkle
@@ -37,7 +38,7 @@ const SubscriptionPage: React.FC = () => {
               </div>
               <div>
                 <button className="bg-main-text-color/10 group-hover:bg-main-text-color/20 cursor-pointer py-2 px-4 font-normal rounded-sm flex items-center gap-1 text-sm">
-                  برای ادامه کلیک کنید{" "}
+                  برای ادامه کلیک کنید
                   <ArrowLeft
                     size={20}
                     strokeWidth={1.5}
@@ -49,6 +50,7 @@ const SubscriptionPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <SubscriptionHistory />
     </div>
   );
 };

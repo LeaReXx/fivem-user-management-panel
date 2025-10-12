@@ -7,7 +7,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import CircularProgressBar from "@/components/ui/CircularProgressBar";
-import NoSubscription from "./NoSubscription";
+import NoSubscription from "../../shared/no subscription/NoSubscription";
 
 const ActiveSubscription: React.FC = () => {
   const [isActiveSubscription, setIsActiveSubscription] = useState(false);
@@ -23,8 +23,8 @@ const ActiveSubscription: React.FC = () => {
       <div className="flex flex-col justify-between gap-y-4 md:gap-8 md:flex-row items-center">
         <div className="mx-auto">
           <CircularProgressBar
-            percentage={75}
-            remainingDays={32}
+            percentage={0}
+            remainingDays={0}
             size={200}
             strokeWidth={15}
             gradientColors={["#ef4444", "#22c55e"]}

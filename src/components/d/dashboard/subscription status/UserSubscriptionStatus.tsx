@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import CircularProgressBar from "@/components/ui/CircularProgressBar";
 import Link from "next/link";
-import NoSubscription from "../../subscription/current subscription/NoSubscription";
+import NoSubscription from "../../shared/no subscription/NoSubscription";
 
 const UserSubscriptionStatus: React.FC = () => {
   const [isActiveSubscription, setIsActiveSubscription] = useState(false);

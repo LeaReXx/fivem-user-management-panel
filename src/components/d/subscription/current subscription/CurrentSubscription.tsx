@@ -1,6 +1,5 @@
 import React from "react";
 import ActiveSubscription from "./ActiveSubscription";
-import NoSubscription from "./NoSubscription";
 
 const CurrentSubscription: React.FC = () => {
   return (
