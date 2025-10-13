@@ -2,14 +2,8 @@
 
 import * as React from "react";
 import { ChevronDownIcon } from "lucide-react";
-
 import { Calendar } from "@/components/ui/calendar";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface DatePickerProps {
   error?: string;
@@ -17,11 +11,19 @@ interface DatePickerProps {
   value?: Date;
   placeholder?: string;
   disabled?: boolean;
+  size?: "sm" | "md";
 }
 
 export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
   (
-    { error, onChange, value, placeholder = "تاریخ تولد", disabled = false },
+    {
+      error,
+      onChange,
+      value,
+      placeholder = "تاریخ تولد",
+      disabled = false,
+      size = "md",
+    },
     ref
   ) => {
     const [open, setOpen] = React.useState(false);
@@ -31,15 +33,19 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       if (onChange) onChange(date);
     }, [date, onChange]);
 
+    const sizeClasses = {
+      sm: "py-2 px-2 text-sm",
+      md: "py-3 px-3 text-base",
+    };
+
     return (
       <div className="flex flex-col gap-1">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
-            {/* Trigger styled to match the input component: dark background, rounded-sm, padding, shadow, focus, disabled behavior */}
             <button
               ref={ref}
               id="date"
-              className={`flex w-full items-center justify-between font-normal border border-main-text-color/10 bg-input-color placeholder:text-main-text-color/60 rounded-sm py-3 px-3 shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${
+              className={`flex w-full items-center justify-between font-normal border border-main-text-color/10 bg-input-color placeholder:text-main-text-color/60 rounded-sm shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${sizeClasses[size]} ${
                 !date ? "text-main-text-color/60" : "text-main-text-color"
               } ${error ? "border-red-500" : ""}`}
               disabled={disabled}
@@ -64,7 +70,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
           </PopoverContent>
         </Popover>
         {error && (
-          <span className="text-red-100 text-sm  px-2 block bg-red-500/70 py-1 rounded">
+          <span className="text-red-100 text-sm px-2 block bg-red-500/70 py-1 rounded">
             {error}
           </span>
         )}

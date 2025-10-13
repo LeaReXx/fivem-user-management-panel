@@ -1,29 +1,26 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import { Check, Ellipsis, Eye, History } from "lucide-react";
+import { ColumnDef } from "@tanstack/react-table";
+import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 
-const subscriptions = [
+// Type definition
+type Subscription = {
+  id: string;
+  type: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+  amount: string;
+};
+
+// Data
+const subscriptions: Subscription[] = [
   {
     id: "XcA4Qt6",
     type: "پرمیوم",
@@ -123,10 +120,7 @@ const subscriptions = [
 ];
 
 const SubscriptionHistory: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const getStatusIcon = (status: string) => {
+  const getStatusBadge = (status: string) => {
     switch (status) {
       case "فعال":
         return <Badge className="bg-green-600">{status}</Badge>;
@@ -139,139 +133,120 @@ const SubscriptionHistory: React.FC = () => {
     }
   };
 
-  // Calculate pagination values
-  const totalPages = Math.ceil(subscriptions.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentSubscriptions = subscriptions.slice(startIndex, endIndex);
+  const columns = useMemo<ColumnDef<Subscription>[]>(
+    () => [
+      // استفاده از helper برای ستون‌های ساده
+      createSortableColumn<Subscription>("id", "شناسه"),
+      createSortableColumn<Subscription>("type", "نوع اشتراک"),
+      createSortableColumn<Subscription>("startDate", "تاریخ شروع"),
+      createSortableColumn<Subscription>("endDate", "تاریخ پایان"),
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
+      // ستون وضعیت با استایل سفارشی
+      {
+        accessorKey: "status",
+        header: ({ column }) => {
+          return (
+            <button
+              className="flex items-center gap-2 hover:text-foreground/80"
+              onClick={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            >
+              وضعیت
+            </button>
+          );
+        },
+        cell: (info) => (
+          <div className="flex items-center gap-2">
+            {getStatusBadge(info.getValue() as string)}
+          </div>
+        ),
+        filterFn: "equalsString",
+      },
+
+      // ستون مبلغ
+      {
+        accessorKey: "amount",
+        header: "مبلغ",
+        cell: (info) => (
+          <div className="text-right">{info.getValue() as string}</div>
+        ),
+      },
+
+      // ستون عملیات
+      {
+        id: "actions",
+        header: "",
+        cell: ({ row }) => {
+          return (
+            <Popover>
+              <PopoverTrigger asChild>
+                <button className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                  <Ellipsis size={20} strokeWidth={1.5} />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="p-0 overflow-hidden w-[150px] border border-main-text-color/10">
+                <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                  <Eye size={20} strokeWidth={1.5} />
+                  جزئیات
+                </button>
+                {row.original.status === "رزرو" && (
+                  <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                    <Check size={20} strokeWidth={1.5} />
+                    فعالسازی
+                  </button>
+                )}
+              </PopoverContent>
+            </Popover>
+          );
+        },
+      },
+    ],
+    []
+  );
 
   return (
-    <div className="col-span-12 order-3 bg-inside-box-bg-color/90  rounded-lg p-4 mt-4">
+    <div className="col-span-12 order-3 bg-inside-box-bg-color/90 rounded-lg p-4 mt-4">
       <div className="pb-4">
         <p className="flex gap-2 font-medium">
           <History size={22} strokeWidth={1.5} /> سوابق خرید اشتراک
         </p>
       </div>
-      <div className="w-full  min-h-[400px]">
-        <Table className="!min-w-[800px]" dir="rtl">
-          <TableHeader>
-            <TableRow className="border-b border-main-text-color/40 hover:bg-transparent opacity-70">
-              <TableHead className="w-[100px] pb-4 font-light">شناسه</TableHead>
-              <TableHead className="pb-4 font-light">نوع اشتراک</TableHead>
-              <TableHead className="pb-4 font-light">تاریخ شروع</TableHead>
-              <TableHead className="pb-4 font-light">تاریخ پایان</TableHead>
-              <TableHead className="pb-4 font-light">وضعیت</TableHead>
-              <TableHead className="pb-4 font-light">مبلغ</TableHead>
-              <TableHead></TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="space-y-2">
-            {currentSubscriptions.map((subscription) => (
-              <TableRow
-                key={subscription.id}
-                className="hover:bg-input-color/50 border-b border-main-text-color/10 rounded-lg"
-              >
-                <TableCell className="text-right py-4">
-                  {subscription.id}
-                </TableCell>
-                <TableCell className="text-right py-4 font-normal">
-                  {subscription.type}
-                </TableCell>
-                <TableCell className="text-right py-4">
-                  {subscription.startDate}
-                </TableCell>
-                <TableCell className="text-right py-4">
-                  {subscription.endDate}
-                </TableCell>
-                <TableCell className="flex items-center gap-2 py-4">
-                  {getStatusIcon(subscription.status)}
-                </TableCell>
-                <TableCell className="text-right py-4">
-                  {subscription.amount}
-                </TableCell>
-                <TableCell>
-                  <Popover>
-                    <PopoverTrigger>
-                      <button className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
-                        <Ellipsis size={20} strokeWidth={1.5} />
-                      </button>
-                    </PopoverTrigger>
-                    <PopoverContent className="p-0 overflow-hidden w-[150px] border border-main-text-color/10">
-                      <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
-                        <Eye size={20} strokeWidth={1.5} />
-                        جزئیات
-                      </button>
-                      {subscription.status === "رزرو" && (
-                        <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
-                          <Check size={20} strokeWidth={1.5} />
-                          فعالسازی
-                        </button>
-                      )}
-                    </PopoverContent>
-                  </Popover>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-      {totalPages > 1 && (
-        <Pagination className="mt-4">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageChange(currentPage - 1);
-                }}
-                className={
-                  currentPage === 1 ? "pointer-events-none opacity-50" : ""
-                }
-              />
-            </PaginationItem>
 
-            {[...Array(totalPages)].map((_, i) => {
-              const page = i + 1;
-              return (
-                <PaginationItem key={page}>
-                  <PaginationLink
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handlePageChange(page);
-                    }}
-                    isActive={currentPage === page}
-                  >
-                    {page}
-                  </PaginationLink>
-                </PaginationItem>
-              );
-            })}
-
-            <PaginationItem>
-              <PaginationNext
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageChange(currentPage + 1);
-                }}
-                className={
-                  currentPage === totalPages
-                    ? "pointer-events-none opacity-50"
-                    : ""
-                }
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
+      <DataTable
+        columns={columns}
+        data={subscriptions}
+        searchable={true}
+        inputSize="sm"
+        searchPlaceholder="جستجو در همه ستون‌ها..."
+        filterable={true}
+        // filters={[
+        //   {
+        //     columnKey: "status",
+        //     label: "وضعیت ها",
+        //     options: [
+        //       { label: "فعال", value: "فعال" },
+        //       { label: "رزرو", value: "رزرو" },
+        //       { label: "منقضی شده", value: "منقضی شده" },
+        //     ],
+        //   },
+        //   {
+        //     columnKey: "type",
+        //     label: "اشتراک ها",
+        //     options: [
+        //       { label: "پایه", value: "پایه" },
+        //       { label: "استاندارد", value: "استاندارد" },
+        //       { label: "پرمیوم", value: "پرمیوم" },
+        //       { label: "الیت", value: "الیت" },
+        //     ],
+        //   },
+        // ]}
+        defaultPageSize={10}
+        showPagination={true}
+        showRowCount={true}
+        dir="rtl"
+        minWidth="800px"
+      />
     </div>
   );
 };

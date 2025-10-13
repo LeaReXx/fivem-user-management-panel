@@ -3,7 +3,6 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 function Select({
@@ -26,18 +25,24 @@ function SelectValue({
 
 function SelectTrigger({
   className,
-  size = "default",
+  size = "md", // پیش‌فرض md
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
-  size?: "sm" | "default";
+  size?: "sm" | "md";
 }) {
+  const sizeClasses = {
+    sm: "py-2 px-2 text-sm",
+    md: "py-3 px-3 text-base",
+  };
+
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "data-[placeholder]:text-main-text-color/60 font-normal border border-main-text-color/10 [&_svg:not([class*='text-'])]:text-main-text-color/40 bg-input-color flex w-full items-center justify-between gap-2 rounded-sm px-3 py-3 text-base whitespace-nowrap shadow-md transition-[color,box-shadow] outline-none focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:cursor-not-allowed disabled:opacity-80 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 aria-invalid:border aria-invalid:border-red-500",
+        "data-[placeholder]:text-main-text-color/60 font-normal border border-main-text-color/10 [&_svg:not([class*='text-'])]:text-main-text-color/40 bg-input-color flex w-full items-center justify-between gap-2 rounded-sm whitespace-nowrap shadow-md transition-[color,box-shadow] outline-none focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:cursor-not-allowed disabled:opacity-80 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 aria-invalid:border aria-invalid:border-red-500",
+        sizeClasses[size],
         className
       )}
       {...props}
@@ -50,6 +55,7 @@ function SelectTrigger({
   );
 }
 
+// سایر بخش‌ها بدون تغییر
 function SelectContent({
   className,
   children,
@@ -109,7 +115,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "hover:bg-white/10  focus:bg-white/10 [&_svg:not([class*='text-'])]:text-main-text-color/40 relative flex w-full cursor-default items-center gap-2 rounded-sm py-2 pr-8 pl-2 text-base outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-80 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+        "hover:bg-white/10  focus:bg-white/10 [&_svg:not([class*='text-'])]:text-main-text-color/40 relative flex w-full cursor-default items-center gap-2 rounded-sm py-2 pr-8 pl-2 text-base outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-80 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
