@@ -7,10 +7,9 @@ import React from "react";
 
 const SubscriptionPage: React.FC = () => {
   return (
-    <div className="order-2 md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg p-4 min-h-[500px]">
+    <div className="grid grid-cols-12 gap-4 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg p-4 min-h-[500px]">
       <BoxHeader title="اشتراک" iconName="dollar-sign" />
 
-      <div className="grid grid-cols-12 mt-6 gap-4">
         <CurrentSubscription />
         <div className="col-span-12 order-1 xl:order-2 xl:col-span-4 gradient-border hover:scale-102 duration-200 ease-in group cursor-pointer">
           <div className="w-full h-full bg-inside-box-bg-color overflow-hidden rounded-md relative">
@@ -49,7 +48,7 @@ const SubscriptionPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+
       <SubscriptionHistory />
     </div>
   );

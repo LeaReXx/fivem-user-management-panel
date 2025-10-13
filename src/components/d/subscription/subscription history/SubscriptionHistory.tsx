@@ -85,7 +85,7 @@ const subscriptions = [
   },
 ];
 
-const  SubscriptionHistory: React.FC = () => {
+const SubscriptionHistory: React.FC = () => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "فعال":
@@ -100,14 +100,14 @@ const  SubscriptionHistory: React.FC = () => {
   };
 
   return (
-    <div className="bg-inside-box-bg-color/90  rounded-lg p-4 mt-4">
+    <div className="col-span-12 order-3 bg-inside-box-bg-color/90  rounded-lg p-4 mt-4">
       <div className="pb-4">
         <p className="flex gap-2 font-medium">
           <History size={22} strokeWidth={1.5} /> سوابق خرید اشتراک
         </p>
       </div>
       <div className="w-full">
-        <Table className="!min-w-[500px]" dir="rtl">
+        <Table className="!min-w-[800px]" dir="rtl">
           <TableHeader>
             <TableRow className="border-b border-main-text-color/40 hover:bg-transparent">
               <TableHead className="w-[100px] text-right pb-4">شناسه</TableHead>
