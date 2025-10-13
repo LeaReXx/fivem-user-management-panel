@@ -1,28 +1,32 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useRef } from 'react';
-import { createHighlighter, Highlighter } from 'shiki';
-import { Button } from '@/components/ui/button';
-import { Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { useEffect, useState, useRef } from "react";
+import { createHighlighter, Highlighter } from "shiki";
+import { Button } from "@/components/ui/button";
+import { Loader2, CheckCircle, XCircle } from "lucide-react";
 
 export default function ShikiEditor() {
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState("");
   const [isSaving, setIsSaving] = useState(false);
-  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [saveStatus, setSaveStatus] = useState<
+    "idle" | "saving" | "saved" | "error"
+  >("idle");
   const [highlighter, setHighlighter] = useState<Highlighter | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
   /** 🧩 Load CSS File */
   useEffect(() => {
-    (async () => {
+    const loadCSSContent = async () => {
       try {
-        const res = await fetch('/variables.css');
-        const text = await res.text();
-        setCode(text);
-      } catch (err) {
-        console.error('❌ Failed to load CSS:', err);
+        const response = await fetch("/api/save-css"); // 👈 از API جدید می‌خونه
+        const data = await response.json();
+        setCode(data.content || "");
+      } catch (error) {
+        console.error("Failed to load CSS content:", error);
       }
-    })();
+    };
+
+    loadCSSContent();
   }, []);
 
   /** 🎨 Initialize Shiki */
@@ -30,12 +34,12 @@ export default function ShikiEditor() {
     (async () => {
       try {
         const highlighterInstance = await createHighlighter({
-          themes: ['github-dark'],
-          langs: ['css'],
+          themes: ["github-dark"],
+          langs: ["css"],
         });
         setHighlighter(highlighterInstance);
       } catch (err) {
-        console.error('❌ Failed to initialize Shiki:', err);
+        console.error("❌ Failed to initialize Shiki:", err);
       }
     })();
   }, []);
@@ -44,8 +48,8 @@ export default function ShikiEditor() {
   useEffect(() => {
     if (!highlighter || !previewRef.current) return;
     const html = highlighter.codeToHtml(code, {
-      lang: 'css',
-      theme: 'github-dark',
+      lang: "css",
+      theme: "github-dark",
     });
     previewRef.current.innerHTML = html;
   }, [code, highlighter]);
@@ -53,24 +57,24 @@ export default function ShikiEditor() {
   /** 💾 Save Handler */
   const handleSave = async () => {
     setIsSaving(true);
-    setSaveStatus('saving');
+    setSaveStatus("saving");
 
     try {
-      const response = await fetch('/api/save-css', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/save-css", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: code }),
       });
 
       if (response.ok) {
-        setSaveStatus('saved');
-        setTimeout(() => setSaveStatus('idle'), 2000);
+        setSaveStatus("saved");
+        setTimeout(() => setSaveStatus("idle"), 2000);
       } else {
-        setSaveStatus('error');
+        setSaveStatus("error");
       }
     } catch (err) {
-      console.error('❌ Save failed:', err);
-      setSaveStatus('error');
+      console.error("❌ Save failed:", err);
+      setSaveStatus("error");
     } finally {
       setIsSaving(false);
     }
@@ -78,12 +82,12 @@ export default function ShikiEditor() {
 
   /** ⌨️ Tab Key Handler */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Tab') {
+    if (e.key === "Tab") {
       e.preventDefault();
       const target = e.target as HTMLTextAreaElement;
       const start = target.selectionStart;
       const end = target.selectionEnd;
-      const newText = code.substring(0, start) + '  ' + code.substring(end);
+      const newText = code.substring(0, start) + "  " + code.substring(end);
       setCode(newText);
       requestAnimationFrame(() => {
         target.selectionStart = target.selectionEnd = start + 2;
@@ -92,7 +96,10 @@ export default function ShikiEditor() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-5xl mx-auto p-6 h-full space-y-4" dir="ltr">
+    <div
+      className="flex flex-col w-full max-w-5xl mx-auto p-6 h-full space-y-4"
+      dir="ltr"
+    >
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
@@ -117,12 +124,12 @@ export default function ShikiEditor() {
             )}
           </Button>
 
-          {saveStatus === 'saved' && (
+          {saveStatus === "saved" && (
             <div className="flex items-center text-green-500 text-sm font-medium gap-1">
               <CheckCircle className="w-4 h-4" /> Saved
             </div>
           )}
-          {saveStatus === 'error' && (
+          {saveStatus === "error" && (
             <div className="flex items-center text-red-500 text-sm font-medium gap-1">
               <XCircle className="w-4 h-4" /> Error
             </div>
