@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "./variables.css";
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   direction: rtl;
