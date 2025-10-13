@@ -213,7 +213,7 @@ export function DataTable<TData>({
           {/* Row Count */}
           {showRowCount && (
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-main-text-color/70">
                 نمایش{" "}
                 {table.getState().pagination.pageIndex *
                   table.getState().pagination.pageSize +
