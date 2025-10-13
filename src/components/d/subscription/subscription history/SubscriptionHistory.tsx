@@ -6,14 +6,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React from "react";
-import { Check, Ellipsis, Eye, History } from "lucide-react";
+import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { Check, Ellipsis, Eye, History } from "lucide-react";
 
 const subscriptions = [
   {
@@ -72,9 +80,52 @@ const subscriptions = [
     status: "منقضی شده",
     amount: "500,000 تومان",
   },
+  {
+    id: "Jk8Le3M",
+    type: "پرمیوم",
+    startDate: "1402/08/10",
+    endDate: "1402/09/10",
+    status: "منقضی شده",
+    amount: "250,000 تومان",
+  },
+  {
+    id: "Mn5Op2Q",
+    type: "استاندارد",
+    startDate: "1402/07/05",
+    endDate: "1402/08/05",
+    status: "منقضی شده",
+    amount: "150,000 تومان",
+  },
+  {
+    id: "Rs9Tu4V",
+    type: "پایه",
+    startDate: "1402/06/01",
+    endDate: "1402/07/01",
+    status: "منقضی شده",
+    amount: "75,000 تومان",
+  },
+  {
+    id: "Wx3Yz7A",
+    type: "الیت",
+    startDate: "1402/05/15",
+    endDate: "1402/06/15",
+    status: "منقضی شده",
+    amount: "500,000 تومان",
+  },
+  {
+    id: "Bc6De9F",
+    type: "پرمیوم",
+    startDate: "1402/04/20",
+    endDate: "1402/05/20",
+    status: "منقضی شده",
+    amount: "250,000 تومان",
+  },
 ];
 
 const SubscriptionHistory: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "فعال":
@@ -88,6 +139,18 @@ const SubscriptionHistory: React.FC = () => {
     }
   };
 
+  // Calculate pagination values
+  const totalPages = Math.ceil(subscriptions.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentSubscriptions = subscriptions.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <div className="col-span-12 order-3 bg-inside-box-bg-color/90  rounded-lg p-4 mt-4">
       <div className="pb-4">
@@ -95,21 +158,21 @@ const SubscriptionHistory: React.FC = () => {
           <History size={22} strokeWidth={1.5} /> سوابق خرید اشتراک
         </p>
       </div>
-      <div className="w-full">
+      <div className="w-full  min-h-[400px]">
         <Table className="!min-w-[800px]" dir="rtl">
           <TableHeader>
-            <TableRow className="border-b border-main-text-color/40 hover:bg-transparent">
-              <TableHead className="w-[100px] text-right pb-4">شناسه</TableHead>
-              <TableHead className="text-right pb-4">نوع اشتراک</TableHead>
-              <TableHead className="text-right pb-4">تاریخ شروع</TableHead>
-              <TableHead className="text-right pb-4">تاریخ پایان</TableHead>
-              <TableHead className="text-right pb-4">وضعیت</TableHead>
-              <TableHead className="text-right pb-4">مبلغ</TableHead>
+            <TableRow className="border-b border-main-text-color/40 hover:bg-transparent opacity-70">
+              <TableHead className="w-[100px] pb-4 font-light">شناسه</TableHead>
+              <TableHead className="pb-4 font-light">نوع اشتراک</TableHead>
+              <TableHead className="pb-4 font-light">تاریخ شروع</TableHead>
+              <TableHead className="pb-4 font-light">تاریخ پایان</TableHead>
+              <TableHead className="pb-4 font-light">وضعیت</TableHead>
+              <TableHead className="pb-4 font-light">مبلغ</TableHead>
               <TableHead></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className="space-y-2">
-            {subscriptions.map((subscription) => (
+            {currentSubscriptions.map((subscription) => (
               <TableRow
                 key={subscription.id}
                 className="hover:bg-input-color/50 border-b border-main-text-color/10 rounded-lg"
@@ -158,6 +221,57 @@ const SubscriptionHistory: React.FC = () => {
           </TableBody>
         </Table>
       </div>
+      {totalPages > 1 && (
+        <Pagination className="mt-4">
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(currentPage - 1);
+                }}
+                className={
+                  currentPage === 1 ? "pointer-events-none opacity-50" : ""
+                }
+              />
+            </PaginationItem>
+
+            {[...Array(totalPages)].map((_, i) => {
+              const page = i + 1;
+              return (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handlePageChange(page);
+                    }}
+                    isActive={currentPage === page}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              );
+            })}
+
+            <PaginationItem>
+              <PaginationNext
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(currentPage + 1);
+                }}
+                className={
+                  currentPage === totalPages
+                    ? "pointer-events-none opacity-50"
+                    : ""
+                }
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
     </div>
   );
 };
