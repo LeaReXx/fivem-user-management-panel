@@ -14,7 +14,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="max-w-[1600px] mx-auto min-h-[100dvh] flex">
+    <div className="max-w-[1600px] mx-auto min-h-[100dvh] flex relative">
       <DashboardMenu />
       <div className="flex-1 relative">
         <header className="flex justify-center absolute top-0 right-1/2 translate-x-1/2"></header>

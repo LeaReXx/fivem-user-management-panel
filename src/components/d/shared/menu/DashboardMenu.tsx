@@ -11,7 +11,7 @@ const DashboardMenu: React.FC = () => {
   return (
     <>
       {/* Desktop Menu - Always visible on large screens */}
-      <aside className="hidden lg:flex sticky top-0 overflow-hidden right-0 h-[100dvh] lg:w-70 xl:w-75 z-40">
+      <aside className="hidden lg:flex sticky top-0 overflow-hidden right-0 h-[100dvh] max-h-[1000px] lg:w-70 xl:w-75 z-40">
         <div className="m-4 me-0 bg-gradient-to-t w-full lg:flex lg:flex-col px-4 from-navbar-bg-color-1 to-navbar-bg-color-2 backdrop-blur-[2px] rounded-xl border-white/20 shadow-lg">
           <div className="flex items-center justify-between h-[12%] border-b border-white/20">
             <BrandLogo />
