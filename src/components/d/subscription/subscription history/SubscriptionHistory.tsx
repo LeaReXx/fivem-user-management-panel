@@ -1,30 +1,19 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import React from "react";
-import {
-  Check,
-  CheckCircle,
-  Clock,
-  Ellipsis,
-  Eye,
-  History,
-  XCircle,
-} from "lucide-react";
+import { Check, Ellipsis, Eye, History } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
 
 const subscriptions = [
   {

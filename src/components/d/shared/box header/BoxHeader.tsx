@@ -9,7 +9,7 @@ interface BoxHeaderProps {
 
 const BoxHeader: React.FC<BoxHeaderProps> = ({ title, iconName, children }) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between col-span-12 order-1">
       <div className="flex gap-2 items-center">
         {iconName && (
           <div className="bg-brand-color p-2 w-fit rounded-full">
