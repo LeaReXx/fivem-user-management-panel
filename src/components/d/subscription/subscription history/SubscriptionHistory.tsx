@@ -219,28 +219,28 @@ const SubscriptionHistory: React.FC = () => {
         searchable={true}
         inputSize="sm"
         searchPlaceholder="جستجو در همه ستون‌ها..."
-        filterable={true}
-        // filters={[
-        //   {
-        //     columnKey: "status",
-        //     label: "وضعیت ها",
-        //     options: [
-        //       { label: "فعال", value: "فعال" },
-        //       { label: "رزرو", value: "رزرو" },
-        //       { label: "منقضی شده", value: "منقضی شده" },
-        //     ],
-        //   },
-        //   {
-        //     columnKey: "type",
-        //     label: "اشتراک ها",
-        //     options: [
-        //       { label: "پایه", value: "پایه" },
-        //       { label: "استاندارد", value: "استاندارد" },
-        //       { label: "پرمیوم", value: "پرمیوم" },
-        //       { label: "الیت", value: "الیت" },
-        //     ],
-        //   },
-        // ]}
+        filterable={false}
+        filters={[
+          {
+            columnKey: "status",
+            label: "وضعیت ها",
+            options: [
+              { label: "فعال", value: "فعال" },
+              { label: "رزرو", value: "رزرو" },
+              { label: "منقضی شده", value: "منقضی شده" },
+            ],
+          },
+          {
+            columnKey: "type",
+            label: "اشتراک ها",
+            options: [
+              { label: "پایه", value: "پایه" },
+              { label: "استاندارد", value: "استاندارد" },
+              { label: "پرمیوم", value: "پرمیوم" },
+              { label: "الیت", value: "الیت" },
+            ],
+          },
+        ]}
         defaultPageSize={10}
         showPagination={true}
         showRowCount={true}
