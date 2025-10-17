@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Vibrant } from "node-vibrant/browser";
 import { Package } from "lucide-react";
 
-interface FeaturedProductItemProps {
+interface ShopProductItemProps {
   title: string;
   imageUrl?: string;
   link: string;
@@ -21,7 +22,7 @@ const calculateDiscountedPrice = (price: number, discount: number) => {
   return price;
 };
 
-const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
+const ShopProductItem: React.FC<ShopProductItemProps> = ({
   title,
   imageUrl,
   link,
@@ -48,7 +49,7 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
   return (
     <Link
       href={link}
-      className="flex-[0_0_70%] sm:flex-[0_0_40%] md:flex-[0_0_30%] xl:flex-[0_0_25%] 2xl:flex-[0_0_18%] group overflow-hidden rounded-md backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
+      className="group overflow-hidden rounded-md bg-inside-box-bg-color backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
       style={{
         borderBottom: `3px solid ${stock !== 0 ? mainImageColor : "#ffffff50"}`,
       }}
@@ -156,4 +157,4 @@ const FeaturedProductItem: React.FC<FeaturedProductItemProps> = ({
   );
 };
 
-export default FeaturedProductItem;
+export default ShopProductItem;
