@@ -49,7 +49,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
   return (
     <Link
       href={link}
-      className="group overflow-hidden rounded-md bg-inside-box-bg-color backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
+      className="group overflow-hidden rounded-md backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
       style={{
         borderBottom: `3px solid ${stock !== 0 ? mainImageColor : "#ffffff50"}`,
       }}
