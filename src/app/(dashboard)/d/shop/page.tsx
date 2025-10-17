@@ -1,7 +1,7 @@
 import { Product } from "@/components/d/dashboard/featured products/FeaturedProducts";
 import ShopProductItem from "@/components/d/shared/shop/ShopProductItem";
 import ShopHeader from "@/components/d/shop/shop header/ShopHeader";
-import React from "react";
+import React, { Suspense } from "react";
 
 const products: Product[] = [
   {
@@ -89,7 +89,9 @@ const products: Product[] = [
 const ShopPage: React.FC = () => {
   return (
     <div className="p-4 w-full">
-      <ShopHeader />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ShopHeader />
+      </Suspense>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-6">
         {products.map((product, index) => (
           <ShopProductItem
