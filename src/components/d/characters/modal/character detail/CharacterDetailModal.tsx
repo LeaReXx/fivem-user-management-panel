@@ -20,7 +20,6 @@ const CharacterDetailModal: React.FC = () => {
   const [view, setView] = useQueryState("view");
   const [isOpenModal, setIsOpenModal] = useState(false);
   useEffect(() => {
-    console.log(view);
     if (view) {
       setIsOpenModal(true);
     } else {
