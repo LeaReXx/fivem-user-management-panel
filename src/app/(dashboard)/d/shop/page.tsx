@@ -1,6 +1,7 @@
 import { Product } from "@/components/d/dashboard/featured products/FeaturedProducts";
 import ShopProductItem from "@/components/d/shared/shop/ShopProductItem";
 import ShopHeader from "@/components/d/shop/shop header/ShopHeader";
+
 import React, { Suspense } from "react";
 
 const products: Product[] = [
@@ -9,7 +10,7 @@ const products: Product[] = [
     img: "/images/revuelto-2024.jpg",
     price: 5000000,
     discountPercentage: 100,
-    link: "/products/revuelto-2024",
+    link: "/d/shop/revuelto-2024",
     stock: 10,
   },
   {
@@ -17,7 +18,7 @@ const products: Product[] = [
     img: "/images/EQS2022.jpg",
     price: 100000,
     discountPercentage: 0,
-    link: "/products/eqs-2022",
+    link: "/d/shop/eqs-2022",
     stock: 5,
   },
   {
@@ -25,7 +26,7 @@ const products: Product[] = [
     img: "/images/purosangue-2024.jpg",
     price: 200000,
     discountPercentage: 22,
-    link: "/products/purosangue-2024",
+    link: "/d/shop/purosangue-2024",
     stock: 8,
   },
   {
@@ -33,7 +34,7 @@ const products: Product[] = [
     img: "/images/992-gt3-rs.jpg",
     price: 400000,
     discountPercentage: 0,
-    link: "/products/992-gt3-rs",
+    link: "/d/shop/992-gt3-rs",
     stock: 5,
   },
   {
@@ -41,7 +42,7 @@ const products: Product[] = [
     img: "/images/sl-63-amg.jpg",
     price: 700000,
     discountPercentage: 0,
-    link: "/products/sl-63-amg",
+    link: "/d/shop/sl-63-amg",
     stock: 0,
   },
   {
@@ -49,7 +50,7 @@ const products: Product[] = [
     img: "/images/tesla-model-s-plaid.jpg",
     price: 1200000,
     discountPercentage: 35,
-    link: "/products/tesla-model-s-plaid",
+    link: "/d/shop/tesla-model-s-plaid",
     stock: 2,
   },
   {
@@ -57,7 +58,7 @@ const products: Product[] = [
     img: "/images/maserati-quattroporte.jpg",
     price: 500000,
     discountPercentage: 15,
-    link: "/products/maserati-quattroporte",
+    link: "/d/shop/maserati-quattroporte",
     stock: 2,
   },
   {
@@ -65,7 +66,7 @@ const products: Product[] = [
     img: "",
     price: 900000,
     discountPercentage: 20,
-    link: "/products/oppressor-mk2",
+    link: "/d/shop/oppressor-mk2",
     stock: 1,
   },
   {
@@ -73,7 +74,7 @@ const products: Product[] = [
     img: "",
     price: 150000,
     discountPercentage: 10,
-    link: "/products/weapon-pack",
+    link: "/d/shop/weapon-pack",
     stock: 2,
   },
   {
@@ -81,7 +82,7 @@ const products: Product[] = [
     img: "",
     price: 120000,
     discountPercentage: 18,
-    link: "/products/clothing-bundle",
+    link: "/d/shop/clothing-bundle",
     stock: 10,
   },
 ];
