@@ -105,6 +105,7 @@ const ShopPage: React.FC = () => {
             link={product.link}
           />
         ))}
+        
       </div>
     </div>
   );
