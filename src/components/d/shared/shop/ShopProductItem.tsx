@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +39,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
       Vibrant.from(imageUrl)
         .getPalette()
         .then((palette) => {
-          setMainImageColor(palette.DarkVibrant?.hex || "#ffffff50");
+          setMainImageColor(palette.Vibrant?.hex || "#ffffff50");
         });
     }
   };
@@ -49,7 +49,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
   return (
     <Link
       href={link}
-      className="group overflow-hidden rounded-md backdrop-blur-sm transition-all duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
+      className="group overflow-hidden rounded-md backdrop-blur-sm transition-scale duration-300 hover:shadow-md h-full hover:scale-103 ease-linear cursor-pointer"
       style={{
         borderBottom: `3px solid ${stock !== 0 ? mainImageColor : "#ffffff50"}`,
       }}
@@ -63,7 +63,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
               quality={100}
               onLoad={getImageColorPlate}
               fill
-              className={`object-cover select-none transition-transform duration-400 group-hover:scale-105 ${
+              className={`object-cover select-none transition-scale duration-400 group-hover:scale-105 ${
                 stock === 0 && "grayscale opacity-70"
               }`}
             />
@@ -97,7 +97,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
 
         <div className="p-2 space-y-2 relative">
           <div
-            className="absolute top-0 left-0 w-full h-full -z-10"
+            className="absolute bg-inside-box-bg-color transform-scale top-0 left-0 w-full h-full -z-10"
             style={{
               background:
                 mainImageColor && stock !== 0
