@@ -1,0 +1,112 @@
+import { Product } from "@/types/product.types";
+
+export const products: Product[] = [
+  {
+    title: "ماشین Revuelto 2024",
+    images: [
+      "/images/revuelto-2024.jpg",
+      "/images/revuelto-2024.jpg",
+      "/images/revuelto-2024.jpg",
+    ],
+    price: 5000000,
+    discountPercentage: 100,
+    productId: "revuelto-2024",
+    stock: 10,
+  },
+  {
+    title: "ماشین EQS 2022",
+    images: [
+      "/images/EQS2022.jpg",
+      "/images/EQS2022.jpg",
+      "/images/EQS2022.jpg",
+    ],
+    price: 100000,
+    discountPercentage: 0,
+    productId: "eqs-2022",
+    stock: 5,
+  },
+  {
+    title: "ماشین Purosangue 2024",
+    images: [
+      "/images/purosangue-2024.jpg",
+      "/images/purosangue-2024.jpg",
+      "/images/purosangue-2024.jpg",
+    ],
+    price: 200000,
+    discountPercentage: 22,
+    productId: "purosangue-2024",
+    stock: 8,
+  },
+  {
+    title: "ماشین 992 GT3 RS 2024",
+    images: [
+      "/images/992-gt3-rs.jpg",
+      "/images/992-gt3-rs.jpg",
+      "/images/992-gt3-rs.jpg",
+    ],
+    price: 400000,
+    discountPercentage: 0,
+    productId: "992-gt3-rs",
+    stock: 5,
+  },
+  {
+    title: "ماشین SL 63 AMG 2024",
+    images: [
+      "/images/sl-63-amg.jpg",
+      "/images/sl-63-amg.jpg",
+      "/images/sl-63-amg.jpg",
+    ],
+    price: 700000,
+    discountPercentage: 0,
+    productId: "sl-63-amg",
+    stock: 0,
+  },
+  {
+    title: "ماشین Tesla Model S Plaid 2021",
+    images: [
+      "/images/tesla-model-s-plaid.jpg",
+      "/images/tesla-model-s-plaid.jpg",
+      "/images/tesla-model-s-plaid.jpg",
+    ],
+    price: 1200000,
+    discountPercentage: 35,
+    productId: "tesla-model-s-plaid",
+    stock: 2,
+  },
+  {
+    title: "ماشین Maserati Quattroporte 2019",
+    images: [
+      "/images/maserati-quattroporte.jpg",
+      "/images/maserati-quattroporte.jpg",
+      "/images/maserati-quattroporte.jpg",
+    ],
+    price: 500000,
+    discountPercentage: 15,
+    productId: "maserati-quattroporte",
+    stock: 5,
+  },
+  {
+    title: "Exclusive GTA V Vehicle: Oppressor Mk II",
+    images: [],
+    price: 900000,
+    discountPercentage: 20,
+    productId: "oppressor-mk2",
+    stock: 1,
+  },
+  {
+    title: "Exclusive GTA V Weapon Pack",
+    images: [],
+    price: 150000,
+    discountPercentage: 10,
+    productId: "weapon-pack",
+    stock: 2,
+  },
+  {
+    title: "Exclusive GTA V Clothing Bundle",
+    images: [],
+    price: 120000,
+    discountPercentage: 18,
+    productId: "clothing-bundle",
+    stock: 10,
+  },
+];

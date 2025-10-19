@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-4 gap-y-0.5 items-start [&>svg]:translate-y-0.5 [&>svg]:text-current",
+  "relative w-full rounded-lg border px-4 py-3 transition-all duration-200",
   {
     variants: {
       variant: {
@@ -22,7 +22,7 @@ const alertVariants = cva(
           "bg-purple-950/70 dark:bg-purple-950/30 border-purple-800 text-purple-100 dark:text-purple-400 [&>svg]:text-purple-500",
       },
       clickable: {
-        true: "cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01] transition-transform",
+        true: "cursor-pointer hover:shadow-md hover:scale-[1.01]",
         false: "",
       },
     },
@@ -55,10 +55,16 @@ function Alert({
 
   const content = (
     <div data-slot="alert" role="alert" className={alertClasses} {...props}>
-      {icon && (
-        <DynamicIcon name={icon} className="w-5 h-5" strokeWidth={1.5} />
-      )}
-      {children}
+      <div className="flex items-start 2xl:items-center gap-3">
+        {icon && (
+          <div className="flex-shrink-0 mt-0.5">
+            <DynamicIcon name={icon} strokeWidth={1.5} size={20} />
+          </div>
+        )}
+        <div className="flex-1 min-w-0 space-y-1">
+          {children}
+        </div>
+      </div>
     </div>
   );
 
@@ -78,7 +84,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight text-sm",
+        "font-medium tracking-tight text-sm leading-tight",
         className
       )}
       {...props}
@@ -94,7 +100,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "text-sm [&_p]:leading-relaxed opacity-90",
         className
       )}
       {...props}
@@ -106,7 +112,7 @@ function AlertTime({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-time"
-      className={cn("col-start-2 text-sm text-white/70 opacity-70", className)}
+      className={cn("text-xs opacity-70", className)}
       {...props}
     />
   );
