@@ -1,14 +1,17 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import WideButton from "../shared/WideButton";
 import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
+import { useQueryState } from "nuqs";
 
 const SocialLogin: React.FC = () => {
+  const [callBackUrl] = useQueryState("callbackurl");
+
   const discordLoginOnClick = async () => {
     await authClient.signIn.social({
       provider: "discord",
-      callbackURL: "/d",
+      callbackURL: callBackUrl || "/d",
     });
   };
   return (
