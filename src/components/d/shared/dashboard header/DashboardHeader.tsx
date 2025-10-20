@@ -6,11 +6,18 @@ import { useRouter } from "next/navigation";
 import UserProfile from "../user profile/UserProfile";
 import WalletInfo from "../wallet info/WalletInfo";
 import { useThemeStore } from "@/stores/theme-store";
+import { useEffect, useState } from "react";
 
 const DashboardHeader = () => {
   const { toggleNavbar } = useNavbarStore();
   const { isDark, toggleTheme } = useThemeStore();
+  const [isMounted, setIsMounted] = useState(false);
+
   const router = useRouter();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const onClickLogout = async () => {
     await authClient.signOut({
@@ -35,9 +42,13 @@ const DashboardHeader = () => {
         <button
           onClick={toggleTheme}
           className="cursor-pointer p-2 rounded-lg hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
-          title={`Switch to ${isDark ? "light" : "dark"} mode`}
+          title={`Switch to ${isMounted && isDark ? "light" : "dark"} mode`}
         >
-          {isDark ? <Sun strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
+          {isMounted && isDark ? (
+            <Sun strokeWidth={1.5} />
+          ) : (
+            <Moon strokeWidth={1.5} />
+          )}
         </button>
         <button
           onClick={toggleNavbar}
