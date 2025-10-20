@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 interface CircularProgressBarProps {
@@ -35,6 +35,8 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   textClassName = "",
   semicircle = false,
 }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
   const [animatedPercentage, setAnimatedPercentage] = React.useState(0);
 
   const radius = (size - strokeWidth) / 2;
@@ -44,7 +46,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
   const gradientId = `gradient-${Math.random().toString(36).substr(2, 9)}`;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const startTime = Date.now();
     const startPercentage = animatedPercentage;
     const targetPercentage = Math.min(Math.max(percentage, 0), 100);
@@ -76,6 +78,12 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     if (percent <= 66) return "#cc830a"; // نارنجی
     return "#15a349"; // سبز
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <div
