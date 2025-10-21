@@ -3,6 +3,7 @@ import SocialLogin from "@/components/auth/login/SocialLogin";
 import AuthHeader from "@/components/auth/shared/AuthHeader";
 import { UserPlus } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function LoginPage() {
   return (
@@ -24,7 +25,9 @@ export default function LoginPage() {
             یا
             <hr className="w-full border-main-text-color/40 border-1" />
           </div>
-          <SocialLogin />
+          <Suspense fallback={<div>درحال بارگزاری...</div>}>
+            <SocialLogin />
+          </Suspense>
         </div>
       </div>
     </div>
