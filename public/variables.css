@@ -12,21 +12,22 @@
   --bg-content-box-plate-1: #e3d5cae6;
   --bg-content-box-plate-2: #f5ebe0e6;
   --bg-inside-box: #d5bdafe6;
-  --bg-input:#bbada4;
-
+  --bg-input: #bbada4;
+  --bg-skeleton-bg-color: rgba(0, 0, 0, 0.1);
 }
 
 .dark {
   --main-text-color: #ffffff;
   /* navbar */
-  --bg-navbar-color-plate-1: #1A3636;
-  --bg-navbar-color-plate-2: #1A3636;
-  --bg-page-header-color-plate-1: #1A3636;
-  --bg-page-header-color-plate-2: #1A3636;
+  --bg-navbar-color-plate-1: #1a3636;
+  --bg-navbar-color-plate-2: #1a3636;
+  --bg-page-header-color-plate-1: #1a3636;
+  --bg-page-header-color-plate-2: #1a3636;
   --bg-content-box-plate-1: #295353e6;
   --bg-content-box-plate-2: #295353e6;
   --bg-inside-box: #1b4738e6;
-  --bg-input:#142b2b;
+  --bg-input: #142b2b;
+  --bg-skeleton-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 /* dark plates  */

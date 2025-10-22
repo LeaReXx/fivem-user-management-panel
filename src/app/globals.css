@@ -28,6 +28,7 @@ body {
   --color-content-box-bg-color-2: var(--bg-content-box-plate-2);
   --color-inside-box-bg-color: var(--bg-inside-box);
   --color-input-color: var(--bg-input);
+  --color-skeleton: var(--bg-skeleton-bg-color);
 
   /* ShadCN tokens mapping */
   --background: var(--bg-content-box-plate-1);
@@ -47,6 +48,7 @@ body {
   --border: hsl(220, 10%, 30%);
   --input: var(--bg-input);
   --ring: var(--brand-color);
+
 
   /* Border radius tokens */
   --radius-sm: calc(var(--radius) - 4px);
