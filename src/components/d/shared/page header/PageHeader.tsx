@@ -17,7 +17,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       <div className="flex gap-2 items-center">
         {iconName && (
           <div className="bg-brand-color p-2 w-fit rounded-full">
-            <DynamicIcon size={20} name={iconName} color="#ffffff" />
+            <DynamicIcon size={22} name={iconName} color="#ffffff" />
           </div>
         )}
         {title && <h2 className="font-medium text-lg">{title}</h2>}
