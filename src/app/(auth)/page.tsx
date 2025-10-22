@@ -1,6 +1,7 @@
 import LoginForm from "@/components/auth/login/LoginForm";
 import SocialLogin from "@/components/auth/login/SocialLogin";
 import AuthHeader from "@/components/auth/shared/AuthHeader";
+import { Skeleton } from "@/components/ui/skeleton";
 import { UserPlus } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -25,7 +26,8 @@ export default function LoginPage() {
             یا
             <hr className="w-full border-main-text-color/40 border-1" />
           </div>
-          <Suspense fallback={<div>درحال بارگزاری...</div>}>
+
+          <Suspense fallback={<Skeleton className="w-full h-[45px]" />}>
             <SocialLogin />
           </Suspense>
         </div>
