@@ -7,8 +7,8 @@ interface StatCardProps {
 }
 const StatCard: React.FC<StatCardProps> = ({ label, iconName, value }) => {
   return (
-    <div className="bg-inside-box-bg-color flex items-center sm:flex-col gap-4 sm:gap-0 col-span-12 sm:col-span-6 xl:col-span-3 rounded-lg p-4">
-      <div className="bg-white/10 rounded-sm p-2 w-fit h-fit">
+    <div className="bg-inside-box-bg-color flex items-center sm:flex-col gap-4 sm:gap-0 col-span-12 sm:col-span-6 xl:col-span-3 rounded-lg p-4 shadow-sm">
+      <div className="bg-white/10 rounded-sm p-2 w-fit h-fit shadow-sm">
         <DynamicIcon name={iconName} size={32} strokeWidth={1.5} />
       </div>
       <div className="flex flex-col gap-1 sm:gap-0">
