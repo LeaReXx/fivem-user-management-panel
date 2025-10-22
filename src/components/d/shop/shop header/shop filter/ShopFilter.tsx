@@ -23,7 +23,7 @@ const ShopFilter = () => {
   };
 
   return (
-    <div className="sm:w-1/2 flex sm:justify-end">
+    <div>
       <Select onValueChange={handleChange} value={filter ?? undefined}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="مرتب‌سازی بر اساس" />
