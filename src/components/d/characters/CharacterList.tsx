@@ -29,7 +29,7 @@ const CharacterList: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-12 gap-4 mt-8">
+    <div className="grid grid-cols-12 gap-4 mt-4">
       <CharacterDetailModal />
       {userCharacters.map((character) => (
         <CharacterItem key={character.id} {...character} />
