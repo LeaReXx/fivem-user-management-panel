@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
           {/* Header */}
           {(title || showCloseButton) && (
             <div
-              className={`flex items-center justify-between px-4 py-2 border-b border-main-text-color/10 bg-gradient-to-r from-transparent to-white/5 ${headerClassName}`}
+              className={`flex items-center justify-between px-4 py-2 border-b border-main-text-color/10 bg-linear-to-r from-transparent to-white/5 ${headerClassName}`}
             >
               {title && (
                 <h2 className="text-xl font-semibold text-main-text-color">
@@ -125,7 +125,7 @@ const Modal: React.FC<ModalProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="flex items-center justify-end gap-3 px-4 py-2 border-t border-main-text-color/10 bg-gradient-to-r from-transparent to-white/5">
+            <div className="flex items-center justify-end gap-3 px-4 py-2 border-t border-main-text-color/10 bg-linear-to-r from-transparent to-white/5">
               {footer}
             </div>
           )}

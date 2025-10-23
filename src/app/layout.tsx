@@ -34,7 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${IRANSans.className} min-h-[100dvh] relative bg-gray-400 dark:bg-zinc-900 bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
+        className={`${IRANSans.className} min-h-dvh relative bg-gray-400 dark:bg-zinc-900 bg-fixed bg-cover bg-center bg-no-repeat antialiased`}
         style={{
           backgroundImage: "var(--custom-background-image)",
         }}

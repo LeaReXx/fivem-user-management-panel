@@ -15,7 +15,7 @@ const FeaturedProducts: React.FC = () => {
   });
 
   return (
-    <div className="order-3 col-span-12 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 min-h-[400px] rounded-lg p-4">
+    <div className="order-3 col-span-12 bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 min-h-[400px] rounded-lg p-4">
       <BoxHeader title="آخرین ایتم های فروشگاه" iconName="shopping-bag">
         <Button variant="link" size="sm" asChild>
           <Link href="/login">مشاهده همه</Link>

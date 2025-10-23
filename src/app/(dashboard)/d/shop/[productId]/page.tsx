@@ -20,7 +20,7 @@ const ProductPage = async ({
   }
 
   return (
-    <div className="p-4 w-full bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg">
+    <div className="p-4 w-full bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg">
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12 xl:col-span-8">
           <ProductDetailCarousel

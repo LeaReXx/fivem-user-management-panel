@@ -18,7 +18,7 @@ const UserSubscriptionStatus: React.FC = () => {
   const [isActiveSubscription, setIsActiveSubscription] = useState(false);
 
   return (
-    <div className="order-2 relative overflow-hidden md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2  rounded-lg p-4">
+    <div className="order-2 relative overflow-hidden md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2  rounded-lg p-4">
       {!isActiveSubscription && <NoSubscription />}
       <BoxHeader title="وضعیت اشتراک" iconName="dollar-sign">
         <div className="flex gap-2">
@@ -48,7 +48,7 @@ const UserSubscriptionStatus: React.FC = () => {
           />
         </div>
         <div className="w-full sm:w-2/3 md:w-full space-y-3 2xl:2/3 2xl:max-w-[450px]">
-          <div className="flex items-center justify-between bg-gradient-to-r from-inside-box-bg-color/90 to-transparent p-3 rounded-md">
+          <div className="flex items-center justify-between bg-linear-to-r from-inside-box-bg-color/90 to-transparent p-3 rounded-md">
             <span className="flex gap-2 items-center opacity-80">
               <TrendingUp strokeWidth={1.5} size={22} /> نوع اشتراک
             </span>

@@ -7,7 +7,7 @@ import React, { Suspense } from "react";
 
 const ShopPage: React.FC = () => {
   return (
-    <div className="p-4 w-full bg-gradient-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg min-h-[500px]">
+    <div className="p-4 w-full bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg min-h-[500px]">
       <div className="flex md:justify-between md:items-center flex-col md:flex-row gap-4 md:gap-0">
         <PageHeader title="فروشگاه" iconName="shopping-bag" />
         <Suspense fallback={<ShopHeaderSkeleton />}>

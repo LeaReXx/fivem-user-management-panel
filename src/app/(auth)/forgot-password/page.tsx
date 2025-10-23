@@ -7,9 +7,9 @@ import React from "react";
 const ForgotPasswordPage: React.FC = () => {
 
   return (
-    <div className="w-full h-[100dvh] flex items-center justify-center">
+    <div className="w-full h-dvh flex items-center justify-center">
       <div className="bg-content-box-bg-color-1 rounded-2xl w-[95%] max-w-[350px] p-3 mx-auto flex items-center justify-center">
-        <div className="bg-gradient-to-t border border-white/10 from-content-box-bg-color-1 to-content-box-bg-color-2 w-full h-full rounded-xl p-4">
+        <div className="bg-linear-to-t border border-white/10 from-content-box-bg-color-1 to-content-box-bg-color-2 w-full h-full rounded-xl p-4">
           <AuthHeader title="فراموشی کلمه عبور">
             <Link
               href="/"

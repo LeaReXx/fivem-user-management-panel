@@ -57,7 +57,7 @@ function Alert({
     <div data-slot="alert" role="alert" className={alertClasses} {...props}>
       <div className="flex items-start 2xl:items-center gap-3">
         {icon && (
-          <div className="flex-shrink-0 mt-0.5">
+          <div className="shrink-0 mt-0.5">
             <DynamicIcon name={icon} strokeWidth={1.5} size={20} />
           </div>
         )}

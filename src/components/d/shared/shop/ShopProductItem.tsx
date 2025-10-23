@@ -57,7 +57,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
       }}
     >
       <div>
-        <div className="relative aspect-1/1 overflow-hidden bg-gray-500">
+        <div className="relative aspect-square overflow-hidden bg-gray-500">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -95,7 +95,7 @@ const ShopProductItem: React.FC<ShopProductItemProps> = ({
           ></div>
 
           {/* عنوان */}
-          <h3 className="font-medium text-md line-clamp-2 h-[3rem]">{title}</h3>
+          <h3 className="font-medium text-md line-clamp-2 h-12">{title}</h3>
 
           {/* قیمت و موجودی */}
           <div className="flex items-end justify-between h-9">

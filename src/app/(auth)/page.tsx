@@ -8,9 +8,9 @@ import { Suspense } from "react";
 
 export default function LoginPage() {
   return (
-    <div className="w-full h-[100dvh] flex items-center justify-center">
+    <div className="w-full h-dvh flex items-center justify-center">
       <div className="bg-content-box-bg-color-1 rounded-2xl w-[95%] max-w-[350px] p-3 mx-auto flex items-center justify-center">
-        <div className="bg-gradient-to-t border border-white/10 from-content-box-bg-color-1 to-content-box-bg-color-2 w-full h-full rounded-xl p-4">
+        <div className="bg-linear-to-t border border-white/10 from-content-box-bg-color-1 to-content-box-bg-color-2 w-full h-full rounded-xl p-4">
           <AuthHeader title="ورود با ایمیل">
             <Link
               href="/register"
@@ -22,9 +22,9 @@ export default function LoginPage() {
           </AuthHeader>
           <LoginForm />
           <div className="flex items-center w-full opacity-70 gap-3 my-6 text-xl font-medium justify-center">
-            <hr className="w-full border-main-text-color/40 border-1" />
+            <hr className="w-full border-main-text-color/40 border" />
             یا
-            <hr className="w-full border-main-text-color/40 border-1" />
+            <hr className="w-full border-main-text-color/40 border" />
           </div>
 
           <Suspense fallback={<Skeleton className="w-full h-[45px]" />}>

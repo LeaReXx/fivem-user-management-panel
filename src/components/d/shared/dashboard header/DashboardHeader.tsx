@@ -30,7 +30,7 @@ const DashboardHeader = () => {
   };
 
   return (
-    <div className="flex justify-between items-center bg-gradient-to-t from-page-header-bg-color-1 to-page-header-bg-color-2 backdrop-blur-[2px] rounded-lg h-18 pe-4 ps-2">
+    <div className="flex justify-between items-center bg-linear-to-t from-page-header-bg-color-1 to-page-header-bg-color-2 backdrop-blur-[2px] rounded-lg h-18 pe-4 ps-2">
       <div className="lg:hidden">
         <UserProfile />
       </div>
