@@ -118,7 +118,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
               )}
             />
             {errors.gender && (
-              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded">
+              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded-sm">
                 {errors.gender.message}
               </span>
             )}
@@ -173,7 +173,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
               )}
             />
             {errors.nationality && (
-              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded">
+              <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded-sm">
                 {errors.nationality.message}
               </span>
             )}

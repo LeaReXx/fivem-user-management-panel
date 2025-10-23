@@ -70,7 +70,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
           </PopoverContent>
         </Popover>
         {error && (
-          <span className="text-red-100 text-sm px-2 block bg-red-500/70 py-1 rounded">
+          <span className="text-red-100 text-sm px-2 block bg-red-500/70 py-1 rounded-sm">
             {error}
           </span>
         )}

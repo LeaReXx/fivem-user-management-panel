@@ -70,7 +70,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded">
+          <span className="text-red-100 text-sm mt-1 px-2 block bg-red-500/70 py-1 rounded-sm">
             {error}
           </span>
         )}
