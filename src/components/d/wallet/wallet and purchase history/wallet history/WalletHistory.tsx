@@ -136,31 +136,34 @@ const WalletHistory: React.FC = () => {
   ];
 
   return (
-    <DataTable
-      columns={columns}
-      data={subscriptions}
-      searchable={true}
-      inputSize="sm"
-      searchPlaceholder="جستجو در همه ستون‌ها..."
-      filterable={true}
-      filters={[
-        {
-          columnKey: "status",
-          label: "وضعیت‌ها",
-          options: [
-            { label: "پرداخت شده", value: "پرداخت شده" },
-            { label: "در انتظار پرداخت", value: "در انتظار پرداخت" },
-            { label: "لغو شده", value: "لغو شده" },
-          ],
-        },
-      ]}
-      defaultPageSize={10}
-      pageSizeOptions={[10, 20, 50, 100]}
-      showPagination={true}
-      showRowCount={true}
-      dir="rtl"
-      minWidth="800px"
-    />
+    <div className="grid grid-cols-12">
+      <div className="col-span-12">
+        <DataTable
+          columns={columns}
+          data={subscriptions}
+          searchable={true}
+          inputSize="sm"
+          searchPlaceholder="جستجو در همه ستون‌ها..."
+          filterable={true}
+          filters={[
+            {
+              columnKey: "status",
+              label: "وضعیت‌ها",
+              options: [
+                { label: "پرداخت شده", value: "پرداخت شده" },
+                { label: "در انتظار پرداخت", value: "در انتظار پرداخت" },
+                { label: "لغو شده", value: "لغو شده" },
+              ],
+            },
+          ]}
+          defaultPageSize={10}
+          pageSizeOptions={[10, 20, 50, 100]}
+          showPagination={true}
+          showRowCount={true}
+          dir="rtl"
+        />
+      </div>
+    </div>
   );
 };
 
