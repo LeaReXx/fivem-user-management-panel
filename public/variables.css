@@ -13,7 +13,7 @@
   --bg-content-box-plate-2: #f5ebe0e6;
   --bg-inside-box: #d5bdafe6;
   --bg-input: #bbada4;
-  --bg-skeleton-bg-color: rgba(0, 0, 0, 0.1);
+  --bg-skeleton-bg-color: rgba(0, 0, 0, 0.2);
 }
 
 .dark {
@@ -27,7 +27,7 @@
   --bg-content-box-plate-2: #295353e6;
   --bg-inside-box: #1b4738e6;
   --bg-input: #142b2b;
-  --bg-skeleton-bg-color: rgba(255, 255, 255, 0.1);
+  --bg-skeleton-bg-color: rgba(255, 255, 255, 0.2);
 }
 
 /* dark plates  */
