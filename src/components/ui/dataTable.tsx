@@ -297,11 +297,11 @@ export function DataTable<TData>({
     </div>
   );
 }
-
 // هلپر برای ساخت ستون‌های قابل مرتب‌سازی
 export function createSortableColumn<TData>(
   accessorKey: string,
-  header: string
+  header: string,
+  formatter?: (value: any) => string
 ): ColumnDef<TData> {
   return {
     accessorKey,
@@ -322,8 +322,10 @@ export function createSortableColumn<TData>(
         </button>
       );
     },
-    cell: (info) => (
-      <div className="text-right">{info.getValue() as string}</div>
-    ),
+    cell: (info) => {
+      const value = info.getValue();
+      const displayValue = formatter ? formatter(value) : String(value);
+      return <div className="text-right">{displayValue}</div>;
+    },
   };
 }
