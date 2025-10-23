@@ -2,10 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
+import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  titleIconName?: IconName;
   children: React.ReactNode;
   title?: string;
   size?: "sm" | "md" | "lg" | "xl" | "full";
@@ -25,6 +27,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   children,
   title,
+  titleIconName,
   size = "md",
   showCloseButton = true,
   closeOnOverlayClick = true,
@@ -104,7 +107,14 @@ const Modal: React.FC<ModalProps> = ({
               className={`flex items-center justify-between px-4 py-2 border-b border-main-text-color/10 bg-linear-to-r from-transparent to-white/5 ${headerClassName}`}
             >
               {title && (
-                <h2 className="text-xl font-semibold text-main-text-color">
+                <h2 className="text-lg font-medium text-main-text-color flex items-center gap-1">
+                  {titleIconName && (
+                    <DynamicIcon
+                      name={titleIconName}
+                      scale={28}
+                      strokeWidth={1.5}
+                    />
+                  )}
                   {title}
                 </h2>
               )}
@@ -114,7 +124,10 @@ const Modal: React.FC<ModalProps> = ({
                   className="p-2 rounded-lg cursor-pointer hover:bg-input-color/50 transition-all duration-200"
                   aria-label="بستن"
                 >
-                  <X size={24} className="text-main-text-color/50 transition-colors" />
+                  <X
+                    size={24}
+                    className="text-main-text-color/50 transition-colors"
+                  />
                 </button>
               )}
             </div>
