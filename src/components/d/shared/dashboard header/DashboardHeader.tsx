@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import UserProfile from "../user profile/UserProfile";
 import WalletInfo from "../wallet info/WalletInfo";
 import { useThemeStore } from "@/stores/theme-store";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const DashboardHeader = () => {
   const { toggleNavbar } = useNavbarStore();
@@ -35,7 +36,9 @@ const DashboardHeader = () => {
         <UserProfile />
       </div>
       <div className="hidden lg:block">
-        <WalletInfo />
+        <Suspense fallback={<Skeleton className="w-[200px] h-[52px]" />}>
+          <WalletInfo />
+        </Suspense>
       </div>
 
       <div className="flex gap-1 lg:gap-2">
