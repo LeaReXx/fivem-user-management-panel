@@ -156,7 +156,7 @@ export function DataTable<TData>({
 
       {/* Table */}
       <div className="w-full min-h-[400px]">
-        <Table className={`!min-w-[${minWidth}]`} dir={dir}>
+        <Table style={{minWidth:minWidth}} dir={dir}>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
