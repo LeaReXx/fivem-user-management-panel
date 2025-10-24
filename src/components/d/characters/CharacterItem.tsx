@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import { CharacterFace } from "./CharacterList";
 import CharacterStatusHandler from "@/components/shared/CharacterStatusHandler";
 import { formatRelativeTime } from "@/lib/utils";
