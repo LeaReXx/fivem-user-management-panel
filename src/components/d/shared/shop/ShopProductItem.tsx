@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Vibrant } from "node-vibrant/browser";
 import { Package } from "lucide-react";
-import { Image as ImageIcon } from "lucide-react";
 import NoImageHolder from "./NoImageHolder";
 
 interface ShopProductItemProps {
