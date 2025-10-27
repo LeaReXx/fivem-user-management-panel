@@ -1,7 +1,6 @@
 import { useQueryState } from "nuqs";
 import Modal from "@/components/ui/modal";
 import VerifyAccountForm from "./verify account form/VerifyAccountForm";
-import { Alert } from "@/components/ui/alert";
 
 const VerifyAccountModal = () => {
   const [isOpen, setIsOpen] = useQueryState("verify", {
@@ -23,9 +22,7 @@ const VerifyAccountModal = () => {
       titleIconName="user-check"
       size="md"
     >
-      <>
-        <VerifyAccountForm />
-      </>
+      <VerifyAccountForm />
     </Modal>
   );
 };
