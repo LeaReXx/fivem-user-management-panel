@@ -140,7 +140,7 @@ const VerifyAccountForm = () => {
                 },
               })}
               placeholder="کد تایید را وارد کنید"
-              type="text"
+              type="number"
               inputMode="numeric"
               maxLength={6}
               error={errorsVerification.code?.message}
@@ -165,7 +165,7 @@ const VerifyAccountForm = () => {
 
           <button
             type="button"
-            className="w-full text-sm text-blue-400 hover:text-blue-300 py-2 transition-colors"
+            className="w-full text-sm text-blue-600 hover:text-blue-500 py-2 transition-colors"
             onClick={() => console.log("ارسال مجدد کد")}
           >
             ارسال مجدد کد
