@@ -1,7 +1,5 @@
-"use client";
 import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
 import { Link } from "lucide-react";
-import { useEffect, useState } from "react";
 
 interface DiscordNameplate {
   sku_id: string;
@@ -31,54 +29,27 @@ interface DiscordAccountInfo {
   scopes: string[];
 }
 
-const SocialConnections = () => {
-  const [discordAccount, setDiscordAccount] =
-    useState<DiscordAccountInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const getDiscordAvatarUrl = (user: DiscordUser) => {
+  if (user.avatar) {
+    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
+  }
+  // Default avatar based on discriminator or user ID
+  const defaultNum = user.discriminator
+    ? parseInt(user.discriminator) % 5
+    : parseInt(user.id) % 5;
+  return `https://cdn.discordapp.com/embed/avatars/${defaultNum}.png`;
+};
 
-  useEffect(() => {
-    const fetchDiscordAccount = async () => {
-      try {
-        setLoading(true);
-        const result = await getDiscordAccount();
+const getNameplateUrl = (nameplate: DiscordNameplate) => {
+  // Discord nameplate CDN URL format
+  return `https://cdn.discordapp.com/assets/collectibles/${nameplate.asset}asset.webm`;
+};
 
-        if (result.success && result.data) {
-          setDiscordAccount(result.data);
-          setError(null);
-        } else {
-          setError(result.error || "Failed to fetch Discord account");
-        }
-      } catch (err) {
-        console.error("Error fetching Discord account:", err);
-        setError("An unexpected error occurred");
-      } finally {
-        setLoading(false);
-      }
-    };
+const SocialConnections = async () => {
+  const result = await getDiscordAccount();
 
-    fetchDiscordAccount();
-  }, []);
-
-  const getDiscordAvatarUrl = (user: DiscordUser) => {
-    if (user.avatar) {
-      return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
-    }
-    // Default avatar based on discriminator or user ID
-    const defaultNum = user.discriminator
-      ? parseInt(user.discriminator) % 5
-      : parseInt(user.id) % 5;
-    return `https://cdn.discordapp.com/embed/avatars/${defaultNum}.png`;
-  };
-
-  const getNameplateUrl = (nameplate: DiscordNameplate) => {
-    // Discord nameplate CDN URL format
-    console.log(nameplate);
-    console.log(
-      `https://cdn.discordapp.com/assets/collectibles/${nameplate.asset}asset.webm`,
-    );
-    return `https://cdn.discordapp.com/assets/collectibles/${nameplate.asset}asset.webm`;
-  };
+  const discordAccount: DiscordAccountInfo | null =
+    result.success && result.data ? result.data : null;
 
   return (
     <div className="bg-inside-box-bg-color col-span-12 md:col-span-6 rounded-lg p-4">
@@ -90,7 +61,7 @@ const SocialConnections = () => {
 
       <div>
         {discordAccount ? (
-          <div dir="ltr" className="relative overflow-hidden rounded-lg">
+          <div dir="ltr" className="relative overflow-hidden rounded-lg  border border-main-text-color/10">
             {/* Nameplate Background */}
             {discordAccount.user.collectibles?.nameplate && (
               <div className="absolute top-0 left-0 size-full opacity-40">
@@ -102,7 +73,7 @@ const SocialConnections = () => {
                   muted
                   loop
                   className="size-full object-right object-cover"
-                ></video>
+                />
               </div>
             )}
 
@@ -119,7 +90,7 @@ const SocialConnections = () => {
               </div>
             )}
 
-            <div className="relative flex items-center gap-4 p-4 bg-main-bg-color/80 border border-main-text-color/10">
+            <div className="relative flex items-center gap-4 p-4 bg-main-bg-color/80">
               <img
                 src={getDiscordAvatarUrl(discordAccount.user)}
                 alt={discordAccount.user.username}

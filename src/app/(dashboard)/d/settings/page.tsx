@@ -1,6 +1,7 @@
 import SocialConnections from "@/components/d/settings/social connections/SocialConnections";
 import UserDetail from "@/components/d/settings/user detail/UserDetail";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
+import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
 import UserDetailSkeleton from "@/components/loading/page/d/settings/user detail skeleton/UserDetailSkeleton";
 import React, { Suspense } from "react";
 
@@ -12,7 +13,9 @@ const SettingsPage: React.FC = () => {
         <Suspense fallback={<UserDetailSkeleton />}>
           <UserDetail />
         </Suspense>
-          <SocialConnections/>
+        <Suspense fallback={<SocialConnectionsSkeleton />}>
+          <SocialConnections />
+        </Suspense>
       </div>
     </div>
   );
