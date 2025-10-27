@@ -16,7 +16,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
   status,
   createdAt,
 }) => {
-  const [view, setView] = useQueryState("view");
+  const [, setView] = useQueryState("view");
 
   const setViewQueryOnClick = (characterId: number) => {
     setView(String(characterId));
