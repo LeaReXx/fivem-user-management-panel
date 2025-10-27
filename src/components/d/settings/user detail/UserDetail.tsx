@@ -4,8 +4,15 @@ import Input from "@/components/ui/Input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import VerifyAccountModal from "./verify account modal/VerifyAccountModal";
+import { useQueryState } from "nuqs";
 
 const UserDetail = () => {
+  const [,setIsOpenVerifyModal] = useQueryState("verify");
+
+  const handleOpenVerifyModlal = () => {
+    setIsOpenVerifyModal("open");
+  };
+
   return (
     <>
       <VerifyAccountModal />
@@ -17,11 +24,10 @@ const UserDetail = () => {
           <div>
             <Button
               size="sm"
+              onClick={handleOpenVerifyModlal}
               className="bg-linear-to-t from-blue-500/90 to-blue-500/60"
             >
-              <Link href="/d/settings?verify=open" className="mr-2">
                 تایید حساب کاربری
-              </Link>
             </Button>
           </div>
         </div>

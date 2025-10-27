@@ -10,7 +10,7 @@ const VerifyAccountModal = () => {
   });
 
   const handleClose = () => {
-    setIsOpen(false);
+    setIsOpen(null);
   };
 
   return (
