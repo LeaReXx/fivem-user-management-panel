@@ -1,5 +1,6 @@
 "use client";
 import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
+import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
 import { Link } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -60,17 +61,23 @@ const SocialConnections = () => {
   const [userDiscord, setUserDiscord] = useState<DiscordAccountInfo | null>(
     null,
   );
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getUserDiscord = async () => {
+      setLoading(true);
       const result = await getDiscordAccount();
-      const discordAccount: DiscordAccountInfo | null =
-        result.success && result.data ? result.data : null;
-      console.log(discordAccount);
+      const discordAccount = result.success && result.data ? result.data : null;
       setUserDiscord(discordAccount);
+      setLoading(false);
     };
     getUserDiscord();
   }, []);
+
+  if (loading) {
+    return <SocialConnectionsSkeleton />;
+  }
+
   return (
     <div className="bg-inside-box-bg-color col-span-12 md:col-span-6 rounded-lg p-4">
       <div className="pb-4 flex justify-between items-center">

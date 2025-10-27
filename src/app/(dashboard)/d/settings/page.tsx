@@ -13,9 +13,7 @@ const SettingsPage: React.FC = () => {
         <Suspense fallback={<UserDetailSkeleton />}>
           <UserDetail />
         </Suspense>
-        <Suspense fallback={<SocialConnectionsSkeleton />}>
-          <SocialConnections />
-        </Suspense>
+        <SocialConnections />
       </div>
     </div>
   );
