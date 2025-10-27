@@ -19,6 +19,7 @@ const VerifyAccountModal = () => {
       title="تایید حساب کاربری"
       isOpen={isOpen}
       onClose={handleClose}
+      closeOnOverlayClick={false}
       titleIconName="user-check"
       size="md"
     >

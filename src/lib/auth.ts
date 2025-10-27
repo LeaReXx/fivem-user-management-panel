@@ -47,6 +47,7 @@ export const auth = betterAuth({
       trustedProviders: ["discord"],
       allowDifferentEmails: true,
       allowUnlinkingAll: true,
+      updateUserInfoOnLink: true,
     },
   },
 
