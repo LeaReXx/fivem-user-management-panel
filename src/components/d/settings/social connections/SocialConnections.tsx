@@ -1,51 +1,22 @@
 "use client";
 import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
 import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
+import type {
+  DiscordUser,
+  DiscordAccountInfo,
+  DiscordNameplate,
+} from "@/types/discord.types";
 import { Link } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-interface DiscordNameplate {
-  sku_id: string;
-  asset: string;
-  label: string;
-  palette: string;
-}
-
-interface DiscordCollectibles {
-  nameplate?: DiscordNameplate;
-}
-
-interface DiscordUser {
-  id: string;
-  username: string;
-  discriminator: string;
-  global_name: string | null;
-  avatar: string | null;
-  avatar_decoration_data?: {
-    asset: string;
-    sku_id: string;
-    expires_at?: number;
-  } | null;
-  email?: string | null;
-  collectibles?: DiscordCollectibles;
-}
-
-interface DiscordAccountInfo {
-  provider: "discord";
-  user: DiscordUser;
-  connectedAt: Date;
-  scopes: string[];
-}
 
 const getDiscordAvatarUrl = (user: DiscordUser) => {
   if (user.avatar) {
     return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
   }
-  // Default avatar based on discriminator or user ID
-  const defaultNum = user.discriminator
-    ? parseInt(user.discriminator) % 5
-    : parseInt(user.id) % 5;
+
+  // Default avatar based on user ID
+  const defaultNum = parseInt(user.id, 10) % 5;
   return `https://cdn.discordapp.com/embed/avatars/${defaultNum}.png`;
 };
 
@@ -101,7 +72,7 @@ const SocialConnections = () => {
                   autoPlay
                   muted
                   loop
-                  className="size-full object-right object-cover"
+                  className="size-full object-right object-contain"
                 />
               </div>
             )}
