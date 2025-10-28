@@ -1,10 +1,10 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 interface NavbarState {
-  isOpen: boolean
-  toggleNavbar: () => void
-  closeNavbar: () => void
-  openNavbar: () => void
+  isOpen: boolean;
+  toggleNavbar: () => void;
+  closeNavbar: () => void;
+  openNavbar: () => void;
 }
 
 export const useNavbarStore = create<NavbarState>((set) => ({
@@ -12,4 +12,4 @@ export const useNavbarStore = create<NavbarState>((set) => ({
   toggleNavbar: () => set((state) => ({ isOpen: !state.isOpen })),
   closeNavbar: () => set({ isOpen: false }),
   openNavbar: () => set({ isOpen: true }),
-}))
+}));

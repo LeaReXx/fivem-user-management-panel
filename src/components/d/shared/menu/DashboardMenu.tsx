@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import type React from "react";
 import { useNavbarStore } from "@/stores";
 import BrandLogo from "./brand logo/BrandLogo";
-import Navbar from "./navbar/Navbar";
 import MenuFooter from "./footer/MenuFooter";
+import Navbar from "./navbar/Navbar";
 
 const DashboardMenu: React.FC = () => {
   const { isOpen, closeNavbar } = useNavbarStore();
@@ -16,7 +16,7 @@ const DashboardMenu: React.FC = () => {
           <div className="flex items-center justify-between h-[12%] border-b border-white/20">
             <BrandLogo />
           </div>
-          
+
           <Navbar />
           <MenuFooter />
         </div>

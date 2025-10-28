@@ -1,7 +1,7 @@
 import { LogOut } from "lucide-react";
-import UserProfile from "../../user profile/UserProfile";
-import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import UserProfile from "../../user profile/UserProfile";
 
 const MenuFooter: React.FC = () => {
   const router = useRouter();

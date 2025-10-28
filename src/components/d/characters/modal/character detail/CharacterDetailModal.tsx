@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Modal from "@/components/ui/modal";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import { useQueryState } from "nuqs";
-import CharacterForm from "../CharacterForm";
+import type React from "react";
+import { useEffect, useState } from "react";
+import Modal from "@/components/ui/modal";
 import { cn } from "@/lib/utils";
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
+import CharacterForm from "../CharacterForm";
 
 const userInitialData = {
   firstName: "Louis",
@@ -69,7 +70,7 @@ const StatusMessage = ({ status }: { status: number }) => {
     <div
       className={cn(
         "p-4 rounded-md border flex flex-col gap-2 mb-4",
-        config.className
+        config.className,
       )}
     >
       <div className="flex items-center gap-2">

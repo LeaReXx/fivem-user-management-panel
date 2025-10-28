@@ -1,11 +1,11 @@
 // NewCharacterModal.tsx
 "use client";
+import type React from "react";
+import { useState } from "react";
 import Modal from "@/components/ui/modal";
-import React, { useState } from "react";
-import NewCharacterRules from "./NewCharacterRules";
+import type { CharacterFormData } from "@/types/character";
 import NewCharacterForm from "../CharacterForm";
-import { CharacterFormData } from "@/types/character";
-
+import NewCharacterRules from "./NewCharacterRules";
 
 interface NewCharacterModalProps {
   isOpenModal: boolean;
@@ -17,7 +17,6 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
   onClose,
 }) => {
   const [isAcceptedRules, setIsAcceptedRules] = useState(false);
-
 
   const handleSubmit = (data: CharacterFormData) => {
     console.log(data);

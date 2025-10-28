@@ -1,11 +1,11 @@
 "use client";
-import { CharacterFace } from "./CharacterList";
+import { Clock } from "lucide-react";
+import { useQueryState } from "nuqs";
 import CharacterStatusHandler from "@/components/shared/CharacterStatusHandler";
 import { formatRelativeTime } from "@/lib/utils";
-import { Clock } from "lucide-react";
-import EditCharacterBtn from "./EditCharacterBtn";
+import type { CharacterFace } from "./CharacterList";
 import DeleteCharacterBtn from "./DeleteCharacterBtn";
-import { useQueryState } from "nuqs";
+import EditCharacterBtn from "./EditCharacterBtn";
 
 interface CharacterFaceProps extends CharacterFace {}
 

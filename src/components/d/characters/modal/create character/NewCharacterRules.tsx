@@ -1,12 +1,14 @@
-import { Button } from "@/components/ui/button";
 import { BookAlert } from "lucide-react";
-import React from "react";
+import type React from "react";
+import { Button } from "@/components/ui/button";
 
 interface NewCharacterRulesProps {
   acceptRulesBtnHandler: () => void;
 }
 
-const NewCharacterRules: React.FC<NewCharacterRulesProps> = ({ acceptRulesBtnHandler }) => {
+const NewCharacterRules: React.FC<NewCharacterRulesProps> = ({
+  acceptRulesBtnHandler,
+}) => {
   return (
     <>
       <div>

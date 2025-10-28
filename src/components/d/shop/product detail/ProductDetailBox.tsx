@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
-import { Product } from "@/types/product.types";
 import { Minus, Plus, Wallet } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { Alert } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import type { Product } from "@/types/product.types";
 
 const ProductDetailBox: React.FC<Product> = ({
   images,

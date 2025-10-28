@@ -1,7 +1,7 @@
 import { ArrowLeft, BadgeCheck, Info } from "lucide-react";
-import React from "react";
-import WideButton from "../shared/WideButton";
 import { useRouter } from "next/navigation";
+import type React from "react";
+import WideButton from "../shared/WideButton";
 
 const SuccessResetPassword: React.FC = () => {
   const router = useRouter();

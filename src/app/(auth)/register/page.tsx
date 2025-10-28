@@ -1,8 +1,8 @@
-import RegisterForm from "@/components/auth/register/RegisterForm";
-import AuthHeader from "@/components/auth/shared/AuthHeader";
 import { LogIn } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import type React from "react";
+import RegisterForm from "@/components/auth/register/RegisterForm";
+import AuthHeader from "@/components/auth/shared/AuthHeader";
 
 const RegisterPage: React.FC = () => {
   return (

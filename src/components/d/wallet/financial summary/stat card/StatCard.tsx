@@ -1,4 +1,4 @@
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 
 interface StatCardProps {
   label: string;

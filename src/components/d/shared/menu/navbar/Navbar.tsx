@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
 import { usePathname } from "next/navigation";
+import type React from "react";
+import { useMenuItems } from "@/hooks/useMenuItems";
 import { useNavbarStore } from "@/stores";
 import NavbarItem from "./navbar item/NavbarItem";
-import { useMenuItems } from "@/hooks/useMenuItems";
 
 const Navbar: React.FC = () => {
   const { closeNavbar } = useNavbarStore();

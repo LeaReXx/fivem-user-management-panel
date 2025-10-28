@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import NoImageHolder from "../../shared/shop/NoImageHolder";
+
 const ProductDetailCarousel = ({
   images,
   title,
@@ -18,7 +19,7 @@ const ProductDetailCarousel = ({
 
   const scrollTo = useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {

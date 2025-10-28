@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import { X } from "lucide-react";
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
+import type React from "react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 interface ModalProps {
   isOpen: boolean;

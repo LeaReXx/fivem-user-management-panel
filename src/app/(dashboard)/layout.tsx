@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import DashboardMenu from "@/components/d/shared/menu/DashboardMenu";
 import DashboardHeader from "@/components/d/shared/dashboard header/DashboardHeader";
+import DashboardMenu from "@/components/d/shared/menu/DashboardMenu";
 
 export const metadata: Metadata = {
   title: "Create Next App",

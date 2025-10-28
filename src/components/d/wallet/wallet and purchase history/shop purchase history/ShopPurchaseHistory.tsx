@@ -1,14 +1,15 @@
 "use client";
-import React, { useMemo } from "react";
+import type { ColumnDef } from "@tanstack/react-table";
+import { CreditCard, Ellipsis, Eye } from "lucide-react";
+import type React from "react";
+import { useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
+import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { CreditCard, Ellipsis, Eye } from "lucide-react";
-import { ColumnDef } from "@tanstack/react-table";
-import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 
 type ShopPurchaseHistoryItemProps = {
   id: string;
@@ -50,7 +51,7 @@ const ShopPurchaseHistory: React.FC = () => {
       createSortableColumn<ShopPurchaseHistoryItemProps>(
         "amount",
         "مبلغ",
-        (value) => `${(value as number).toLocaleString()} تومان`
+        (value) => `${(value as number).toLocaleString()} تومان`,
       ),
       {
         accessorKey: "status",
@@ -98,7 +99,7 @@ const ShopPurchaseHistory: React.FC = () => {
         ),
       },
     ],
-    []
+    [],
   );
 
   // ✅ داده‌ی نمونه برای تست

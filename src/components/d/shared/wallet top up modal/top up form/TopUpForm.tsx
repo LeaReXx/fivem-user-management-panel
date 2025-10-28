@@ -1,7 +1,7 @@
-import Input from "@/components/ui/Input";
-import { useForm, Controller } from "react-hook-form";
-import { Button } from "@/components/ui/button";
 import { CreditCard, Rabbit } from "lucide-react";
+import { Controller, useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import Input from "@/components/ui/Input";
 
 const RECHARGE_INPUT_MIN_VALUE = 10000;
 const RECHARGE_INPUT_MAX_VALUE = 1000000;
@@ -32,7 +32,7 @@ const TopUpForm = () => {
     const numValue = value.replace(/[^\d]/g, "");
     return numValue ? Number(numValue) : 0;
   };
-  
+
   return (
     <div>
       <form onSubmit={handleSubmit(formOnSubmit)} className="space-y-2">
@@ -43,20 +43,20 @@ const TopUpForm = () => {
             control={control}
             rules={{
               required: `مبلغ شارژ باید حداقل ${RECHARGE_INPUT_MIN_VALUE.toLocaleString(
-                "en-US"
+                "en-US",
               )} تومان یا حداکثر ${RECHARGE_INPUT_MAX_VALUE.toLocaleString(
-                "en-US"
+                "en-US",
               )} تومان باشد`,
               min: {
                 value: RECHARGE_INPUT_MIN_VALUE,
                 message: `حداقل مبلغ شارژ کیف پول ${RECHARGE_INPUT_MIN_VALUE.toLocaleString(
-                  "en-US"
+                  "en-US",
                 )} تومان است`,
               },
               max: {
                 value: RECHARGE_INPUT_MAX_VALUE,
                 message: `حداکثر مبلغ شارژ کیف پول ${RECHARGE_INPUT_MAX_VALUE.toLocaleString(
-                  "en-US"
+                  "en-US",
                 )} تومان است`,
               },
             }}

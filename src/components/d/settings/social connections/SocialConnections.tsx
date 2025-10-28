@@ -1,14 +1,14 @@
 "use client";
-import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
-import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
-import type {
-  DiscordUser,
-  DiscordAccountInfo,
-  DiscordNameplate,
-} from "@/types/discord.types";
 import { Link } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
+import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
+import type {
+  DiscordAccountInfo,
+  DiscordNameplate,
+  DiscordUser,
+} from "@/types/discord.types";
 
 const getDiscordAvatarUrl = (user: DiscordUser) => {
   if (user.avatar) {

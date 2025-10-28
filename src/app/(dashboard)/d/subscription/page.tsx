@@ -1,9 +1,9 @@
 "use client";
+import type React from "react";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
 import CurrentSubscription from "@/components/d/subscription/current subscription/CurrentSubscription";
 import SubscribePromotion from "@/components/d/subscription/subscribe promotion/SubscribePromotion";
 import SubscriptionHistory from "@/components/d/subscription/subscription history/SubscriptionHistory";
-import React from "react";
 
 const SubscriptionPage: React.FC = () => {
   return (

@@ -1,13 +1,23 @@
 "use client";
 
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+  type ColumnDef,
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  type SortingState,
+  useReactTable,
+} from "@tanstack/react-table";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,23 +28,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  useReactTable,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  flexRender,
-  ColumnDef,
-  SortingState,
-  ColumnFiltersState,
-} from "@tanstack/react-table";
-import {
-  ArrowUpDown,
-  ArrowUp,
-  ArrowDown,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "lucide-react";
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import Input from "./Input";
 
 // تایپ برای تنظیمات جدول
@@ -156,7 +156,7 @@ export function DataTable<TData>({
 
       {/* Table */}
       <div className="w-full min-h-[400px]">
-        <Table style={{minWidth:minWidth}} dir={dir}>
+        <Table style={{ minWidth: minWidth }} dir={dir}>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
@@ -169,7 +169,7 @@ export function DataTable<TData>({
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                   </TableHead>
                 ))}
@@ -187,7 +187,7 @@ export function DataTable<TData>({
                     <TableCell key={cell.id} className="py-4">
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext()
+                        cell.getContext(),
                       )}
                     </TableCell>
                   ))}
@@ -222,7 +222,7 @@ export function DataTable<TData>({
                 {Math.min(
                   (table.getState().pagination.pageIndex + 1) *
                     table.getState().pagination.pageSize,
-                  table.getFilteredRowModel().rows.length
+                  table.getFilteredRowModel().rows.length,
                 )}{" "}
                 از {table.getFilteredRowModel().rows.length} نتیجه
               </span>
@@ -258,7 +258,7 @@ export function DataTable<TData>({
                   >
                     {pageIndex + 1}
                   </Button>
-                )
+                ),
               )}
             </div>
 
@@ -301,7 +301,7 @@ export function DataTable<TData>({
 export function createSortableColumn<TData>(
   accessorKey: string,
   header: string,
-  formatter?: (value: any) => string
+  formatter?: (value: any) => string,
 ): ColumnDef<TData> {
   return {
     accessorKey,

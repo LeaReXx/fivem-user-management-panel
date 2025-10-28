@@ -1,11 +1,9 @@
 // EditCharacterModal.tsx
 "use client";
+import type React from "react";
 import Modal from "@/components/ui/modal";
-import React from "react";
+import type { CharacterFormData } from "@/types/character";
 import CharacterForm from "../CharacterForm";
-import { CharacterFormData } from "@/types/character";
-
-
 
 interface EditCharacterModalProps {
   isOpenModal: boolean;
@@ -24,7 +22,6 @@ const EditCharacterModal: React.FC<EditCharacterModalProps> = ({
   isOpenModal,
   onClose,
 }) => {
-
   const handleSubmit = (data: CharacterFormData) => {
     console.log(data);
   };
@@ -36,10 +33,7 @@ const EditCharacterModal: React.FC<EditCharacterModalProps> = ({
       size="xl"
       title="ویرایش کاراکتر"
     >
-      <CharacterForm
-        onSubmit={handleSubmit}
-        initialData={userInitialData}
-      />
+      <CharacterForm onSubmit={handleSubmit} initialData={userInitialData} />
     </Modal>
   );
 };

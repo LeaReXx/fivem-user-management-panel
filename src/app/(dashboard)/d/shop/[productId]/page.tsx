@@ -1,7 +1,7 @@
 import ProductDetailBox from "@/components/d/shop/product detail/ProductDetailBox";
 import ProductDetailCarousel from "@/components/d/shop/product detail/ProductDetailCarousel";
 import { products } from "@/data/product";
-import { Product } from "@/types/product.types";
+import type { Product } from "@/types/product.types";
 
 const ProductPage = async ({
   params,

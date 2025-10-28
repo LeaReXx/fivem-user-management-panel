@@ -1,5 +1,5 @@
 import { ArrowLeft, Crown, Sparkle, Sparkles } from "lucide-react";
-import React from "react";
+import type React from "react";
 
 const SubscribePromotion: React.FC = () => {
   return (

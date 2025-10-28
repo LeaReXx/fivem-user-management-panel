@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import Modal from "./modal";
 import { AlertCircle, Loader2 } from "lucide-react";
+import type React from "react";
 import { Button } from "./button";
+import Modal from "./modal";
 
 interface ConfirmModalProps {
   isOpen: boolean;

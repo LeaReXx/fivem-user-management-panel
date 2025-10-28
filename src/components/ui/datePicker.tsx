@@ -1,9 +1,13 @@
 "use client";
 
-import * as React from "react";
 import { ChevronDownIcon } from "lucide-react";
+import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface DatePickerProps {
   error?: string;
@@ -24,7 +28,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       disabled = false,
       size = "md",
     },
-    ref
+    ref,
   ) => {
     const [open, setOpen] = React.useState(false);
     const [date, setDate] = React.useState<Date | undefined>(value);
@@ -76,7 +80,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Calendar22.displayName = "Calendar22";

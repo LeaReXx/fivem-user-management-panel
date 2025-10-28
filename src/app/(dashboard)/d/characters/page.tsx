@@ -1,6 +1,7 @@
+import type React from "react";
+import { Suspense } from "react";
 import CharacterList from "@/components/d/characters/CharacterList";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
-import React, { Suspense } from "react";
 
 const CharactersPage: React.FC = () => {
   return (

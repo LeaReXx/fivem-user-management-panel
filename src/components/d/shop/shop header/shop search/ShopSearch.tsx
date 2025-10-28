@@ -1,7 +1,8 @@
 "use client";
-import Input from "@/components/ui/Input";
 import { useQueryState } from "nuqs";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
+import Input from "@/components/ui/Input";
 
 const ShopSearch: React.FC = () => {
   const [filter, setFilter] = useQueryState("search");
@@ -10,7 +11,11 @@ const ShopSearch: React.FC = () => {
   };
   return (
     <div className="sm:w-1/2 sm:max-w-[320px]">
-      <Input placeholder="جستجو..." onInput={handleSearchInputChange} icon="search" />
+      <Input
+        placeholder="جستجو..."
+        onInput={handleSearchInputChange}
+        icon="search"
+      />
     </div>
   );
 };

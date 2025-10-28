@@ -1,7 +1,7 @@
 "use client";
 
-import Input from "@/components/ui/Input";
 import { useForm } from "react-hook-form";
+import Input from "@/components/ui/Input";
 
 interface VerificationForm {
   code: string;

@@ -1,10 +1,10 @@
 // DeleteCharacterModal.tsx
 "use client";
-import Modal from "@/components/ui/modal";
-import React from "react";
-import CharacterForm from "../CharacterForm";
-import { CharacterFormData } from "@/types/character";
+import type React from "react";
 import ConfirmModal from "@/components/ui/confirmModal";
+import Modal from "@/components/ui/modal";
+import { CharacterFormData } from "@/types/character";
+import CharacterForm from "../CharacterForm";
 
 interface DeleteCharacterModalProps {
   isOpenModal: boolean;

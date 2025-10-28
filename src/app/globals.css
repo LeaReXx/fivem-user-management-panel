@@ -49,7 +49,6 @@ body {
   --input: var(--bg-input);
   --ring: var(--brand-color);
 
-
   /* Border radius tokens */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

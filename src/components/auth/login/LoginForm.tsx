@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import { Brain, LogIn } from "lucide-react";
+import Link from "next/link";
+import type React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../ui/Input";
 import WideButton from "../shared/WideButton";
-import { Brain, LogIn } from "lucide-react";
-import Link from "next/link";
 
 type LoginFormData = {
   email: string;

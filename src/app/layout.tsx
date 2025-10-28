@@ -1,6 +1,6 @@
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { IRANSans } from "./fonts";
-import "../../public/variables.css"
+import "../../public/variables.css";
 import "./globals.css";
 
 export default function RootLayout({

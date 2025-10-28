@@ -1,6 +1,6 @@
 "use client";
+import type React from "react";
 import Spinner from "@/components/ui/Spinner";
-import React from "react";
 
 interface WideButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

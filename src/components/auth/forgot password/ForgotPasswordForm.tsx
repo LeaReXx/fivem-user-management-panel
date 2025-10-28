@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { AtSign, Brain } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../ui/Input";
 import WideButton from "../shared/WideButton";
-import { AtSign, Brain } from "lucide-react";
 import SuccessResetPassword from "./SuccessResetPassword";
 
 type ForgotPasswordFormData = {
@@ -34,15 +35,18 @@ const ForgotPasswordForm: React.FC = () => {
       {successResetPassword ? (
         <SuccessResetPassword />
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 mt-12">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-3 mt-12"
+        >
           <div>
             <Input
               {...register("email", {
                 required: "ایمیل الزامی است",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "فرمت ایمیل نامعتبر است"
-                }
+                  message: "فرمت ایمیل نامعتبر است",
+                },
               })}
               type="email"
               icon="mail"

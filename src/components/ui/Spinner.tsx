@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import type React from "react";
 
 interface SpinnerProps {
   size?: number; // pixel size for width/height

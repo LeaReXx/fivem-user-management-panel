@@ -1,6 +1,6 @@
+import { PrismaClient } from "@prisma/client";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
 import { customSession } from "better-auth/plugins";
 import redis from "./redis"; // اضافه شده
 
@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 export const auth = betterAuth({
   plugins: [
     customSession(async ({ user, session }) => {
-      const { name, ...userWithoutName } = user;
+      const { ...userWithoutName } = user;
       return {
         user: {
           ...userWithoutName,

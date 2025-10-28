@@ -1,6 +1,6 @@
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
-import React, { forwardRef, InputHTMLAttributes, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
+import React, { forwardRef, type InputHTMLAttributes, useState } from "react";
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
@@ -76,7 +76,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

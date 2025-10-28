@@ -1,5 +1,6 @@
-import React from "react";
+import type React from "react";
 import { Badge } from "../ui/badge";
+
 interface CharacterStatusProps {
   status: 1 | 2 | 3;
 }

@@ -1,10 +1,10 @@
 "use client";
 import { User } from "lucide-react";
-import Input from "@/components/ui/Input";
-import { Button } from "@/components/ui/button";
-import VerifyAccountModal from "./verify account modal/VerifyAccountModal";
-import { useQueryState } from "nuqs";
 import Image from "next/image";
+import { useQueryState } from "nuqs";
+import { Button } from "@/components/ui/button";
+import Input from "@/components/ui/Input";
+import VerifyAccountModal from "./verify account modal/VerifyAccountModal";
 
 const UserDetail = () => {
   const [, setIsOpenVerifyModal] = useQueryState("verify");

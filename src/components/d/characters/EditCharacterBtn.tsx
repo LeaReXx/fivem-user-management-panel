@@ -1,7 +1,9 @@
 "use client";
 import { Plus, SquarePen } from "lucide-react";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import EditCharacterModal from "./modal/edit character/EditCharacterModal";
+
 interface EditCharacterBtnProps {
   disabled?: boolean;
 }

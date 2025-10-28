@@ -1,7 +1,8 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Car, History } from "lucide-react";
-import WalletHistory from "./wallet history/WalletHistory";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ShopPurchaseHistory from "./shop purchase history/ShopPurchaseHistory";
+import WalletHistory from "./wallet history/WalletHistory";
+
 const WalletAndPurchaseHistory = () => {
   return (
     <div className="mt-4 w-full rounded-lg">

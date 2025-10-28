@@ -57,7 +57,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
       const progress = Math.min(elapsed / duration, 1);
 
       // Easing function (ease-out)
-      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const easeOut = 1 - (1 - progress) ** 3;
 
       const newPercentage =
         startPercentage + (targetPercentage - startPercentage) * easeOut;

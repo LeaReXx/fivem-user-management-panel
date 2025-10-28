@@ -1,7 +1,8 @@
 // NewCharacterBtn.tsx
 "use client";
 import { Plus } from "lucide-react";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import NewCharacterModal from "./modal/create character/NewCharacterModal";
 
 const NewCharacterBtn: React.FC = () => {

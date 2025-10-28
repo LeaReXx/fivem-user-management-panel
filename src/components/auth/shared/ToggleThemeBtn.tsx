@@ -1,6 +1,6 @@
 "use client";
+import { Moon, Sun } from "lucide-react";
 import React from "react";
-import { Sun, Moon } from "lucide-react";
 import { useThemeStore } from "@/stores/theme-store";
 
 const ToggleThemeBtn: React.FC = () => {

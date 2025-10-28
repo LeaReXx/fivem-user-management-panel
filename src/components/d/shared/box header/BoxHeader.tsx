@@ -1,5 +1,5 @@
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
-import React from "react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
+import type React from "react";
 
 interface BoxHeaderProps {
   title: string;

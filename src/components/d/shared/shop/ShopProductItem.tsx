@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import { Package } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { Vibrant } from "node-vibrant/browser";
-import { Package } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import NoImageHolder from "./NoImageHolder";
 
 interface ShopProductItemProps {

@@ -1,9 +1,8 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import Link from "next/link";
-
+import type * as React from "react";
 import { cn } from "@/lib/utils";
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 const alertVariants = cva(
   "relative w-full rounded-lg border px-4 py-3 transition-all duration-200",
@@ -30,7 +29,7 @@ const alertVariants = cva(
       variant: "default",
       clickable: false,
     },
-  }
+  },
 );
 
 interface AlertProps
@@ -50,7 +49,7 @@ function Alert({
 }: AlertProps) {
   const alertClasses = cn(
     alertVariants({ variant, clickable: !!href }),
-    className
+    className,
   );
 
   const content = (
@@ -61,9 +60,7 @@ function Alert({
             <DynamicIcon name={icon} strokeWidth={1.5} size={20} />
           </div>
         )}
-        <div className="flex-1 min-w-0 space-y-1">
-          {children}
-        </div>
+        <div className="flex-1 min-w-0 space-y-1">{children}</div>
       </div>
     </div>
   );
@@ -85,7 +82,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="alert-title"
       className={cn(
         "font-medium tracking-tight text-sm leading-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -99,10 +96,7 @@ function AlertDescription({
   return (
     <div
       data-slot="alert-description"
-      className={cn(
-        "text-sm [&_p]:leading-relaxed opacity-90",
-        className
-      )}
+      className={cn("text-sm [&_p]:leading-relaxed opacity-90", className)}
       {...props}
     />
   );

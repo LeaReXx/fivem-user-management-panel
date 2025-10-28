@@ -1,5 +1,5 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const SocialConnectionsSkeleton = () => {
   return (
@@ -11,7 +11,10 @@ const SocialConnectionsSkeleton = () => {
         </p>
       </div>
       <div>
-        <div dir="ltr" className="relative overflow-hidden rounded-lg border border-main-text-color/10">
+        <div
+          dir="ltr"
+          className="relative overflow-hidden rounded-lg border border-main-text-color/10"
+        >
           <div className="relative flex items-center gap-4 p-2 bg-main-bg-color/80 ">
             {/* Avatar Skeleton */}
             <Skeleton className="w-16 h-16 rounded-full shrink-0" />

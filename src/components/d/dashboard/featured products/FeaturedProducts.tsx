@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import BoxHeader from "../../shared/box header/BoxHeader";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import ShopProductItem from "../../shared/shop/ShopProductItem";
+import type React from "react";
+import { Button } from "@/components/ui/button";
 import { products } from "@/data/product";
+import BoxHeader from "../../shared/box header/BoxHeader";
+import ShopProductItem from "../../shared/shop/ShopProductItem";
 
 const FeaturedProducts: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({

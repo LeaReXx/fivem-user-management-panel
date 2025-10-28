@@ -1,6 +1,6 @@
 "use client";
-import { authClient } from "@/lib/auth-client";
 import { useEffect } from "react";
+import { authClient } from "@/lib/auth-client";
 
 const UserProfile: React.FC = () => {
   useEffect(() => {

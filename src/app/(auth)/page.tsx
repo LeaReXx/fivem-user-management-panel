@@ -1,10 +1,10 @@
+import { UserPlus } from "lucide-react";
+import Link from "next/link";
+import { Suspense } from "react";
 import LoginForm from "@/components/auth/login/LoginForm";
 import SocialLogin from "@/components/auth/login/SocialLogin";
 import AuthHeader from "@/components/auth/shared/AuthHeader";
 import { Skeleton } from "@/components/ui/skeleton";
-import { UserPlus } from "lucide-react";
-import Link from "next/link";
-import { Suspense } from "react";
 
 export default function LoginPage() {
   return (

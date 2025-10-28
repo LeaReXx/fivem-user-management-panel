@@ -1,7 +1,7 @@
-import React from "react";
+import type React from "react";
 import CharacterItem from "./CharacterItem";
-import NewCharacterBtn from "./NewCharacterBtn";
 import CharacterDetailModal from "./modal/character detail/CharacterDetailModal";
+import NewCharacterBtn from "./NewCharacterBtn";
 export interface CharacterFace {
   id: number;
   firstName: string;

@@ -1,4 +1,4 @@
-import { IconName } from "lucide-react/dynamic";
+import type { IconName } from "lucide-react/dynamic";
 
 export interface MenuItem {
   id: string;

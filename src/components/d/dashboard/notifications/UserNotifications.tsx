@@ -1,13 +1,13 @@
-import React from "react";
-import BoxHeader from "../../shared/box header/BoxHeader";
-import { Badge } from "@/components/ui/badge";
+import type React from "react";
 import {
   Alert,
   AlertDescription,
-  AlertTitle,
   AlertTime,
+  AlertTitle,
 } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { formatRelativeTime } from "@/lib/utils";
+import BoxHeader from "../../shared/box header/BoxHeader";
 
 interface NotificationItem {
   id: number;

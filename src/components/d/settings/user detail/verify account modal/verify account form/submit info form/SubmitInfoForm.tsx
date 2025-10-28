@@ -1,8 +1,8 @@
 "use client";
 
+import { useForm } from "react-hook-form";
 import { Alert } from "@/components/ui/alert";
 import Input from "@/components/ui/Input";
-import { useForm } from "react-hook-form";
 
 interface UserInfoForm {
   firstName: string;
@@ -24,8 +24,8 @@ const SubmitInfoForm = ({ onSubmit }: SubmitInfoFormProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
       <Alert title="توجه" variant="info" icon="info">
-        جهت دسترسی به امکانات پنل کاربری لطفاً فرم زیر را تکمیل کنید, این
-        اطلاعات به صورت خصوصی ذخیره می شود.
+        جهت دسترسی به امکانات پنل کاربری لطفاً فرم زیر را تکمیل کنید, این اطلاعات
+        به صورت خصوصی ذخیره می شود.
       </Alert>
       <div>
         <label className="block text-sm mb-2 font-medium">نام</label>

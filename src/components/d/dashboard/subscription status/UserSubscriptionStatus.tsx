@@ -1,8 +1,4 @@
 "use client";
-import React, { useState } from "react";
-import BoxHeader from "../../shared/box header/BoxHeader";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   AlertCircle,
   Calendar,
@@ -10,8 +6,13 @@ import {
   ShoppingBag,
   TrendingUp,
 } from "lucide-react";
-import CircularProgressBar from "@/components/ui/CircularProgressBar";
 import Link from "next/link";
+import type React from "react";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import CircularProgressBar from "@/components/ui/CircularProgressBar";
+import BoxHeader from "../../shared/box header/BoxHeader";
 import NoSubscription from "../../shared/no subscription/NoSubscription";
 
 const UserSubscriptionStatus: React.FC = () => {

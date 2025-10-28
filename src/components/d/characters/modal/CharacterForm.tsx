@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Input from "@/components/ui/Input";
+import type React from "react";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import nationalities from "@/data/nationalities.json";
+import { Calendar22 } from "@/components/ui/datePicker";
+import Input from "@/components/ui/Input";
 import {
   Select,
   SelectContent,
@@ -11,11 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-import { Calendar22 } from "@/components/ui/datePicker";
-import { useForm, Controller } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
-import { CharacterFormData } from "@/types/character";
+import nationalities from "@/data/nationalities.json";
+import type { CharacterFormData } from "@/types/character";
 
 interface CharacterFormProps {
   onSubmit?: (data: CharacterFormData) => void;
@@ -163,10 +163,10 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                                 {nationality.nationality_fa} (
                                 {nationality.nationality_en})
                               </SelectItem>
-                            )
+                            ),
                           )}
                         </SelectGroup>
-                      )
+                      ),
                     )}
                   </SelectContent>
                 </Select>

@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { BadgePlus } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../ui/Input";
 import WideButton from "../shared/WideButton";
-import { BadgePlus } from "lucide-react";
 
 type RegisterFormData = {
   email: string;

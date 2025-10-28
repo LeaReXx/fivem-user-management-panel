@@ -1,6 +1,6 @@
 import { useQueryState } from "nuqs";
-import Modal from "@/components/ui/modal";
 import { Alert } from "@/components/ui/alert";
+import Modal from "@/components/ui/modal";
 import TopUpForm from "./top up form/TopUpForm";
 
 const WalletTopUpModal = () => {

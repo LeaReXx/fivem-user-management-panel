@@ -1,8 +1,8 @@
+import { Suspense } from "react";
 import SocialConnections from "@/components/d/settings/social connections/SocialConnections";
 import UserDetail from "@/components/d/settings/user detail/UserDetail";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
 import UserDetailSkeleton from "@/components/loading/page/d/settings/user detail skeleton/UserDetailSkeleton";
-import { Suspense } from "react";
 
 const SettingsPage: React.FC = async () => {
   return (

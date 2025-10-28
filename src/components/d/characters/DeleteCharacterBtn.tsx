@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
 import { Trash2 } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 import DeleteCharacterModal from "./modal/delete character/DeleteCharacterModal";
 
 type DeleteCharacterBtnProps = {

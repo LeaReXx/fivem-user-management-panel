@@ -1,5 +1,5 @@
-import ShopSearch from "./shop search/ShopSearch";
 import ShopFilter from "./shop filter/ShopFilter";
+import ShopSearch from "./shop search/ShopSearch";
 
 const ShopHeader: React.FC = () => {
   return (

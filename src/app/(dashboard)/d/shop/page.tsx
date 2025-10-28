@@ -1,9 +1,10 @@
+import type React from "react";
+import { Suspense } from "react";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
 import ShopProductItem from "@/components/d/shared/shop/ShopProductItem";
 import ShopHeader from "@/components/d/shop/shop header/ShopHeader";
 import ShopHeaderSkeleton from "@/components/loading/page/d/shop/ShopHeaderSkeleton";
 import { products } from "@/data/product";
-import React, { Suspense } from "react";
 
 const ShopPage: React.FC = () => {
   return (

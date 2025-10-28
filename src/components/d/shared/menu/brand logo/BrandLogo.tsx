@@ -1,8 +1,8 @@
 "use client";
-import { useThemeStore } from "@/stores/theme-store";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useLayoutEffect, useState } from "react";
+import { useThemeStore } from "@/stores/theme-store";
 
 const BrandLogo: React.FC = () => {
   const [logoPath, setLogoPath] = React.useState<string | null>(null);

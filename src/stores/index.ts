@@ -1,5 +1,5 @@
 // Export all stores from here for easy imports
-export { useNavbarStore } from './navbar-store'
+export { useNavbarStore } from "./navbar-store";
 
 // Example for future stores:
 // export { useAuthStore } from './auth-store'

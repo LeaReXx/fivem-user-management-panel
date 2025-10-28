@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Calendar,
   CalendarClock,
@@ -6,6 +5,8 @@ import {
   CircleDollarSign,
   TrendingUp,
 } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 import CircularProgressBar from "@/components/ui/CircularProgressBar";
 import NoSubscription from "../../shared/no subscription/NoSubscription";
 
