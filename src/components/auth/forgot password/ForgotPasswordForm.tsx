@@ -20,7 +20,7 @@ const ForgotPasswordForm: React.FC = () => {
     formState: { errors },
   } = useForm<ForgotPasswordFormData>();
 
-  const onSubmit = (data: ForgotPasswordFormData) => {
+  const onSubmit = (_data: ForgotPasswordFormData) => {
     setLoading(true);
 
     setTimeout(() => {

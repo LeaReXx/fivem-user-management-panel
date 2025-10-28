@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
     },
   });
 
-  const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async (_data: LoginFormData) => {
     try {
       setLoading(true);
 

@@ -1,6 +1,6 @@
 "use client";
 import type { ColumnDef } from "@tanstack/react-table";
-import { CreditCard, Ellipsis, Eye } from "lucide-react";
+import { Ellipsis, Eye } from "lucide-react";
 import type React from "react";
 import { useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -99,7 +99,7 @@ const ShopPurchaseHistory: React.FC = () => {
         ),
       },
     ],
-    [],
+    [getStatusBadge],
   );
 
   // ✅ داده‌ی نمونه برای تست

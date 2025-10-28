@@ -71,7 +71,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     };
 
     requestAnimationFrame(animate);
-  }, [percentage, duration]);
+  }, [percentage, duration, animatedPercentage]);
 
   const getColorByPercentage = (percent: number) => {
     if (percent <= 33) return "#c92a2a"; // قرمز

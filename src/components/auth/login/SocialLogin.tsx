@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useQueryState } from "nuqs";
 import type React from "react";
-import { useEffect } from "react";
 import { authClient } from "@/lib/auth-client";
 import WideButton from "../shared/WideButton";
 

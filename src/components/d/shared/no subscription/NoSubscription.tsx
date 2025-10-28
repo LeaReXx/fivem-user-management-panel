@@ -1,16 +1,7 @@
-import {
-  AlertCircle,
-  Calendar,
-  CalendarClock,
-  CalendarX,
-  CircleDollarSign,
-  ShoppingBag,
-  TrendingUp,
-} from "lucide-react";
+import { AlertCircle, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import type React from "react";
 import { Button } from "@/components/ui/button";
-import CircularProgressBar from "@/components/ui/CircularProgressBar";
 
 const NoSubscription: React.FC = () => {
   return (

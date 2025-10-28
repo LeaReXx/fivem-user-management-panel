@@ -24,7 +24,7 @@ const BrandLogo: React.FC = () => {
       return;
     }
     setLogoPath(isDark ? "/logo.png" : "/logo-dark.png");
-  }, [isDark, mounted]);
+  }, [isDark, mounted, pathname]);
 
   return (
     <div className="mx-auto">

@@ -203,7 +203,7 @@ const SubscriptionHistory: React.FC = () => {
         },
       },
     ],
-    [],
+    [getStatusBadge],
   );
 
   return (

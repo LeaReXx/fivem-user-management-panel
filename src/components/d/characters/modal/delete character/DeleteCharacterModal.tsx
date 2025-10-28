@@ -2,9 +2,6 @@
 "use client";
 import type React from "react";
 import ConfirmModal from "@/components/ui/confirmModal";
-import Modal from "@/components/ui/modal";
-import { CharacterFormData } from "@/types/character";
-import CharacterForm from "../CharacterForm";
 
 interface DeleteCharacterModalProps {
   isOpenModal: boolean;

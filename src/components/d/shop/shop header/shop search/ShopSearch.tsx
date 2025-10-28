@@ -1,11 +1,10 @@
 "use client";
 import { useQueryState } from "nuqs";
 import type React from "react";
-import { useState } from "react";
 import Input from "@/components/ui/Input";
 
 const ShopSearch: React.FC = () => {
-  const [filter, setFilter] = useQueryState("search");
+  const [_filter, setFilter] = useQueryState("search");
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value.toLowerCase() || null);
   };

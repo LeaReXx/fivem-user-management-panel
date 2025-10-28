@@ -1,5 +1,5 @@
 "use client";
-import { Plus, SquarePen } from "lucide-react";
+import { SquarePen } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 import EditCharacterModal from "./modal/edit character/EditCharacterModal";

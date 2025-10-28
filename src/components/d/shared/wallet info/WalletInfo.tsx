@@ -3,7 +3,7 @@ import { useQueryState } from "nuqs";
 import WalletTopUpModal from "../wallet top up modal/WalletTopUpModal";
 
 const WalletInfo: React.FC = () => {
-  const [isOpenWalletTopUpModal, setIsOpenWalletTopUpModal] =
+  const [_isOpenWalletTopUpModal, setIsOpenWalletTopUpModal] =
     useQueryState("topup");
   const handleOpenTopUpModal = () => {
     setIsOpenWalletTopUpModal("open");

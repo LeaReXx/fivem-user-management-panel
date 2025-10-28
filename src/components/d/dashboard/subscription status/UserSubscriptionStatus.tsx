@@ -1,12 +1,5 @@
 "use client";
-import {
-  AlertCircle,
-  Calendar,
-  CalendarX2,
-  ShoppingBag,
-  TrendingUp,
-} from "lucide-react";
-import Link from "next/link";
+import { Calendar, CalendarX2, TrendingUp } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +9,7 @@ import BoxHeader from "../../shared/box header/BoxHeader";
 import NoSubscription from "../../shared/no subscription/NoSubscription";
 
 const UserSubscriptionStatus: React.FC = () => {
-  const [isActiveSubscription, setIsActiveSubscription] = useState(false);
+  const [isActiveSubscription, _setIsActiveSubscription] = useState(false);
 
   return (
     <div className="order-2 relative overflow-hidden md:order-1 col-span-12 md:col-span-6 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-7 bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2  rounded-lg p-4">

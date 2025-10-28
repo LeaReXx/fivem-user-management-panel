@@ -28,7 +28,7 @@ const ProductDetailBox: React.FC<Product> = ({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value);
+    const value = parseInt(e.target.value, 10);
     if (value >= 1 && value <= 10) {
       setQuantity(value);
     }

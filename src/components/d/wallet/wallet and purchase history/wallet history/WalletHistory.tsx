@@ -105,7 +105,7 @@ const WalletHistory: React.FC = () => {
         ),
       },
     ],
-    [],
+    [getStatusBadge],
   );
 
   // ✅ داده‌ی نمونه برای تست

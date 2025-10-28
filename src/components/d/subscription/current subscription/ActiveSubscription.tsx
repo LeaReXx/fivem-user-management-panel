@@ -11,7 +11,7 @@ import CircularProgressBar from "@/components/ui/CircularProgressBar";
 import NoSubscription from "../../shared/no subscription/NoSubscription";
 
 const ActiveSubscription: React.FC = () => {
-  const [isActiveSubscription, setIsActiveSubscription] = useState(false);
+  const [isActiveSubscription, _setIsActiveSubscription] = useState(false);
 
   return (
     <div className="overflow-hidden relative bg-inside-box-bg-color/90 rounded-lg p-4 w-full">

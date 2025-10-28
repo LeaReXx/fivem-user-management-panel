@@ -18,7 +18,7 @@ const ProductDetailCarousel = ({
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollTo = useCallback(
-    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    (index: number) => emblaApi?.scrollTo(index),
     [emblaApi],
   );
 
