@@ -5,8 +5,6 @@ import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/soci
 import UserDetailSkeleton from "@/components/loading/page/d/settings/user detail skeleton/UserDetailSkeleton";
 import React, { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
-
 const SettingsPage: React.FC = () => {
   return (
     <div className=" bg-linear-to-t from-content-box-bg-color-1 to-content-box-bg-color-2 backdrop-blur-[2px] rounded-lg p-4 min-h-[500px]">
@@ -15,9 +13,7 @@ const SettingsPage: React.FC = () => {
         <Suspense fallback={<UserDetailSkeleton />}>
           <UserDetail />
         </Suspense>
-        <Suspense fallback={<SocialConnectionsSkeleton />}>
-          <SocialConnections />
-        </Suspense>
+        <SocialConnections />
       </div>
     </div>
   );
