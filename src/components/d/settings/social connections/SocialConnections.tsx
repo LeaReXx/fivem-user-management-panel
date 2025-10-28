@@ -2,6 +2,7 @@
 import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
 import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
 import { Link } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 interface DiscordNameplate {
@@ -90,7 +91,7 @@ const SocialConnections = () => {
         {userDiscord ? (
           <div
             dir="ltr"
-            className="relative overflow-hidden rounded-lg  border border-main-text-color/10"
+            className="relative overflow-hidden rounded-lg border border-main-text-color/10"
           >
             {/* Nameplate Background */}
             {userDiscord.user.collectibles?.nameplate && (
@@ -105,48 +106,39 @@ const SocialConnections = () => {
               </div>
             )}
 
-            <div className="relative flex items-center gap-4 p-4 bg-main-bg-color/80">
-              <div className="relative w-16 h-16 aspect-square">
-                <img
+            <div className="relative flex items-center gap-4 p-2 bg-main-bg-color/80">
+              <div className="relative w-14 h-14 aspect-square">
+                <Image
                   src={getDiscordAvatarUrl(userDiscord.user)}
                   alt={userDiscord.user.username}
-                  className=" rounded-full object-cover"
+                  fill
+                  className="rounded-full object-cover"
+                  placeholder="empty"
+                  unoptimized
                 />
                 {userDiscord.user.avatar_decoration_data && (
-                  <div className="aspect-square absolute w-19 h-19 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-                    <img
+                  <div className="aspect-square absolute w-17 h-17 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+                    <Image
                       src={getAvatarDecorationUrl(
                         userDiscord.user.avatar_decoration_data.asset,
                       )}
+                      fill
                       alt="Avatar Decoration"
                       className=" object-cover"
+                      unoptimized
                     />
                   </div>
                 )}
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1">
-                    <h3 className="font-semibold">
-                      {userDiscord.user.global_name ||
-                        userDiscord.user.username}
-                    </h3>{" "}
-                    <p className="text-sm text-main-text-color/70">
-                      @{userDiscord.user.username}
-                      {userDiscord.user.discriminator !== "0" &&
-                        `#${userDiscord.user.discriminator}`}
-                    </p>
-                  </div>
-                </div>
-
+              <div className="flex-1 space-y-1">
+                <h3 className="font-semibold">
+                  {userDiscord.user.global_name || userDiscord.user.username}
+                </h3>
                 {userDiscord.user.email && (
-                  <p className="text-sm text-main-text-color/60 mt-1">
+                  <p className="text-sm text-main-text-color/60">
                     {userDiscord.user.email}
                   </p>
                 )}
-                <span className="px-3 py-1 bg-green-500/20 text-green-500 text-xs rounded-full">
-                  متصل
-                </span>
               </div>
             </div>
           </div>
