@@ -31,7 +31,7 @@ const WalletInfo: React.FC = () => {
             className="hidden group-hover:block"
           />
         </div>
-        <div className="-space-y-1">
+        <div className="-space-y-1 text-right">
           <p className="font-medium">کیف پول</p>
           <span className="text-sm">موجودی: 350,000 تومان</span>
         </div>
