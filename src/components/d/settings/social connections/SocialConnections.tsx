@@ -32,7 +32,7 @@ const SocialConnections = () => {
           >
             {/* Nameplate Background */}
             {discordAccount.user.collectibles?.nameplate && (
-              <div className="absolute top-0 left-0 size-full opacity-40">
+              <div className="absolute top-1/2 -translate-y-1/2 right-0 h-full max-w-full md:max-w-2/3 opacity-40">
                 <video
                   src={getNameplateUrl(
                     discordAccount.user.collectibles.nameplate,
@@ -40,7 +40,7 @@ const SocialConnections = () => {
                   autoPlay
                   muted
                   loop
-                  className="size-full object-right object-contain"
+                  className="size-full object-right object-cover"
                 />
               </div>
             )}
