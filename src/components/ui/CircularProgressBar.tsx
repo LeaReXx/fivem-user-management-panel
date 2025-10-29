@@ -97,7 +97,10 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
           filter: "drop-shadow(0 0 6px rgba(0,0,0,0.1))",
           overflow: "visible",
         }}
+        role="img"
+        aria-label={`Progress: ${percentage}%`}
       >
+        <title>Progress: {percentage}%</title>
         <defs>
           <linearGradient
             id={gradientId}

@@ -148,23 +148,21 @@ const CharacterForm: React.FC<CharacterFormProps> = ({
                   </SelectTrigger>
                   <SelectContent dir="rtl" position="item-aligned">
                     {Object.entries(nationalities.continents).map(
-                      ([continent, nationalitiesList], continentIndex) => (
-                        <SelectGroup dir="rtl" key={continentIndex}>
+                      ([continent, nationalitiesList]) => (
+                        <SelectGroup dir="rtl" key={continent}>
                           <SelectLabel className="font-semibold text-md">
                             {continent}
                           </SelectLabel>
-                          {nationalitiesList.map(
-                            (nationality, nationalityIndex) => (
-                              <SelectItem
-                                key={`${continentIndex}-${nationalityIndex}`}
-                                value={nationality.nationality_en}
-                                className="capitalize"
-                              >
-                                {nationality.nationality_fa} (
-                                {nationality.nationality_en})
-                              </SelectItem>
-                            ),
-                          )}
+                          {nationalitiesList.map((nationality) => (
+                            <SelectItem
+                              key={nationality.nationality_en}
+                              value={nationality.nationality_en}
+                              className="capitalize"
+                            >
+                              {nationality.nationality_fa} (
+                              {nationality.nationality_en})
+                            </SelectItem>
+                          ))}
                         </SelectGroup>
                       ),
                     )}

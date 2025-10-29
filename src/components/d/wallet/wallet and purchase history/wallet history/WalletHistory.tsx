@@ -2,7 +2,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { CreditCard, Ellipsis, Eye } from "lucide-react";
 import type React from "react";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 import {
@@ -22,7 +22,7 @@ type WalletHistoryItemProps = {
 
 const WalletHistory: React.FC = () => {
   // Badge وضعیت‌ها
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = useCallback((status: string) => {
     switch (status) {
       case "پرداخت شده":
         return <Badge className="bg-green-600">{status}</Badge>;
@@ -33,7 +33,7 @@ const WalletHistory: React.FC = () => {
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
-  };
+  }, []);
 
   // ✅ ستون‌های جدول هماهنگ با تایپ بالا
   const columns = useMemo<ColumnDef<WalletHistoryItemProps>[]>(
@@ -85,17 +85,26 @@ const WalletHistory: React.FC = () => {
         cell: ({ row }) => (
           <Popover>
             <PopoverTrigger asChild>
-              <button className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+              <button
+                type="button"
+                className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+              >
                 <Ellipsis size={20} strokeWidth={1.5} />
               </button>
             </PopoverTrigger>
             <PopoverContent className="p-0 overflow-hidden min-w-[150px] w-[unset] border border-main-text-color/10">
-              <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+              <button
+                type="button"
+                className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+              >
                 <Eye size={20} strokeWidth={1.5} />
                 جزئیات
               </button>
               {row.original.status === "در انتظار پرداخت" && (
-                <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                <button
+                  type="button"
+                  className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+                >
                   <CreditCard size={20} strokeWidth={1.5} />
                   پرداخت
                 </button>

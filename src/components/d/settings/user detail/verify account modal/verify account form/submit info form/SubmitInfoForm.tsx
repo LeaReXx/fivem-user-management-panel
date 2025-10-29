@@ -28,8 +28,11 @@ const SubmitInfoForm = ({ onSubmit }: SubmitInfoFormProps) => {
         به صورت خصوصی ذخیره می شود.
       </Alert>
       <div>
-        <label className="block text-sm mb-2 font-medium">نام</label>
+        <label htmlFor="firstName" className="block text-sm mb-2 font-medium">
+          نام
+        </label>
         <Input
+          id="firstName"
           {...register("firstName", {
             required: "نام الزامی است",
             minLength: {
@@ -43,8 +46,11 @@ const SubmitInfoForm = ({ onSubmit }: SubmitInfoFormProps) => {
       </div>
 
       <div>
-        <label className="block text-sm mb-2 font-medium">نام خانوادگی</label>
+        <label htmlFor="lastName" className="block text-sm mb-2 font-medium">
+          نام خانوادگی
+        </label>
         <Input
+          id="lastName"
           {...register("lastName", {
             required: "نام خانوادگی الزامی است",
             minLength: {
@@ -58,8 +64,11 @@ const SubmitInfoForm = ({ onSubmit }: SubmitInfoFormProps) => {
       </div>
 
       <div>
-        <label className="block text-sm mb-2 font-medium">شماره تلفن</label>
+        <label htmlFor="phoneNumber" className="block text-sm mb-2 font-medium">
+          شماره تلفن
+        </label>
         <Input
+          id="phoneNumber"
           {...register("phoneNumber", {
             required: "شماره تلفن الزامی است",
             pattern: {

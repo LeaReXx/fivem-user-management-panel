@@ -301,13 +301,14 @@ export function DataTable<TData>({
 export function createSortableColumn<TData>(
   accessorKey: string,
   header: string,
-  formatter?: (value: any) => string,
+  formatter?: (value: unknown) => string,
 ): ColumnDef<TData> {
   return {
     accessorKey,
     header: ({ column }) => {
       return (
         <button
+          type="button"
           className="flex items-center gap-2 hover:text-foreground/80"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >

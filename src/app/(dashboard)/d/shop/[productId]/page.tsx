@@ -29,7 +29,12 @@ const ProductPage = async ({
           />
         </div>
         <div className="col-span-12 xl:col-span-4">
-          <ProductDetailBox {...findProduct} />
+          <ProductDetailBox
+            stock={findProduct.stock}
+            price={findProduct.price}
+            title={findProduct.title}
+            discountPercentage={findProduct.discountPercentage}
+          />
         </div>
         <div className="col-span-12 bg-inside-box-bg-color p-4 rounded-lg">
           <p className="text-lg font-medium mb-2">توضیحات محصول:</p>

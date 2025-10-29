@@ -47,6 +47,7 @@ export const Calendar22 = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <button
+              type="button"
               ref={ref}
               id="date"
               className={`flex w-full items-center justify-between font-normal border border-main-text-color/10 bg-input-color placeholder:text-main-text-color/60 rounded-sm shadow-md focus:outline-2 focus:outline-white/30 focus:shadow-lg disabled:opacity-80 ${sizeClasses[size]} ${

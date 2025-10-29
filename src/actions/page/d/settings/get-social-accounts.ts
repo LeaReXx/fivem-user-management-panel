@@ -3,33 +3,7 @@
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-
-interface DiscordUser {
-  id: string;
-  username: string;
-  discriminator: string;
-  global_name: string | null;
-  avatar: string | null;
-  avatar_decoration_data: any | null;
-  bot?: boolean;
-  system?: boolean;
-  mfa_enabled?: boolean;
-  banner?: string | null;
-  accent_color?: number | null;
-  locale?: string;
-  verified?: boolean;
-  email?: string | null;
-  flags?: number;
-  premium_type?: number;
-  public_flags?: number;
-}
-
-interface DiscordAccountInfo {
-  provider: "discord";
-  user: DiscordUser;
-  connectedAt: Date;
-  scopes: string[];
-}
+import type { DiscordAccountInfo, DiscordUser } from "@/types/discord.types";
 
 async function fetchDiscordUser(
   accessToken: string,

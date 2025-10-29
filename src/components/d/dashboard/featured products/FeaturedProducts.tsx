@@ -24,9 +24,9 @@ const FeaturedProducts: React.FC = () => {
 
       <div className="overflow-hidden pt-4 pb-4" ref={emblaRef}>
         <div className="flex gap-4 ps-2">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div
-              key={index}
+              key={product.productId}
               className="overflow-hidden rounded-md flex-[0_0_70%] sm:flex-[0_0_40%] md:flex-[0_0_30%] xl:flex-[0_0_25%] 2xl:flex-[0_0_18%]"
             >
               <ShopProductItem

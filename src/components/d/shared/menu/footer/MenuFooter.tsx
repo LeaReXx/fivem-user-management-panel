@@ -22,6 +22,7 @@ const MenuFooter: React.FC = () => {
       </div>
 
       <button
+        type="button"
         onClick={onClickLogout}
         className="flex cursor-pointer lg:hidden items-center gap-6 text-white opacity-80 bg-red-600 hover:bg-red-700 p-3 rounded-lg transition-colors w-full"
       >

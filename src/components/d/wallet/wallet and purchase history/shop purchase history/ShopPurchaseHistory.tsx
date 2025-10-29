@@ -2,7 +2,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis, Eye } from "lucide-react";
 import type React from "react";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 import {
@@ -22,7 +22,7 @@ type ShopPurchaseHistoryItemProps = {
 
 const ShopPurchaseHistory: React.FC = () => {
   // Badge وضعیت‌ها
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = useCallback((status: string) => {
     switch (status) {
       case "انجام شده":
         return <Badge className="bg-green-600">{status}</Badge>;
@@ -35,7 +35,7 @@ const ShopPurchaseHistory: React.FC = () => {
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
-  };
+  }, []);
 
   // ✅ ستون‌های جدول هماهنگ با تایپ بالا
   const columns = useMemo<ColumnDef<ShopPurchaseHistoryItemProps>[]>(
@@ -82,15 +82,21 @@ const ShopPurchaseHistory: React.FC = () => {
       {
         id: "actions",
         header: "",
-        cell: ({ row }) => (
+        cell: () => (
           <Popover>
             <PopoverTrigger asChild>
-              <button className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+              <button
+                type="button"
+                className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+              >
                 <Ellipsis size={20} strokeWidth={1.5} />
               </button>
             </PopoverTrigger>
             <PopoverContent className="p-0 overflow-hidden min-w-[150px] w-[unset] border border-main-text-color/10">
-              <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+              <button
+                type="button"
+                className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+              >
                 <Eye size={20} strokeWidth={1.5} />
                 جزئیات
               </button>

@@ -15,6 +15,7 @@ const NewCharacterBtn: React.FC = () => {
         onClose={() => setIsOpenModal(false)}
       />
       <button
+        type="button"
         className="flex items-center hover:bg-content-box-bg-color-1/30 transition-[background-color] gap-2 justify-center flex-col border-2 border-gray-400 opacity-70 duration-200 hover:opacity-100 cursor-pointer hover:border-gray-500 border-dashed rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 p-4"
         onClick={() => setIsOpenModal(true)}
       >

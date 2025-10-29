@@ -18,7 +18,6 @@ const LoginForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    trigger,
   } = useForm<LoginFormData>({
     mode: "onSubmit",
     reValidateMode: "onChange",

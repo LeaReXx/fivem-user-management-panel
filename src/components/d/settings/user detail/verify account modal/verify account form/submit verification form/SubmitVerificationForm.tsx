@@ -37,8 +37,11 @@ const SubmitVerificationForm = ({
       </div>
 
       <div>
-        <label className="block text-sm mb-2 font-medium">کد تایید</label>
+        <label htmlFor="code" className="block text-sm mb-2 font-medium">
+          کد تایید
+        </label>
         <Input
+          id="code"
           {...register("code", {
             required: "کد تایید الزامی است",
             pattern: {

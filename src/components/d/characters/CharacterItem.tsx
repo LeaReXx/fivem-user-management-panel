@@ -24,7 +24,11 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
 
   return (
     <div className="bg-inside-box-bg-color shadow-lg rounded-lg overflow-hidden col-span-12 sm:col-span-6 xl:col-span-4 border border-main-text-color/10 transition-transform hover:shadow-xl hover:scale-101 duration-300">
-      <div className="cursor-pointer" onClick={() => setViewQueryOnClick(id)}>
+      <button
+        type="button"
+        className="cursor-pointer w-full text-right"
+        onClick={() => setViewQueryOnClick(id)}
+      >
         <div className="flex justify-between items-center p-3">
           <CharacterStatusHandler status={status} />
           <h3 className="text-lg font-semibold tracking-wide">
@@ -41,7 +45,7 @@ const CharacterItem: React.FC<CharacterFaceProps> = ({
             ارسال شده در {formatRelativeTime(createdAt)}
           </span>
         </div>
-      </div>
+      </button>
 
       <div className="flex divide-x divide-main-text-color/10 border-t border-main-text-color/10">
         <EditCharacterBtn disabled={status === 3} />

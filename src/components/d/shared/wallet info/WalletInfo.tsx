@@ -11,9 +11,11 @@ const WalletInfo: React.FC = () => {
 
   return (
     <>
-      <div
+      <button
+        type="button"
         className="flex gap-2 items-center hover:bg-white/10 py-1 px-2 rounded-md cursor-pointer group"
         onClick={handleOpenTopUpModal}
+        aria-label="باز کردن مودال شارژ کیف پول"
       >
         <div className="bg-brand-color p-2 rounded-full flex items-center justify-center gap-2 text-sm">
           <Wallet
@@ -33,7 +35,7 @@ const WalletInfo: React.FC = () => {
           <p className="font-medium">کیف پول</p>
           <span className="text-sm">موجودی: 350,000 تومان</span>
         </div>
-      </div>
+      </button>
       <WalletTopUpModal />
     </>
   );

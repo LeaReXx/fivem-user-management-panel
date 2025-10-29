@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Check, Ellipsis, Eye, History } from "lucide-react";
 import type React from "react";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { createSortableColumn, DataTable } from "@/components/ui/dataTable";
 import {
@@ -121,18 +121,18 @@ const subscriptions: Subscription[] = [
 ];
 
 const SubscriptionHistory: React.FC = () => {
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = useCallback((status: string) => {
     switch (status) {
       case "فعال":
         return <Badge className="bg-green-600">{status}</Badge>;
       case "رزرو":
         return <Badge className="bg-yellow-600">{status}</Badge>;
       case "منقضی شده":
-        return <Badge className="bg-red-600">{status}</Badge>;
+        return <Badge className="bg-gray-600">{status}</Badge>;
       default:
-        return null;
+        return <Badge>{status}</Badge>;
     }
-  };
+  }, []);
 
   const columns = useMemo<ColumnDef<Subscription>[]>(
     () => [
@@ -148,6 +148,7 @@ const SubscriptionHistory: React.FC = () => {
         header: ({ column }) => {
           return (
             <button
+              type="button"
               className="flex items-center gap-2 hover:text-foreground/80"
               onClick={() =>
                 column.toggleSorting(column.getIsSorted() === "asc")
@@ -182,17 +183,26 @@ const SubscriptionHistory: React.FC = () => {
           return (
             <Popover>
               <PopoverTrigger asChild>
-                <button className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                <button
+                  type="button"
+                  className="cursor-pointer p-2 rounded-sm hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+                >
                   <Ellipsis size={20} strokeWidth={1.5} />
                 </button>
               </PopoverTrigger>
               <PopoverContent className="p-0 overflow-hidden w-[150px] border border-main-text-color/10">
-                <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                <button
+                  type="button"
+                  className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+                >
                   <Eye size={20} strokeWidth={1.5} />
                   جزئیات
                 </button>
                 {row.original.status === "رزرو" && (
-                  <button className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out">
+                  <button
+                    type="button"
+                    className="p-2 flex gap-2 cursor-pointer w-full items-center hover:bg-input-color/50 transition-transform duration-200 ease-in-out"
+                  >
                     <Check size={20} strokeWidth={1.5} />
                     فعالسازی
                   </button>

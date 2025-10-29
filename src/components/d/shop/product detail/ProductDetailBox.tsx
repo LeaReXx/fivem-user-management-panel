@@ -5,10 +5,8 @@ import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/types/product.types";
 
-const ProductDetailBox: React.FC<Product> = ({
-  images,
+const ProductDetailBox: React.FC<Omit<Product, "images" | "productId">> = ({
   price,
-  productId,
   stock,
   title,
   discountPercentage,
@@ -60,6 +58,7 @@ const ProductDetailBox: React.FC<Product> = ({
           <span>تعداد</span>
           <span className="flex items-center gap-2">
             <button
+              type="button"
               onClick={handleDecrease}
               disabled={quantity <= 1}
               className="w-7 h-7 flex items-center justify-center cursor-pointer rounded-sm bg-input-color disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -75,6 +74,7 @@ const ProductDetailBox: React.FC<Product> = ({
               className="h-7 w-10 overflow-hidden outline-0 rounded-sm text-center bg-input-color"
             />
             <button
+              type="button"
               onClick={handleIncrease}
               disabled={quantity >= 10 || quantity === stock}
               className="w-7 h-7 flex items-center justify-center cursor-pointer rounded-sm bg-input-color disabled:opacity-50 disabled:cursor-not-allowed transition-colors"

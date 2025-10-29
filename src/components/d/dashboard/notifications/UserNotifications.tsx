@@ -1,3 +1,4 @@
+import type { IconName } from "lucide-react/dynamic";
 import type React from "react";
 import {
   Alert,
@@ -21,7 +22,7 @@ interface NotificationItem {
   title: string;
   description: string;
   href?: string;
-  icon?: string;
+  icon?: IconName;
   timestamp: Date;
 }
 
@@ -93,7 +94,7 @@ const UserNotifications: React.FC = () => {
             key={notification.id}
             variant={notification.variant}
             href={notification.href}
-            icon={notification.icon as any}
+            icon={notification.icon}
           >
             <AlertTitle>{notification.title}</AlertTitle>
             <AlertDescription>{notification.description}</AlertDescription>

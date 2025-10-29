@@ -97,6 +97,9 @@ const Modal: React.FC<ModalProps> = ({
       <div
         className={`fixed top-0 start-0 inset-0 z-50 flex items-start 2xl:items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn overflow-y-auto ${overlayClassName}`}
         onClick={handleOverlayClick}
+        role="dialog"
+        aria-modal="true"
+        aria-label="مودال"
       >
         <div
           ref={modalRef}
@@ -121,6 +124,7 @@ const Modal: React.FC<ModalProps> = ({
               )}
               {showCloseButton && (
                 <button
+                  type="button"
                   onClick={onClose}
                   className="p-2 rounded-lg cursor-pointer hover:bg-input-color/50 transition-all duration-200"
                   aria-label="بستن"

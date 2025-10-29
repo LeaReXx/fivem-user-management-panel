@@ -24,9 +24,11 @@ const DashboardMenu: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div
+        <button
+          type="button"
           className="lg:hidden fixed inset-0 bg-white/10 backdrop-blur-sm z-50"
           onClick={closeNavbar}
+          aria-label="بستن منو"
         />
       )}
 

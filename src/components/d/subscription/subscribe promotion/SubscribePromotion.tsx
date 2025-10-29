@@ -28,7 +28,10 @@ const SubscribePromotion: React.FC = () => {
             </div>
           </div>
           <div>
-            <button className="bg-main-text-color/10 group-hover:bg-main-text-color/20 cursor-pointer py-2 px-4 font-normal rounded-sm flex items-center gap-1 text-sm">
+            <button
+              type="button"
+              className="bg-main-text-color/10 group-hover:bg-main-text-color/20 cursor-pointer py-2 px-4 font-normal rounded-sm flex items-center gap-1 text-sm"
+            >
               برای ادامه کلیک کنید
               <ArrowLeft
                 size={20}

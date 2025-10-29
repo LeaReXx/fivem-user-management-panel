@@ -1,6 +1,7 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import NoImageHolder from "../../shared/shop/NoImageHolder";
 
@@ -49,11 +50,15 @@ const ProductDetailCarousel = ({
       <div className="overflow-hidden rounded-lg" ref={emblaRef}>
         <div className="flex">
           {images.map((img, index) => (
-            <div key={index} className="flex-[0_0_100%] min-w-0 aspect-video">
-              <img
+            <div
+              key={img}
+              className="flex-[0_0_100%] min-w-0 aspect-video relative"
+            >
+              <Image
                 src={img}
                 alt={`${title} - تصویر ${index + 1}`}
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
               />
             </div>
           ))}
@@ -63,6 +68,7 @@ const ProductDetailCarousel = ({
       {images.length > 1 && (
         <>
           <button
+            type="button"
             onClick={() => emblaApi?.scrollNext()}
             className="absolute cursor-pointer left-4 top-1/2 flex items-center justify-center -translate-y-1/2 bg-black/40 hover:bg-black/60 text-brand-color p-2 rounded-full transition-colors"
             aria-label="تصویر بعدی"
@@ -70,6 +76,7 @@ const ProductDetailCarousel = ({
             <ChevronLeft size={24} />
           </button>
           <button
+            type="button"
             onClick={() => emblaApi?.scrollPrev()}
             className="absolute cursor-pointer right-4 top-1/2 flex items-center justify-center -translate-y-1/2 bg-black/40 hover:bg-black/60 text-brand-color p-2 rounded-full transition-colors"
             aria-label="تصویر قبلی"
@@ -78,9 +85,10 @@ const ProductDetailCarousel = ({
           </button>
 
           <div className="flex justify-center gap-2 mt-4 absolute bottom-3 right-1/2 translate-x-1/2">
-            {images.map((_, index) => (
+            {images.map((img, index) => (
               <button
-                key={index}
+                type="button"
+                key={`dot-${img}`}
                 onClick={() => scrollTo(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
                   index === selectedIndex

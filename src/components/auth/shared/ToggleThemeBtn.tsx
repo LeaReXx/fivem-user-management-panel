@@ -15,6 +15,7 @@ const ToggleThemeBtn: React.FC = () => {
     !!mounted && (
       <div className="fixed bottom-5 left-5 bg-inside-box-bg-color/80 hover:bg-inside-box-bg-color shadow-md rounded-md z-10">
         <button
+          type="button"
           onClick={toggleTheme}
           className="cursor-pointer p-2 rounded-lg transition-transform duration-200 ease-in-out"
           title={`Switch to ${isDark ? "light" : "dark"} mode`}
