@@ -13,6 +13,9 @@ async function fetchDiscordUser(
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
+      next: {
+        revalidate: 3600,
+      },
     });
 
     if (!response.ok) {
