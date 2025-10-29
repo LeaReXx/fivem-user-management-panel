@@ -35,6 +35,7 @@ const DashboardHeader = () => {
       <div className="lg:hidden">
         <UserProfile />
       </div>
+
       <div className="hidden lg:block">
         <Suspense fallback={<Skeleton className="w-[200px] h-[52px]" />}>
           <WalletInfo />
