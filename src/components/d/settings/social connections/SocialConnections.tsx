@@ -31,8 +31,8 @@ const SocialConnections = () => {
             dir="ltr"
             className="overflow-hidden rounded-lg bg-[#E0E3FF] dark:bg-[#1F1F1F] p-1"
           >
-            <div className="flex items-center justify-between">
-              <div className="relative px-2 py-2 w-full flex items-center">
+            <div className="flex items-center justify-between px-1 py-2">
+              <div className="relative  w-full flex items-center">
                 <Image
                   src="/discord-type.png"
                   alt="Discord Type"
