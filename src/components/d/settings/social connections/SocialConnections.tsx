@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "lucide-react";
+import { Check, Link } from "lucide-react";
 import Image from "next/image";
 import SocialConnectionsSkeleton from "@/components/loading/page/d/settings/social connections skeleton/SocialConnectionsSkeleton";
 import {
@@ -8,6 +8,7 @@ import {
   getNameplateUrl,
 } from "@/lib/discord";
 import { useSocialAccountsStore } from "@/stores/social-accounts-store";
+import { Badge } from "@/components/ui/badge";
 
 const SocialConnections = () => {
   const { isLoading, discordAccount } = useSocialAccountsStore();
@@ -28,57 +29,75 @@ const SocialConnections = () => {
         {discordAccount ? (
           <div
             dir="ltr"
-            className="relative overflow-hidden rounded-lg border border-main-text-color/10"
+            className="overflow-hidden rounded-lg bg-[#E0E3FF] dark:bg-[#1F1F1F] p-1"
           >
-            {/* Nameplate Background */}
-            {discordAccount.user.collectibles?.nameplate && (
-              <div className="absolute top-1/2 -translate-y-1/2 right-0 h-full max-w-full md:max-w-2/3 opacity-40">
-                <video
-                  src={getNameplateUrl(
-                    discordAccount.user.collectibles.nameplate,
-                  )}
-                  autoPlay
-                  muted
-                  loop
-                  className="size-full object-right object-cover"
-                />
-              </div>
-            )}
-
-            <div className="relative flex items-center gap-4 p-2 bg-main-bg-color/80">
-              <div className="relative w-14 h-14 aspect-square">
+            <div className="flex items-center justify-between">
+              <div className="relative px-2 py-2 w-full flex items-center">
                 <Image
-                  src={getDiscordAvatarUrl(discordAccount.user)}
-                  alt={discordAccount.user.username}
-                  fill
-                  className="rounded-full object-cover"
-                  placeholder="empty"
-                  unoptimized
+                  src="/discord-type.png"
+                  alt="Discord Type"
+                  width={100}
+                  height={50}
                 />
-                {discordAccount.user.avatar_decoration_data && (
-                  <div className="aspect-square absolute w-17 h-17 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-                    <Image
-                      src={getAvatarDecorationUrl(
-                        discordAccount.user.avatar_decoration_data.asset,
-                      )}
-                      fill
-                      alt="Avatar Decoration"
-                      className=" object-cover"
-                      unoptimized
-                    />
-                  </div>
-                )}
               </div>
-              <div className="flex-1 space-y-1">
-                <h3 className="font-semibold">
-                  {discordAccount.user.global_name ||
-                    discordAccount.user.username}
-                </h3>
-                {discordAccount.user.email && (
-                  <p className="text-sm text-main-text-color/60">
-                    {discordAccount.user.email}
-                  </p>
-                )}
+              <div className="flex items-center">
+                <Badge>
+                  متصل شده
+                  <Check />
+                </Badge>
+              </div>
+            </div>
+            <div className="relative rounded-lg overflow-hidden bg-linear-to-l from-[#5865F2] to-[#3943ad]">
+              {/* Nameplate Background */}
+              {discordAccount.user.collectibles?.nameplate && (
+                <div className="absolute top-1/2 -translate-y-1/2 right-0 h-full max-w-full md:max-w-2/3">
+                  <video
+                    src={getNameplateUrl(
+                      discordAccount.user.collectibles.nameplate,
+                    )}
+                    autoPlay
+                    muted
+                    loop
+                    className="size-full object-right object-cover"
+                  />
+                </div>
+              )}
+
+              <div className="relative flex items-center gap-4 p-2">
+                <div className="relative w-14 h-14 aspect-square">
+                  <Image
+                    src={getDiscordAvatarUrl(discordAccount.user)}
+                    alt={discordAccount.user.username}
+                    fill
+                    className="rounded-full object-cover"
+                    placeholder="empty"
+                    unoptimized
+                  />
+                  {discordAccount.user.avatar_decoration_data && (
+                    <div className="aspect-square absolute w-17 h-17 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+                      <Image
+                        src={getAvatarDecorationUrl(
+                          discordAccount.user.avatar_decoration_data.asset,
+                        )}
+                        fill
+                        alt="Avatar Decoration"
+                        className=" object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="flex-1 space-y-1 text-white">
+                  <h3 className="font-semibold">
+                    {discordAccount.user.global_name ||
+                      discordAccount.user.username}
+                  </h3>
+                  {discordAccount.user.email && (
+                    <p className="text-sm opacity-70">
+                      {discordAccount.user.email}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
