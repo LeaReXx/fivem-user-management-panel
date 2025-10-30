@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { getDiscordAccount } from "@/actions/page/d/settings/get-social-accounts";
+import { getDiscordAccount } from "@/actions/page/d/settings/fetch-discord-account";
 import type { DiscordAccountInfo } from "@/types/discord.types";
 
 interface SocialAccountsState {

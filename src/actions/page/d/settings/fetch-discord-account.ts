@@ -21,7 +21,7 @@ export async function getDiscordAccount(): Promise<DiscordAccountInfo> {
   forwardedHeaders["x-from-server"] = "true";
 
   const response = await fetch(
-    `${process.env.BETTER_AUTH_URL}/api/get-social-accounts/discord`,
+    `${process.env.BETTER_AUTH_URL}/api/get-discord-account`,
     {
       headers: forwardedHeaders,
       next: { revalidate: 3600 },
