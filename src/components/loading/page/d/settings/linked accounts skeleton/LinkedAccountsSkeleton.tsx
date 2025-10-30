@@ -9,7 +9,7 @@ const LinkedAccountsSkeleton = () => {
       {/* Header Section */}
       <div className="flex items-center justify-between px-1 py-2">
         <div className="relative w-full flex items-center">
-          <Skeleton className="h-7 w-25" />
+          <Skeleton className="h-6 w-25" />
         </div>
         <div className="flex items-center">
           <Skeleton className="h-5 w-20 rounded-full" />
