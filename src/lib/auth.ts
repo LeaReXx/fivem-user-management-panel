@@ -2,18 +2,18 @@ import { PrismaClient } from "@prisma/client";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { customSession } from "better-auth/plugins";
-import redis from "./redis"; // اضافه شده
+import redis from "./redis";
+import { authClient } from "./auth-client";
 
 const prisma = new PrismaClient();
 
 export const auth = betterAuth({
   plugins: [
     customSession(async ({ user, session }) => {
-      const { ...userWithoutName } = user;
+      const { name, ...userWithoutName } = user;
+
       return {
-        user: {
-          ...userWithoutName,
-        },
+        user: userWithoutName,
         session,
       };
     }),
@@ -60,7 +60,6 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
 
-  // ✅ Redis Secondary Storage
   secondaryStorage: {
     get: async (key) => {
       return await redis.get(key);
@@ -77,3 +76,5 @@ export const auth = betterAuth({
     },
   },
 });
+
+type Session = typeof authClient.$Infer.Session;
