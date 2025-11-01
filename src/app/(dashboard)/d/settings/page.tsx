@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import ActiveSessions from "@/components/d/settings/active sessions/ActiveSessions";
 import SocialConnections from "@/components/d/settings/social connections/SocialConnections";
 import UserDetail from "@/components/d/settings/user detail/UserDetail";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
@@ -13,6 +14,7 @@ const SettingsPage: React.FC = async () => {
           <UserDetail />
         </Suspense>
         <SocialConnections />
+        <ActiveSessions />
       </div>
     </div>
   );
