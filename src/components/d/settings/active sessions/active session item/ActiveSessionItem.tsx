@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 function SessionsItem({ session }: { session: Session }) {
   const { ipAddress, userAgent } = session;
   const [uaParsed, setUaParsed] = useState<bowser.Parser.ParsedResult | null>(
-    null,
+    null
   );
   const [countryCode, setCountryCode] = useState<string | null>(null);
   const [isLoadingCountry, setIsLoadingCountry] = useState(true);
@@ -18,7 +18,6 @@ function SessionsItem({ session }: { session: Session }) {
   useEffect(() => {
     if (userAgent) {
       const parsedUserAgent = bowser.parse(userAgent);
-      console.log(parsedUserAgent);
       setUaParsed(parsedUserAgent);
     }
   }, [userAgent]);
@@ -27,7 +26,7 @@ function SessionsItem({ session }: { session: Session }) {
     const getIpInfo = async () => {
       try {
         const response = await fetch(
-          `https://free.freeipapi.com/api/json/${ipAddress}`,
+          `https://free.freeipapi.com/api/json/${ipAddress}`
         );
         const data = await response.json();
         setCountryCode(data.countryCode || null);
@@ -93,7 +92,10 @@ function SessionsItem({ session }: { session: Session }) {
           </div>
         </div>
       </div>
-      <Button variant="ghost" className="opacity-70 hover:opacity-100 ms-2 w-8! h-8! hover:bg-gray-500/20 rounded-full cursor-pointer">
+      <Button
+        variant="ghost"
+        className="opacity-70 hover:opacity-100 ms-2 w-8! h-8! hover:bg-gray-500/20 rounded-full cursor-pointer"
+      >
         <X className="size-6" />
       </Button>
     </div>
