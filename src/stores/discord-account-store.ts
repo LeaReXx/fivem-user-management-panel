@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { getDiscordAccount } from "@/actions/page/d/settings/fetch-discord-account";
-import type { DiscordAccountInfo } from "@/types/discord.types";
 import { authClient } from "@/lib/auth-client";
+import type { DiscordAccountInfo } from "@/types/discord.types";
 
 interface SocialAccountsState {
   discordAccount: DiscordAccountInfo | null;
@@ -24,12 +24,11 @@ export const useSocialAccountsStore = create<SocialAccountsState>((set) => ({
 
     try {
       const { data: getLinkedAccounts } = await authClient.listAccounts();
-      console.log(getLinkedAccounts);
-
+      
       const isConnectedDiscord = getLinkedAccounts?.some(
         (account) => account.providerId === "discord",
       );
-      
+
       if (!isConnectedDiscord) {
         set({ isLoading: false, error: null, discordAccount: null });
         return;
