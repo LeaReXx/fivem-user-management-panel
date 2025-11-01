@@ -1,6 +1,7 @@
 "use client";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import LinkedAccountsSkeleton from "@/components/loading/page/d/settings/linked accounts skeleton/LinkedAccountsSkeleton";
 import { Badge } from "@/components/ui/badge";
 import {
   getAvatarDecorationUrl,
@@ -8,7 +9,6 @@ import {
   getNameplateUrl,
 } from "@/lib/discord";
 import { useSocialAccountsStore } from "@/stores";
-import LinkedAccountsSkeleton from "@/components/loading/page/d/settings/linked accounts skeleton/LinkedAccountsSkeleton";
 
 const DiscordAccount = () => {
   const { isLoading, discordAccount } = useSocialAccountsStore();
