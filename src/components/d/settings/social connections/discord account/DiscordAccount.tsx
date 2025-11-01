@@ -26,7 +26,7 @@ const DiscordAccount = () => {
             src="/discord-type.png"
             alt="Discord Type"
             width={100}
-            height={50}
+            height={20}
           />
         </div>
         <div className="flex items-center">
