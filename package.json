@@ -19,6 +19,7 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "@tanstack/react-table": "^8.21.3",
     "better-auth": "^1.3.14",
+    "bowser": "^2.12.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
@@ -38,7 +39,7 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "^2.3.2",
     "@next/bundle-analyzer": "^15.5.6",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/css-modules": "^1.0.5",
