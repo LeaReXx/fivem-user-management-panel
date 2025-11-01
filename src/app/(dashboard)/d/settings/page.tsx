@@ -4,6 +4,7 @@ import SocialConnections from "@/components/d/settings/social connections/Social
 import UserDetail from "@/components/d/settings/user detail/UserDetail";
 import PageHeader from "@/components/d/shared/page header/PageHeader";
 import UserDetailSkeleton from "@/components/loading/page/d/settings/user detail skeleton/UserDetailSkeleton";
+import SessionsItemSkeleton from "@/components/loading/page/d/settings/session item skeleton/SessionsItemSkeleton";
 
 const SettingsPage: React.FC = async () => {
   return (
@@ -14,7 +15,9 @@ const SettingsPage: React.FC = async () => {
           <UserDetail />
         </Suspense>
         <SocialConnections />
-        <ActiveSessions />
+        <Suspense fallback={<SessionsItemSkeleton />}>
+          <ActiveSessions />
+        </Suspense>
       </div>
     </div>
   );
