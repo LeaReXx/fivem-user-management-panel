@@ -1,4 +1,24 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { Monitor } from "lucide-react";
+
+const ActiveSessionsSkeleton = () => {
+  return (
+    <div className="bg-inside-box-bg-color col-span-12 md:col-span-6 rounded-lg p-4">
+      <div className="pb-4 flex justify-between items-center">
+        <p className="flex gap-2 font-medium">
+          <Monitor size={22} strokeWidth={1.5} /> نشست های فعال
+        </p>
+      </div>
+      <div className="space-y-2">
+        <SessionsItemSkeleton />
+        <SessionsItemSkeleton />
+        <SessionsItemSkeleton />
+      </div>
+    </div>
+  );
+};
+
+export default ActiveSessionsSkeleton;
 
 const SessionsItemSkeleton = () => {
   return (
@@ -20,5 +40,3 @@ const SessionsItemSkeleton = () => {
     </div>
   );
 };
-
-export default SessionsItemSkeleton;
